@@ -1,0 +1,19 @@
+/* Botões da Página Inicial */
+.btn-homepage {
+    margin-bottom: 2em;
+}
+
+.btn-homepage a.btn-lg {
+    font-size: 2em;
+}
+
+/*
+
+Logos
+
+*/
+
+/*IFRS*/
+#logo-ifrs {}
+/*CTA*/
+#logo-cta {}
