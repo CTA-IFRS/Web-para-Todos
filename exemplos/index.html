@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web Para Todos - Exemplos de Componentes Acessíveis</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Documentation extras -->
+    <!-- <link rel="stylesheet" href="../css/docs.min.css"> -->
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <!-- A11y Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap-accessibility.css">
+
+    <!-- A11y Bootstrap Theme -->
+    <link rel="stylesheet" href="http://jbst.eu/bootstrap-a11y-theme/a11ytheme.min.css">
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/custom.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+     <script src="../docs/assets/js/html5shiv.js"></script>
+     <script src="../docs/assets/js/respond.min.js"></script>
+   <![endif]-->
+
+    <style>
+        .bs-docs-header a {
+            color: white !important;
+            text-decoration: underline !important;
+        }
+
+        figcaption {
+            font-weight: bold;
+            text-align: center;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="sr-only" href="#content">Pular Navegação</a>
+    <div class="bs-docs-header" style="background-color:#0079C2; background-image: url(''); margin: 0;">
+        <!-- color: #26353e -->
+        <div class="container" style="color:white">
+
+            <p>
+                Um texto bem legal que vai explicar alguma coisa sobre componentes
+                que sejam acessíveis e blábláblá.
+            </p>
+
+        </div>
+    </div>
+    <header class="navbar navbar-default navbar-static-top hidden-print" style="width: 100%; margin:0;" id="top">
+        <div class="container">
+            <div class="navbar-header">
+                <button aria-controls="bs-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#bs-navbar" data-toggle="collapse" type="button">
+                    <span class="sr-only">Navegação</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../" class="navbar-brand" id="logo-webparatodos">Web Para Todos</a>
+            </div>
+            <nav class="collapse navbar-collapse" id="">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#marcacao">Marcação</a>
+                    </li>
+                    <li>
+                        <a href="#comportamento">Comportamento (DOM)</a>
+                    </li>
+                    <li>
+                        <a href="#conteudo">Conteúdo e Informação</a>
+                    </li>
+                    <li>
+                        <a href="#apresentacao">Apresentação e Design</a>
+                    </li>
+                    <li>
+                        <a href="#multimidia">Multimídia</a>
+                    </li>
+                    <li>
+                        <a href="#formulario">Formulário</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container bs-docs-container" id="content">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-2" role="main">
+
+                <section class="bs-docs-section">
+                    <div class="page-header">
+                        <h1 id="marcacao">Marcação</h1>
+                    </div>
+
+                    <h2>Tags de Seções Comuns</h2>
+
+                    <p>
+                        Antigamente era comum utilizar apenas a tag <code>div</code> para separar
+                        o conteúdo, e atribuir a sua função através de IDs e
+                        classes. Entretanto, o HTML5 implementou tags novas que
+                        pretendem diminuir a utilização das divs, tornando-as
+                        quase obsoletas.
+                    </p>
+
+                    <figure class="thumbnail">
+                        <img src="../img/html5-tags.png" alt="">
+                        <figcaption>Ilustração comparativa da organização semântica de uma página</figcaption>
+                    </figure>
+
+                    <p>
+                        Dessa forma, a organização do código é mais semântica,
+                        sendo que os recursos de Tecnologia Assistiva podem fazer
+                        uso dessas tags para melhorar a experiência de usuários
+                        com necessidades específicas. As principais marcações,
+                        para delimitação mais semântica de conteúdo, são:
+                    </p>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Elemento</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>header</code></td>
+                                <td>Define o cabeçalho de uma página ou seção. Muitas vezes contém um logotipo, o título do site e uma menu de navegação do conteúdo.</td>
+                            </tr>
+                            <tr>
+                                <td><code>section</code></td>
+                                <td>Define uma seção do Documento (permite também a utilização de mais de um cabeçalho de nível 1 numa página, um por <code>section</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><code>nav</code></td>
+                                <td>Define uma seção que contém apenas links e botões de navegação.</td>
+                            </tr>
+                            <tr>
+                                <td><code>article</code></td>
+                                <td>Define um conteúdo que pode existir de forma independente do resto da página. Esta Tag poderia ser uma postagem em um fórum, um artigo de revista ou jornal, uma entrada de log da Web, um comentário enviado pelo usuário, ou qualquer outro item independente do conteúdo.</td>
+                            </tr>
+                            <tr>
+                                <td><code>aside</code></td>
+                                <td>Define um elemento reservado do resto do conteúdo da página. Se for removido, o conteúdo restante ainda faz sentido. Geralmente são barras laterais (sidebars).</td>
+                            </tr>
+                            <tr>
+                                <td><code>footer</code></td>
+                                <td>Define o rodapé de uma página ou seção. Muitas vezes contém um aviso de copyright, links para informações relevantes, comentários de uma seção ou endereços para dar feedback</td>
+                            </tr>
+                            <tr>
+                                <td><code>main</code></td>
+                                <td>Define o conteúdo principal no documento, de maior importância. Existe apenas um elemento deste tipo em uma página.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>WAI-ARIA</h2>
+
+                    <h3>O que é?</h3>
+
+                    <p>
+                        ARIA é uma especificação técnica, publicada pela W3C, que discursa sobre
+                        como melhorar a acessibilidade de páginas web, em particular como providenciar
+                        informação semântica de conteúdos dinâmicos e componentes de interface de usuário.
+                    </p>
+                    <p>
+                        Essa especificação providencia uma série de propriedades, estados e "papéis" (roles)
+                        desenhados para definir informações consisas sobre elementos de interface de usuário
+                        que podem aperfeiçoar a acessibilidade e interoperabilidade do conteúdo web, permitindo
+                        que o desenvolvedor transmita corretamente o comportamento e a informação estruturada
+                        para tecnologias assistivas que agem diretamente na marcação do documento.
+                    </p>
+
+                    <div class="bs-callout bs-callout-info">
+                        <h4>Lembre-se dos padrões web!</h4>
+
+                        <p>
+                            ARIA é uma específicação muito rica na criação de aplicações web
+                            acessíveis, mas lembre-se sempre de organizar o código de forma
+                            semântica e seguindos os padrões web. Dessa forma, não é preciso
+                            utilizar muitos recursos como ARIA, pois a página será naturalmente
+                            mais acessível.
+                        </p>
+                    </div>
+
+
+                    <h3>Atributos Role</h3>
+                    <p>
+                        Estes atributos permitem atribuir a um elemento um “papel”, uma função, dentro de uma página.
+                        Existem cerca de 73 “roles”, mas eles não podem ser atribuídos de qualquer forma.
+                        Ao criar um slidebar, por exemplo, utilizando um gráfico, o leitor de tela poderá
+                        ler algo como “Gráfico, botão”, ao invés de algo mais significativo como “Slider,
+                        valor de 42 por cento”.  Utilizando os roles é possível atribuir esse comportamento
+                        à um elemento e adicionar significado a ele. Veja o exemplo a seguir de um menu:
+                    </p>
+
+                    <div class="bs-callout">
+                        <h4>Exemplo</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;ul role=&quot;menu&quot;&gt;
+    &lt;li role=&quot;menuitem&quot;&gt;Novo Documento&lt;/li&gt;
+    &lt;li role=&quot;menuitem&quot;&gt;Abrir um Documento&lt;/li&gt;
+&lt;/ul&gt;</code>
+                            </pre>
+                        </div>
+
+                        <p>O código acima gera o seguinte elemento:</p>
+
+                        <ul role="menu">
+                            <li role="menuitem">Novo Documento</li>
+                            <li role="menuitem">Abrir um Documento</li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        Nesse exemplo, definimos o role como menu em uma lista, e cada item dessa lista
+                        com o role específico de item. Em um website em que você configurou visualmente
+                        uma lista como menu, ela ainda é apresentada à um leitor de tela, por exemplo,
+                        como uma lista. Mas, utilizando estes roles, o elemento é apresentado (e lido) à tecnologias
+                        assistivas como um menu, e não como lista.
+                    </p>
+
+                    <h4>Roles Abstratos</h4>
+
+                    <p>
+                        Estes roles são utilizados para dar suporte à taxonomia
+                        do role ARIA, para o propósito de definir conceitos gerais
+                        de role. São usados para indicar a natureza do elemento, e não devem ser
+                        utilizados em conteúdo.
+                    </p>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Role e Descrição</th>
+                                <th>Role de superclasse</th>
+                                <th>Role de subclasse</th>
+                                <th>Estados e Propriedades Suportados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>command</code>: um formato de widget que realiza uma ação, mas não recebe informação de entrada.</td>
+                                <td><code>widget</code></td>
+                                <td><code>link</code>, <code>link</code> e <code>menuitem</code></td>
+                                <td>Não há</td>
+                            </tr>
+                            <tr>
+                                <td><code>composite</code>: um widget que possa conter descendentes navegáveis.</td>
+                                <td><code>widget</code></td>
+                                <td><code>grid</code>, <code>select</code> e <code>tablist</code></td>
+                                <td><code>aria-activedescendant</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>input</code>: tipo genérico de widget que permite entrada do usuário</td>
+                                <td><code>widget</code></td>
+                                <td><code>checkbox</code>, <code>option</code>, <code>select</code>, <code>scrollbar</code>, <code>slider</code>, <code>spinbutton</code>, <code>textbox</code></td>
+                                <td>Não há</td>
+                            </tr>
+                            <tr>
+                                <td><code>landmark</code>: região da página que pretende ser uma ponto de referência navegável.</td>
+                                <td><code>region</code></td>
+                                <td><code>application</code>, <code>banner</code>, <code>complementary</code>, <code>contentinfo</code>, <code>form</code>, <code>main</code>, <code>navigation</code>, <code>search</code></td>
+                                <td>Não há</td>
+                            </tr>
+                            <tr>
+                                <td><code>range</code>: uma entrada representando uma extensão de valores que podem ser definidos pelo usuário.</td>
+                                <td><code>widget</code></td>
+                                <td><code>progressbar</code>, <code>scrollbar</code>, <code>slider</code>, <code>spinbutton</code></td>
+                                <td><code>aria-valuemax</code>, <code>aria-valuemin</code>, <code>aria-valuenow</code>, <code>aria-valuetext</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>roletype</code>:</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>section</code>:</td>
+                            </tr>
+                            <tr>
+                                <td><code>sectionhead</code>:</td>
+                            </tr>
+                            <tr>
+                                <td><code>select</code>:</td>
+                            </tr>
+                            <tr>
+                                <td><code>structure</code>:</td>
+                            </tr>
+                            <tr>
+                                <td><code>widget</code>:</td>
+                            </tr>
+                            <tr>
+                                <td><code>window</code>:</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Roles de Widgets</h4>
+
+                    <p>
+                        Roles utilizados para representar widgets gráficos ou como parte de uma maior composição de widgets.
+                    </p>
+
+                    <ul>
+                        <li><code>alert</code>:</li>
+                        <li><code>alertdialog</code>:</li>
+                        <li><code>button</code>:</li>
+                        <li><code>checkbox</code>:</li>
+                        <li><code>dialog</code>:</li>
+                        <li><code>gridcell</code>:</li>
+                        <li><code>link</code>:</li>
+                        <li><code>log</code>:</li>
+                        <li><code>marquee</code>:</li>
+                        <li><code>menuitem</code>:</li>
+                        <li><code>menuitemcheckbox</code>:</li>
+                        <li><code>menuitemradio</code>:</li>
+                        <li><code>option</code>:</li>
+                        <li><code>progressbar</code>:</li>
+                        <li><code>radio</code>:</li>
+                        <li><code>scrollbar</code>:</li>
+                        <li><code>slider</code>:</li>
+                        <li><code>spinbutton</code>:</li>
+                        <li><code>status</code>:</li>
+                        <li><code>tab</code>:</li>
+                        <li><code>tabpanel</code>:</li>
+                        <li><code>textbox</code>:</li>
+                        <li><code>timer</code>:</li>
+                        <li><code>tooltip</code>:</li>
+                        <li><code>treeitem</code>:</li>
+                    </ul>
+
+                    <p>Os seguintes valores são utilizados para composições de widgets:</p>
+
+                    <ul>
+                        <li><code>combobox</code>:</li>
+                        <li><code>grid</code>:</li>
+                        <li><code>listbox</code>:</li>
+                        <li><code>menu</code>:</li>
+                        <li><code>menubar</code>:</li>
+                        <li><code>radiogroup</code>:</li>
+                        <li><code>tablist</code>:</li>
+                        <li><code>tree</code>:</li>
+                        <li><code>treegrid</code>:</li>
+                    </ul>
+
+                    <h4>Roles de Estrutura de Documento</h4>
+
+                    <p>Definem estruturas que organizam um elemento semanticamente, geralmente não interativas.</p>
+
+                    <ul>
+                        <li><code>article</code>:</li>
+                        <li><code>columnheader</code>:</li>
+                        <li><code>definition</code>:</li>
+                        <li><code>directory</code>:</li>
+                        <li><code>document</code>:</li>
+                        <li><code>group</code>:</li>
+                        <li><code>heading</code>:</li>
+                        <li><code>img</code>:</li>
+                        <li><code>list</code>:</li>
+                        <li><code>listitem</code>:</li>
+                        <li><code>math</code>:</li>
+                        <li><code>note</code>:</li>
+                        <li><code>presentation</code>:</li>
+                        <li><code>region</code>:</li>
+                        <li><code>row</code>:</li>
+                        <li><code>rowgroup</code>:</li>
+                        <li><code>rowheader</code>:</li>
+                        <li><code>separator</code>:</li>
+                        <li><code>toolbar</code>:</li>
+                    </ul>
+
+                    <h4>Landmark Roles</h4>
+
+                    <p>Esse tipo de role é utilizado para caracterizar pontos de referência numa página, marcos de navegação. Vejamos o seguinte exemplo:</p>
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;!-- Cabeçalho da Página --&gt;
+&lt;header role=&quot;banner&quot;&gt;
+    &lt;h1&gt;T&iacute;tulo da P&aacute;gina&lt;/h1&gt;
+
+    &lt;!-- Navegação --&gt;
+    &lt;ul role=&quot;navigation&quot;&gt;
+        ...
+    &lt;/ul&gt;
+&lt;/header&gt;
+
+&lt;!-- Conteúdo Principal --&gt;
+&lt;main role=&quot;main&quot;&gt;
+
+    &lt;!-- Postagem --&gt;
+    &lt;section&gt;
+
+        &lt;!-- Cabeçalho da Postagem --&gt;
+        &lt;header&gt;
+            &lt;h1&gt;T&iacute;tulo da Postagem&lt;/h1&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Autor: ...&lt;/li&gt;
+                &lt;li&gt;Data: ...&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Conteúdo/Corpo da Postagem --&gt;
+        &lt;article&gt;
+            ...
+        &lt;/article&gt;
+
+        &lt;!-- Rodapé da Postagem (comentários, por exemplo) --&gt;
+        &lt;footer&gt;
+            ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;!-- Sidebar --&gt;
+&lt;aside role=&quot;complementary&quot;&gt;
+    ...
+&lt;/aside&gt;
+
+&lt;!-- Rodapé da Página --&gt;
+&lt;footer role=&quot;contentinfo&quot;&gt;
+...
+&lt;/footer&gt;</code>
+                        </pre>
+                    </div>
+
+                    <p>
+                        No exemplo acima, podemos perceber que há mais de uma tag header, por exemplo.
+                        Falar em cabeçalhos pode ser subjetivo demais em uma página web. Temos, por
+                        exemplo, o cabeçalho da página, onde há o título e ocasionalmente um menu de
+                        navegação, e também temos cabeçalhos de postagens, cabeçalhos de widgets de
+                        uma barra lateral, entre outros exemplos. Para diferenciá-los, podemos utilizar
+                        os roles de landmark, fazendo assim a distinção entre diferentes tipos de
+                        cabeçalhos, como usado nesse exemplo.
+                    </p>
+
+                    <p>Os seguintes valores para role são utilizados para pontos de referência, marcos de navegação dentro de uma página.</p>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Role e Descrição</th>
+                                <th>Elemento relacionado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <code>application</code>: representa uma região da página que possui
+                                    um software ou aplicação única, executando uma série de tarefas para o
+                                    usuário. É um local onde tecnologias assistivas devem também retornar
+                                    as teclas de navegação do navegador de volta para a aplicação web nessa
+                                    região.
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p><b>Nota: </b>é extremamente recomendável utilizar este <code>role</code> com muita moderação.</p>
+                                    </div>
+                                </td>
+                                <td>Não há um elemento específico relacionado, sendo recomendado utilizar uma tag <code>div</code> genérica.</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>banner</code>: uma região que contém o cabeçalho principal de uma página
+                                    ou título interno de uma página. A maior parte do conteúdo de um <code>banner</code>
+                                    é comum em todas as páginas do website, ao invés de uma específica. Tipicamente inclui
+                                    logos, navegações, o cabeçalho principal da página e mecanismo de pesquisa.
+                                    <div class="bs-callout bs-callout-warning">
+                                        <p><b>Nota: </b>em qualquer documento ou página, o autor deve criar não mais que um elemento com este role.</p>
+                                    </div>
+                                </td>
+                                <td>Não há um elemento específico relacionado, sendo recomendado utilizar uma tag <code>header</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>complementary</code>:
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>contentinfo</code>:
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>form</code>:
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>main</code>:
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>navigation</code>:
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>search</code>:
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="bs-callout bs-callout-warning">
+                        <h4>Não Seja Redundante!</h4>
+                        <p>
+                            Antes de começar a implementar todos os atributos ARIA possíveis,
+                            algumas considerações devem ser feitas, pois existem recomendações e
+                            regras para seu uso. Se você puder utilizar um elemento HTML ou
+                            atributo com a semântica e comportamento que você necessita já nativos,
+                            ao invés de re-atribuir propósito a um elemento e adicionar um role ARIA,
+                            estado ou propriedade, utilize apenas o elemento nativo. Existem três
+                            exceções nessa regra, segundo a W3C:</p>
+                        <ul>
+                            <li>Se o recurso está disponível no HTML mas não é implementado, ou é implementado mas não há suporte à acessibilidade.</li>
+                            <li>Se as restrições de design visual excluem o uso de um elemento nativo em particular, porque o elemento não pode ser estilizado como necessário.</li>
+                            <li>Se o recurso não está disponível no HTML.</li>
+                        </ul>
+                        <p>Também não modifique semânticas nativas, como adicionar uma tag <code>p</code> com um role <code>button</code>!</p>
+
+                        <p>Para mais informações sobre a utilização de ARIA, visite o documento online da W3C <span lang="en"><a href="https://www.w3.org/TR/aria-in-html/">Notes on Using ARIA in HTML (em inglês)</a></span></p>
+                    </div>
+                </section>
+
+
+                <section class="bs-docs-section">
+                    <div class="page-header">
+                        <h1 id="comportamento">Comportamento (DOM)</h1>
+                    </div>
+
+                    <h2>Navegação pelo Teclado</h2>
+
+                    <h2>Elementos de Arrastar e Soltar (<span lang="en">drag and drop</span>)</h2>
+
+                    <!-- TODO: navegação por teclado, elementos focáveis, drag and drop -->
+
+                </section>
+
+
+                <section class="bs-docs-section">
+                    <div class="page-header">
+                        <h1 id="conteudo    ">Conteúdo e Informação</h1>
+                    </div>
+
+                    <!-- NOTE: ????? -->
+
+                </section>
+
+
+                <section class="bs-docs-section">
+                    <div class="page-header">
+                        <h1 id="apresentacao">Apresentação e Design</h1>
+                    </div>
+
+                    <!-- TODO: contraste, cores, daltonismo, etc -->
+
+                </section>
+
+
+                <section class="bs-docs-section">
+                    <div class="page-header">
+                        <h1 id="multimidia">Multimídia</h1>
+                    </div>
+
+                    <h2>Conteúdo Independente de Fluxo</h2>
+
+                    <h3>As tags Figure e Figcaption</h3>
+
+                    <p>
+                        A tag <code>figure</code> representa conteúdos independentes,
+                        frequentemente com uma legenda (com a tag <code>figcaption</code>), e referido como uma única
+                        unidade. Esse elemento é relacionado com o fluxo principal
+                        da página, mas a posição dele é independente deste fluxo.
+                        Geralmente representa imagens, ilustrações, diagramas,
+                        códigos ou outros esquemas, referenciados no conteúdo principal.
+                        As tags que compõe essa funcionalidade são:
+                    </p>
+
+                    <h3>Exemplos</h3>
+
+                    <p>
+                        Neste exemplo, há uma imagem, e para a mesma há uma legenda:
+                    </p>
+
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;figure&gt;
+    &lt;img src=&rdquo;imagem.png&rdquo; alt=&rdquo;bola&nbsp;de&nbsp;basquete&nbsp;num&nbsp;fundo&nbsp;branco&rdquo;&gt;
+    &lt;figcaption&gt; Figura 1. Bola de basquete&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+                        </pre>
+                    </div>
+
+                    <p>
+                        Neste outro, há um elemento criado com a tag canvas, e sua
+                        posição é independente do fluxo da página, e portanto melhor
+                        utilizado com a tag <code>figure</code>:
+                    </p>
+
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;figure&gt;
+    &lt;canvas id=&quot;example&quot; role=&quot;img&quot;&gt;&lt;/canvas&gt;
+    &lt;figcaption&gt;Figura 2. Exemplo de uso da tag canvas&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+                        </pre>
+                    </div>
+
+                    <div class="bs-callout bs-callout-info">
+                        <p>Note aqui a utilização de um <code>role</code> de imagem no elemento canvas</p>
+                    </div>
+
+                    <p>
+                        Também é possível utilizar códigos, e outros tipos de elementos:
+                    </p>
+
+                    <div class="highlight">
+                        <pre>
+                            <code class="html php">&lt;figure&gt;
+    &lt;figcaption&gt;Exemplo de c&oacute;digo PHP&lt;/figcaption&gt;
+    &lt;pre&gt;
+        &lt;code class=&quot;php&quot;&gt;
+            &lt;?php
+                echo &lsquo;Ol&aacute; Mundo!&rsquo;;
+            ?&gt;
+        &lt;/code&gt;
+    &lt;/pre&gt;
+&lt;/figure&gt;</code>
+                        </pre>
+                    </div>
+
+                </section>
+
+
+                <section class="bs-docs-section">
+                    <div class="page-header">
+                        <h1 id="formulario">Formulário</h1>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="../js/docs.min.js"></script>
+    <script src="../js/bootstrap-accessibility.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+
+    <script type="text/javascript">
+
+        hljs.initHighlightingOnLoad();
+
+        var lazyLoad = function(jsWithPath, callback) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            if (typeof callback != 'undefined') {
+                if (script.readyState) {
+                    script.onreadystatechange = function() {
+                        if (script.readyState == 'loaded' || script.readyState == 'complete') {
+                            callback();
+                        }
+                    }
+                } else {
+                    script.onload = function() {
+                        callback();
+                    }
+                }
+            }
+            script.src = jsWithPath;
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        var btn = document.getElementById('allyBtn');
+        var scriptLoaded = false;
+
+        var loadPlugin = function() {
+            if (scriptLoaded === true) {
+                location.reload(false);
+                return false;
+            };
+
+            var lin = document.createElement('link');
+            lin.setAttribute('rel', 'stylesheet');
+            lin.setAttribute('type', 'text/css');
+            lin.setAttribute('href', 'plugins/css/bootstrap-accessibility.css');
+            document.getElementsByTagName('head')[0].appendChild(lin);
+
+            var script = document.createElement('script');
+            script.src = 'plugins/js/bootstrap-accessibility.min.js';
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+            btn.innerHTML = "unload bootstrap accessibility plugin features";
+            scriptLoaded = true;
+        }
+
+        if (window.addEventListener) {
+            btn.addEventListener("click", function() {
+                loadPlugin();
+                return false;
+            }, false);
+        } else if (window.attachEvent) {
+            btn.attachEvent("onload", function() {
+                loadPlugin();
+                return false;
+            });
+        }
+    </script>
+
+</body>
+
+</html>
