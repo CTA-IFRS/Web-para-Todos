@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="http://jbst.eu/bootstrap-a11y-theme/a11ytheme.min.css">
 
     <!-- highlight.js -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/custom.css">
@@ -34,19 +34,6 @@
      <script src="../docs/assets/js/html5shiv.js"></script>
      <script src="../docs/assets/js/respond.min.js"></script>
    <![endif]-->
-
-    <style>
-        .bs-docs-header a {
-            color: white !important;
-            text-decoration: underline !important;
-        }
-
-        figcaption {
-            font-weight: bold;
-            text-align: center;
-            padding: 0.5em;
-        }
-    </style>
 </head>
 
 <body>
@@ -118,10 +105,90 @@
                         quase obsoletas.
                     </p>
 
-                    <figure class="thumbnail">
-                        <img src="../img/html5-tags.png" alt="">
-                        <figcaption>Ilustração comparativa da organização semântica de uma página</figcaption>
-                    </figure>
+                    <p>Abaixo, segue um exemplo do formato convencional em que os desenvolvedores organizam os elementos de uma página, através de tags <code>div</code>, IDs e classes:</p>
+                    <div class="highlight">
+                        <pre>
+<code class="html">&lt;div id=&quot;header&quot;&gt;
+    &lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
+    &lt;div id=&quot;nav&quot;&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div id=&quot;main&quot;&gt;
+        &lt;div class=&quot;section-article&quot;&gt;
+            &lt;div class=&quot;article-header&quot;&gt;
+                ...
+            &lt;/div&gt;
+            &lt;div class=&quot;article-content&quot;&gt;
+                ...
+            &lt;/div&gt;
+            &lt;div class=&quot;article-footer&quot;&gt;
+                ...
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;section-article&quot;&gt;
+            &lt;div class=&quot;article-header&quot;&gt;
+                ...
+            &lt;/div&gt;
+            &lt;div class=&quot;article-content&quot;&gt;
+                ...
+            &lt;/div&gt;
+            &lt;div class=&quot;article-footer&quot;&gt;
+                ...
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;sidebar&quot;&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div id=&quot;footer&quot;&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                        </pre>
+                    </div>
+                    <p>No próximo exemplo, as diversas tags <code>div</code> são substítuidas por tags que indicam o tipo de elemento, sem precisar de IDs e classes para diferenciá-los.</p>
+                    <div class="highlight">
+                        <pre>
+<code class="html">&lt;header&gt;
+    &lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
+    &lt;nav&gt;
+        ...
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;header&gt;
+            ...
+        &lt;/header&gt;
+        &lt;article&gt;
+            ...
+        &lt;/article&gt;
+        &lt;footer&gt;
+            ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+        &lt;header&gt;
+            ...
+        &lt;/header&gt;
+        &lt;article&gt;
+            ...
+        &lt;/article&gt;
+        &lt;footer&gt;
+            ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;aside&gt;
+    ...
+&lt;/aside&gt;
+&lt;footer&gt;
+    ...
+&lt;/footer&gt;</code>
+                        </pre>
+                    </div>
 
                     <p>
                         Dessa forma, a organização do código é mais semântica,
@@ -170,6 +237,14 @@
                         </tbody>
                     </table>
 
+                    <div class="bs-callout bs-callout-info">
+                        <p>É importante notar que a
+                        utilização desse recurso sozinho não melhora significativamente
+                        a experiência com tecnologias assistivas, fazendo necessário
+                        a utilização de outros recursos que serão abordados ao longo deste
+                        documento, como ARIA.</p>
+                    </div>
+
                     <h2>WAI-ARIA</h2>
 
                     <h3>O que é?</h3>
@@ -199,6 +274,18 @@
                         </p>
                     </div>
 
+                    <div class="bs-callout bs-callout-warning">
+                        <h4>Nota sobre os exemplos</h4>
+                        <p>
+                            Muitas formas de implementação e atribuição de recursos do WAI-ARIA
+                            não são padronizadas e, portanto, são subjetivas e costumam causar
+                            divergência de opiniões. Neste documento, é abordado diferentes pontos
+                            de vista sobre essa implementação. Qualquer sugestão de mudança será
+                            discutida e bem aceita, através da
+                            <a href="https://github.com/CTA-IFRS/Web-para-Todos">Repositório do código fonte do Web para Todos no GitHub.</a>
+                        </p>
+                    </div>
+
 
                     <h3>Atributos Role</h3>
                     <p>
@@ -207,34 +294,7 @@
                         Ao criar um slidebar, por exemplo, utilizando um gráfico, o leitor de tela poderá
                         ler algo como “Gráfico, botão”, ao invés de algo mais significativo como “Slider,
                         valor de 42 por cento”.  Utilizando os roles é possível atribuir esse comportamento
-                        à um elemento e adicionar significado a ele. Veja o exemplo a seguir de um menu:
-                    </p>
-
-                    <div class="bs-callout">
-                        <h4>Exemplo</h4>
-                        <div class="highlight">
-                            <pre>
-                                <code class="html">&lt;ul role=&quot;menu&quot;&gt;
-    &lt;li role=&quot;menuitem&quot;&gt;Novo Documento&lt;/li&gt;
-    &lt;li role=&quot;menuitem&quot;&gt;Abrir um Documento&lt;/li&gt;
-&lt;/ul&gt;</code>
-                            </pre>
-                        </div>
-
-                        <p>O código acima gera o seguinte elemento:</p>
-
-                        <ul role="menu">
-                            <li role="menuitem">Novo Documento</li>
-                            <li role="menuitem">Abrir um Documento</li>
-                        </ul>
-                    </div>
-
-                    <p>
-                        Nesse exemplo, definimos o role como menu em uma lista, e cada item dessa lista
-                        com o role específico de item. Em um website em que você configurou visualmente
-                        uma lista como menu, ela ainda é apresentada à um leitor de tela, por exemplo,
-                        como uma lista. Mas, utilizando estes roles, o elemento é apresentado (e lido) à tecnologias
-                        assistivas como um menu, e não como lista.
+                        à um elemento e adicionar significado a ele.
                     </p>
 
                     <h4>Roles Abstratos</h4>
@@ -318,51 +378,60 @@
 
                     <h4>Roles de Widgets</h4>
 
-                    <p>
-                        Roles utilizados para representar widgets gráficos ou como parte de uma maior composição de widgets.
-                    </p>
+                    <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para exemplos de utilização de roles de widgets.</p>
 
-                    <ul>
-                        <li><code>alert</code>:</li>
-                        <li><code>alertdialog</code>:</li>
-                        <li><code>button</code>:</li>
-                        <li><code>checkbox</code>:</li>
-                        <li><code>dialog</code>:</li>
-                        <li><code>gridcell</code>:</li>
-                        <li><code>link</code>:</li>
-                        <li><code>log</code>:</li>
-                        <li><code>marquee</code>:</li>
-                        <li><code>menuitem</code>:</li>
-                        <li><code>menuitemcheckbox</code>:</li>
-                        <li><code>menuitemradio</code>:</li>
-                        <li><code>option</code>:</li>
-                        <li><code>progressbar</code>:</li>
-                        <li><code>radio</code>:</li>
-                        <li><code>scrollbar</code>:</li>
-                        <li><code>slider</code>:</li>
-                        <li><code>spinbutton</code>:</li>
-                        <li><code>status</code>:</li>
-                        <li><code>tab</code>:</li>
-                        <li><code>tabpanel</code>:</li>
-                        <li><code>textbox</code>:</li>
-                        <li><code>timer</code>:</li>
-                        <li><code>tooltip</code>:</li>
-                        <li><code>treeitem</code>:</li>
-                    </ul>
+                    <p>Na tabela abaixo, estão relacionados os roles para composições de widgets (que representaram o widget em si) com os roles utilizados para descrever os elementos deste widget (os roles "filhos").</p>
 
-                    <p>Os seguintes valores são utilizados para composições de widgets:</p>
-
-                    <ul>
-                        <li><code>combobox</code>:</li>
-                        <li><code>grid</code>:</li>
-                        <li><code>listbox</code>:</li>
-                        <li><code>menu</code>:</li>
-                        <li><code>menubar</code>:</li>
-                        <li><code>radiogroup</code>:</li>
-                        <li><code>tablist</code>:</li>
-                        <li><code>tree</code>:</li>
-                        <li><code>treegrid</code>:</li>
-                    </ul>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Roles para composição de widgets:</th>
+                                <th>Roles filhos:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>grid</code></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>list</code></td>
+                                <td><code>listitem</code> e <code>group</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>listbox</code></td>
+                                <td><code>option</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>combobox</code></td>
+                                <td>N.A.</td>
+                            </tr>
+                            <tr>
+                                <td><code>menu</code></td>
+                                <td><code>menuitem</code>, <code>menuitemradio</code> e <code>menuitemcheckbox</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>menubar</code></td>
+                                <td><code>menuitem</code>, <code>menuitemradio</code> e <code>menuitemcheckbox</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>radiogroup</code></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>tablist</code></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>tree</code></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><code>treegrid</code></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <h4>Roles de Estrutura de Documento</h4>
 
@@ -454,7 +523,7 @@
                         cabeçalhos, como usado nesse exemplo.
                     </p>
 
-                    <p>Os seguintes valores para role são utilizados para pontos de referência, marcos de navegação dentro de uma página.</p>
+                    <p>Os seguintes valores para role são utilizados para pontos de referência, marcos de navegação dentro de uma página:</p>
 
                     <table class="table table-hover">
                         <thead>
@@ -528,8 +597,24 @@
                         </tbody>
                     </table>
 
+                    <h3>Estados e Propriedades</h3>
+
+                    <!-- TODO: organizar isso daí embaixo -->
+
+                    <h4>Atributos de Widget</h4>
+                    <h4>Atributos de regiões dinâmicas (live)</h4>
+                        <h5>aria-live</h5>
+                        <h5>aria-atomic</h5>
+                        <h5>aria-busy</h5>
+                        <h5>aria-relevant</h5>
+                    <h4>Atributos de "Arrastar e Soltar"</h4>
+                        <h5>aria-dropeffect</h5>
+                        <h5>aria-grabbed</h5>
+                    <h4>Atributos de Relacionamentos</h4>
+                    <h4>Estados e Propriedades Globais</h4>
+
                     <div class="bs-callout bs-callout-warning">
-                        <h4>Não Seja Redundante!</h4>
+                        <h4 id="redundant">Considerações sobre Redundância com ARIA</h4>
                         <p>
                             Antes de começar a implementar todos os atributos ARIA possíveis,
                             algumas considerações devem ser feitas, pois existem recomendações e
@@ -545,7 +630,7 @@
                         </ul>
                         <p>Também não modifique semânticas nativas, como adicionar uma tag <code>p</code> com um role <code>button</code>!</p>
 
-                        <p>Para mais informações sobre a utilização de ARIA, visite o documento online da W3C <span lang="en"><a href="https://www.w3.org/TR/aria-in-html/">Notes on Using ARIA in HTML (em inglês)</a></span></p>
+                        <p>Para mais informações sobre a utilização de ARIA, visite o documento online da W3C <span lang="en"><a href="https://www.w3.org/TR/aria-in-html/">Notes on Using ARIA in HTML (em inglês). <span class="glyphicon glyphicon-new-window"><span class="sr-only">Nova Página</span></span></a></span></p>
                     </div>
                 </section>
 
@@ -554,6 +639,605 @@
                     <div class="page-header">
                         <h1 id="comportamento">Comportamento (DOM)</h1>
                     </div>
+
+                    <h2>Widgets Acessíveis com ARIA</h2>
+
+                    <p>
+                        Roles utilizados para representar widgets gráficos ou como parte de uma maior composição de widgets. Veja os exemplos a seguir:
+                    </p>
+
+                    <h3>Exemplo de roles de alerta e diálogo de alerta:</h3>
+
+                    <div class="bs-callout bs-callout-danger" role="alert">
+                        <h4>Ajude-nos!</h4>
+                        <p>Este exemplo precisa de aperfeiçoamento.</p>
+                    </div>
+
+                    <p>Os exemplos à seguir não necessitam de muita configuração por serem mais uma questão de marcação adequada, talvez com exceção do diálogo de alerta.</p>
+
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;p role=&quot;alert&quot;&gt;Voc&ecirc; deve ler e aceitar os termos de uso!&lt;/p&gt;</code>
+                        </pre>
+                    </div>
+
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;div role=&quot;alertdialog&quot; aria-labelledby=&quot;titulo&quot; aria-describedby=&quot;descricao&quot;&gt;
+    &lt;div role=&quot;document&quot; tabindex=&quot;0&quot;&gt;
+        &lt;h2 id=&quot;titulo&quot;&gt;Sua sess&atilde;o de login est&aacute; para expirar!&lt;/h2&gt;
+        &lt;p id=&quot;descricao&quot;&gt;Clique no botão abaixo para extender sua sessão&lt;/p&gt;
+        &lt;button&gt;OK&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                        </pre>
+                    </div>
+
+                    <div class="bs-callout">
+                        <h4>Exemplos</h4>
+                        <h5>Alerta</h5>
+                        <p role="alert" class="alert alert-info">Você deve ler e aceitar os termos de uso!</p>
+
+                        <h5>Diálogo de Alerta</h5>
+
+                        <button onclick="modalDialogoAlerta();" class="btn btn-primary">Abrir Modal de Diálogo de Alerta</button>
+
+                        <div id="modal-area" style="display: none;">
+                            <div role="alertdialog" aria-labelledby="titulo" aria-describedby="descricao" class="bs-callout bs-callout-warning">
+                                <div role="document" tabindex="0">
+                                    <h6 id="titulo">Sua sessão de login está para expirar!</h6>
+                                    <p id="descricao">Clique no botão abaixo para extender sua sessão</p>
+                                    <button class="btn btn-primary" onclick="closeModalDialogoAlerta();">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <h3>Exemplo de role de botão:</h3>
+                    <p>Mesmo com o recurso já implementado, muitas vezes por questões de estilização, o desenvolvedor necessita criar um botão do zero. Para isso, é importante utilizar o role apropriado, além de disponibilizar todas as funções padrões de um botão, como executar sua ação com o clique da tecla Enter, com o clique do mouse, modificar o cursor e a aparência do botão em determinados eventos, entre outros. Veja o exemplo à seguir:</p>
+                    <h4>HTML</h4>
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;span role=&quot;button&quot; class=&quot;span-btn&quot; tabindex=&quot;0&quot; onclick=&quot;acaoBotao();&quot; onkeypress=&quot;if (event.keyCode==13) acaoBotao();&quot;&gt;OK!&lt;/span&gt;</code>
+                        </pre>
+                    </div>
+
+                    <h4>CSS</h4>
+                    <div class="highlight">
+                        <pre>
+                            <code class="css">.span-btn {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.span-btn:hover {
+  background-color: black;
+}
+
+.span-btn:active {
+  border: 3px solid red;
+}
+
+.span-btn:focus {
+    border: 1px dotted white;
+}</code>
+                        </pre>
+                    </div>
+
+                    <h4>JS</h4>
+                    <div class="highlight">
+                        <pre><code class="js">function acaoBotao() {
+  // ação realizada pelo botão
+  alert('Botão Pressionado com sucesso!');
+}</code></pre>
+                    </div>
+
+                    <div class="div-exemplo">
+                        <div class="bs-callout">
+                            <h4>Exemplo de botão</h4>
+                            <span class="space"></span>
+                            <span role="button" class="span-btn" tabindex="0" onclick="acaoBotao();" onkeypress="if (event.keyCode==13) acaoBotao();">OK!</span>
+                        </div>
+                    </div>
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Não utilize este role em elementos <code>button</code> ou <code>input</code> do tipo button, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                    </div>
+
+
+
+                    <h3>Exemplo de roles de menu:</h3>
+
+
+                    <h4>HTML</h4>
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;ul role=&quot;menu&quot; id=&quot;vertical-menu&quot; tabindex=&quot;0&quot;&gt;
+    &lt;li tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Item 1&lt;/li&gt;
+    &lt;li tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Item 2&lt;/li&gt;
+    &lt;div role=&quot;group&quot; id=&quot;radiogroup&quot;&gt;
+        &lt;li tabindex=&quot;0&quot; class=&quot;radio-item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Op&ccedil;&atilde;o 1&lt;/li&gt;
+        &lt;li tabindex=&quot;0&quot; class=&quot;radio-item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Op&ccedil;&atilde;o 2&lt;/li&gt;
+        &lt;li tabindex=&quot;0&quot; class=&quot;radio-item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;true&quot;&gt;Op&ccedil;&atilde;o 3&lt;/li&gt;
+    &lt;/div&gt;
+&lt;/ul&gt;
+
+</code></pre></div>
+<div class="highlight">
+<pre><code class="html">&lt;div role=&quot;menubar&quot; id=&quot;horizontal-menu&quot; tabindex=&quot;0&quot;&gt;
+    &lt;span tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Novo Documento&lt;/span&gt;
+    &lt;span tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Abrir Documento&lt;/span&gt;
+    &lt;div role=&quot;group&quot;&gt;
+        &lt;span tabindex=&quot;0&quot; class=&quot;checkbox-item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;true&quot;&gt;Salvar Automaticamente&lt;/span&gt;
+        &lt;span tabindex=&quot;0&quot; class=&quot;checkbox-item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot;&gt;Salvar na Nuvem&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                        </pre>
+                    </div>
+
+                    <h4>CSS</h4>
+                    <div class="highlight">
+                        <pre><code class="css">li[role=menuitem], li[role=menuitemradio], li[role=menuitemcheckbox] {
+    list-style: none;
+    display: block
+}
+
+ul[role=menu] li, div[role=menubar] span {
+    background-color: black;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+}
+
+ul[role=menu] li:hover, div[role=menubar] span:hover, ul[role=menu] li:focus, div[role=menubar] span:focus {
+    background-color: lightgrey;
+    color: black;
+}
+
+span[role=menuitem], span[role=menuitemradio], span[role=menuitemcheckbox] {
+    list-style: none;
+    margin-bottom: 0.5em;
+    margin-right: 0;
+    margin-left: 0;
+    display: inline-block
+}
+
+[aria-checked="true"] {
+    background-color: grey !important;
+}</code></pre>
+                    </div>
+
+                    <h4>JS</h4>
+                    <div class="highlight">
+                        <pre><code class="js">function mudarEstado(e){
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        var obj = e.target;
+        if (obj) {
+            var checked = obj.getAttribute('aria-checked')
+            if (checked == 'true') {
+                obj.setAttribute('aria-checked', 'false');
+            }
+            else {
+                obj.setAttribute('aria-checked', 'true');
+            }
+        }
+    }
+}
+
+var elementos = document.getElementsByClassName("checkbox-item");
+
+for (var i = 0; i < elementos.length; i++) {
+    elementos[i].addEventListener('click', mudarEstado);
+    elementos[i].addEventListener('keydown', mudarEstado);
+}
+
+var group = document.getElementById('radiogroup');
+function mudarEstadoRadio(e) {
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        var group = document.getElementById('radiogroup');
+        for (var i = 0; i < group.children.length; i++) {
+            var checked = group.children[i].getAttribute('aria-checked')
+            if (checked == 'true') {
+                group.children[i].setAttribute('aria-checked', 'false');
+            }
+        }
+
+        var obj = e.target;
+
+        if (obj) {
+            var checked = obj.getAttribute('aria-checked')
+            if (checked == 'true') {
+                obj.setAttribute('aria-checked', 'false');
+            }
+            else {
+                obj.setAttribute('aria-checked', 'true');
+            }
+        }
+
+    }
+}
+
+var elements = document.getElementsByClassName("radio-item");
+for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', mudarEstadoRadio);
+    elements[i].addEventListener('keydown', mudarEstadoRadio);
+}</code></pre>
+                    </div>
+
+                    <div class="div-exemplo">
+                        <div class="bs-callout example-menu">
+                            <h4>Exemplos Ao Vivo</h4>
+
+                            <h5>Menu Vertical com Seleções Únicas no Grupo de Opções</h5>
+
+                            <ul role="menu" id="vertical-menu" tabindex="0">
+                                <li tabindex="0" role="menuitem">Item 1</li>
+                                <li tabindex="0" role="menuitem">Item 2</li>
+                                <div role="group" id="radiogroup">
+                                    <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 1</li>
+                                    <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 2</li>
+                                    <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="true">Opção 3</li>
+                                </div>
+                            </ul>
+
+                            <h5>Menu Horizontal com Seleções Múltiplas no Grupo de Opções</h5>
+
+                            <div role="menubar" id="horizontal-menu" tabindex="0">
+                                <span tabindex="0" role="menuitem">Novo Documento</span>
+                                <span tabindex="0" role="menuitem">Abrir Documento</span>
+                                <div role="group">
+                                    <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="true">Salvar Automaticamente</span>
+                                    <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="false">Salvar na Nuvem</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bs-callout bs-callout-info">
+                        <p>Enquanto <code>menu</code> representa um menu de forma genérica, <code>menubar</code> necessariamente representa um menu horizontal.</p>
+                    </div>
+                    <div class="bs-callout bs-callout-info">
+                        <p>Menus não precisam, necessariamente, serem atribuidos à listas (elemento <code>ul</code>).</p>
+                    </div>
+
+
+
+                    <h3>Exemplo de role de caixa de seleção e "interruptor" (<span lang="en">switch</span>):</h3>
+
+                    <h4>HTML</h4>
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
+    &lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+    &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
+&lt;/div&gt;</code>
+                        </pre>
+                    </div>
+
+                    <h4>CSS</h4>
+                    <div class="highlight">
+                        <pre><code class="css">.example-checkbox span[aria-checked=false] {
+    width: 17px;
+    height: 17px;
+    background-color: grey;
+    display: inline-block;
+    cursor: pointer;
+}
+.example-checkbox span[aria-checked=true] {
+    width: 17px;
+    height: 17px;
+    background-color: green;
+    display: inline-block;
+    cursor: pointer;
+}</code></pre>
+                    </div>
+
+                    <h4>JS</h4>
+                    <div class="highlight">
+                        <pre><code class="js">function trocarSelecao(e) {
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        if (e.target.getAttribute('aria-checked') == 'true') {
+            e.target.setAttribute('aria-checked', 'false');
+        }
+        else {
+            e.target.setAttribute('aria-checked', 'true');
+        }
+    }
+}
+
+var checkbox = document.getElementById('chk1');
+checkbox.addEventListener('click', trocarSelecao);
+checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
+                    </div>
+
+                    <div class="bs-callout">
+                        <h4>Exemplo Ao Vivo</h4>
+                        <div class="example-checkbox">
+                            <span role="checkbox" aria-checked="false" tabindex="0" id="chk1"></span>
+                            <label for="chk1">Lembrar minhas preferências</label>
+                        </div>
+                    </div>
+
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Não utilize este role em elementos <code>input</code> do tipo checkbox, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                        <p>Também lembre-se que, se for extritamente necessário construir uma caixa de seleção dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+                    </div>
+
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+&lt;label for=&quot;chk1&quot;&gt;Lembrar minhas preferências&lt;/label&gt;</code>
+                        </pre>
+                    </div>
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Este role é muito parecido com o role de caixa de seleção, entretanto, não admite valor misto. Este tipo de valor deve ser tratado por agentes de usuário como igual a <code>false</code></p>
+                    </div>
+
+
+
+                    <h3>Exemplo de role de caixa de diálogo:</h3>
+                    <div class="highlight">
+                        <pre>
+<code class="html">&lt;div role=&quot;dialog&quot; aria-labelledby=&quot;titulo&quot; aria-describedby=&quot;descricao&quot;&gt;
+    &lt;h2 id=&quot;titulo&quot;&gt;Mensagem enviada com sucesso!&lt;/h2&gt;
+    &lt;p id=&quot;descricao&quot;&gt;Sua mensagem foi enviada e ser&aacute; respondida brevemente.&lt;/p&gt;
+    &lt;button&gt;Fechar&lt;/button&gt;
+&lt;/div&gt;</code>
+                        </pre>
+                    </div>
+
+
+
+                    <h3>Exemplo de role de link:</h3>
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;span role=&quot;link&quot;&gt;Isto &eacute; um link&lt;/span&gt;</code>
+                        </pre>
+                    </div>
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Não utilize este role em links nativos do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                        <p>Também lembre-se que, se for extritamente necessário construir um link dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+                    </div>
+
+                    <h3>Exemplo de role de status:</h3>
+                    <div class="highlight">
+                        <pre>
+                            <code class="html">&lt;p role=&quot;status&quot;&gt;Suas mudanças foram salvas automaticamente.&lt;/p&gt;</code>
+                        </pre>
+                    </div>
+
+                    <h3>Exemplo de role de log e marquee:</h3>
+                    <div class="highlight">
+                        <pre><code class="html">&lt;div id=&quot;chat&quot; role=&quot;log&quot; aria-live=&quot;polite&quot;&gt;
+    ...
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Utilizar role log implica que a região possui o valor <code>polite</code> para o a propriedade aria-live.</p>
+                    </div>
+                    <div class="highlight">
+                        <pre><code class="html">&lt;div class=&quot;algumacoisa&quot; role=&quot;marquee&quot; aria-live=&quot;polite&quot;&gt;
+    ...
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Utilizar role marquee implica que a região possui o valor <code>off</code> para o a propriedade aria-live.</p>
+                    </div>
+                    <div class="bs-callout bs-callout-info">
+                        <p>Substitua o role log por marquee em casos em que a região live é atualizada com informação que não é relevante.</p>
+                    </div>
+
+                    <h3>Exemplo do roles list, listbox e combobox</h3>
+
+                    <p>Os exemplos abaixo demonstram a utilização de listas e listas interativas, contendo opções ou funcionando de forma similar a elementos <code>select</code>. No primeiro, temos um exemplo de uma lista simples e não interativa.</p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;div class=&quot;lista&quot; role=&quot;list&quot;&gt;
+    &lt;div role=&quot;listitem&quot;&gt;Ovos&lt;/div&gt;
+    &lt;div role=&quot;listitem&quot;&gt;Farinha&lt;/div&gt;
+    &lt;div role=&quot;listitem&quot;&gt;Leite&lt;/div&gt;
+    &lt;div role=&quot;listitem&quot;&gt;P&atilde;o&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Não utilize este role em listas nativas do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                    </div>
+
+
+                    <p>Para criar listas interativas, há roles diferentes de <code>list</code>, e um deles é o <code>listbox</code>. No exemplo abaixo, há uma lista de itens selecionáveis.</p>
+                    <!-- onclick=&quot;return listItemClick(event);&quot;
+                    onkeydown=&quot;return listItemKeyEvent(event);&quot;
+                    onkeypress=&quot;return listItemKeyEvent(event);&quot;
+                    onfocus=&quot;this.className=&apos;focus&apos;;&quot;
+                    onblur=&quot;this.className=&apos;blur&apos;;&quot; -->
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;div role=&quot;listbox&quot; tabindex=&quot;0&quot; id=&quot;listbox1&quot; aria-activedescendant=&quot;listbox1-1&quot;&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-1&quot; class=&quot;selected&quot;&gt;Verde&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-2&quot;&gt;Laranja&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-3&quot;&gt;Vermelho&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-4&quot;&gt;Azul&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-5&quot;&gt;Preto&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-6&quot;&gt;Violeta&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <p>Outro role para listas interativas é o <code>combobox</code>, muito semelhante à <code>textbox</code> e utilizado em widgets que sejam como um elemento <code>select</code>, porém com uma entrada de usuário para busca ou adição de novo item. Note que ainda há uma lista utilizando <code>listbox</code> abaixo do elemento <code>input</code> com o role <code>combobox</code>.</p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;input type=&quot;text&quot;
+    aria-label=&quot;Tag&quot;
+    role=&quot;combobox&quot;
+    aria-expanded=&quot;true&quot;
+    aria-autocomplete=&quot;list&quot;
+    aria-owns=&quot;listbox&quot;
+aria-activedescendant=&quot;opcao_selecionada&quot;&gt;
+&lt;ul role=&quot;listbox&quot; id=&quot;listbox&quot;&gt;
+    &lt;li role=&quot;option&quot;&gt;Zebra&lt;/li&gt;
+    &lt;li role=&quot;option&quot; id=&quot;opcao_selecionada&quot;&gt;Zoom&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+
+                    <div class="bs-callout bs-callout-info">
+                        <p>É imporante lembrar que nos casos dos roles <code>listbox</code> e <code>combobox</code>, precisa-se desenvolver todas operações através de JavaScript, como a seleção de opções e afins.</p>
+                    </div>
+
+                    <h3>Exemplo de role slider</h3>
+
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>Precisa de melhorias!</h4>
+                        <p>Neste exemplo há falta de JavaScript e CSS apropriados para a criação do widget.</p>
+                    </div>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;label for=&quot;day-handle&quot;&gt;Dias da Semana&lt;/label&gt;
+&lt;div class=&quot;day-slider&quot;&gt;
+  &lt;div id=&quot;day-handle&quot; class=&quot;day-slider-handle&quot; role=&quot;slider&quot; aria-labelledby=&quot;day-handle&quot;
+     aria-valuemin=&quot;1&quot;
+     aria-valuemax=&quot;7&quot;
+     aria-valuenow=&quot;2&quot;
+     aria-valuetext=&quot;Segunda-feira&quot;&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="highlight">
+                        <pre><code class="js">var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var updateSlider = function (newValue) {
+    var handle = document.getElementById("day-handle");
+    handle.setAttribute("aria-valuenow", newValue.toString());
+    handle.setAttribute("aria-valuetext", dayNames[newValue]);
+};</code></pre>
+                    </div>
+
+                    <h3>Exemplo de role de barra de progresso</h3>
+
+                    <p>Utilizando os roles e atributos de estado e propriedades adequados, uma barra de progresso que faria diferença apenas visual pode, agora, apresentar valores máximos, mínimos e ainda indicar o valor atual.</p>
+
+                    <h4 id="html-progressbar">HTML</h4>
+                    <div class="highlight" aria-labelledby="html-progressbar">
+                        <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; id=&quot;progress-bar&quot;
+    role=&quot;progressbar&quot;
+    aria-valuenow=&quot;20&quot;
+    aria-valuemin=&quot;0&quot;
+    aria-valuemax=&quot;100&quot;
+    style=&quot;width:20%&quot;&gt;
+        20 %
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;button onclick=&quot;aumentar10(&apos;progress-bar&apos;);&quot; &gt;Aumentar 10%&lt;/button&gt;</code></pre>
+                    </div>
+
+                    <h4 id="css-progressbar">CSS</h4>
+                    <div class="highlight" aria-labelledby="css-progressbar">
+                        <pre><code class="css">#progress {
+    height: 30px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border: 1px solid black;
+}
+#progress-bar {
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: blue;
+    transition: width .6s ease;
+}</code></pre>
+                    </div>
+
+                    <h4 id="js-progressbar">JS</h4>
+                    <div class="highlight" aria-labelledby="js-progressbar">
+                        <pre><code class="js">function aumentar10(progressbarID) {
+    var barra = document.getElementById(progressbarID);
+    valuenow = barra.getAttribute('aria-valuenow');
+    if (valuenow != "100") {
+        valuenow = Number(valuenow) + 10;
+        barra.setAttribute('aria-valuenow', valuenow);
+        barra.style.width = String(valuenow) + '%';
+        barra.innerHTML = String(valuenow) + ' %';
+    }
+    return true;
+}</code></pre>
+                    </div>
+
+                    <div class="bs-callout">
+                        <h4>Exemplo Ao Vivo</h4>
+                        <p>Ao pressionar o botão, uma adição de 10% será dada na barra de progresso abaixo.</p>
+                        <div class="exemple">
+                            <div class="progress">
+                                <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">20 %</div>
+                           </div>
+                           <button onclick="aumentar10('progress-bar');" class="btn btn-default">Aumentar 10%</button>
+                        </div>
+                    </div>
+
+                    <h3>Exemplo de role de área de texto</h3>
+
+                    <p>Para criar um elemento de entrada de texto utilizando o role aria <code>textbox</code>, é necessário adiocionar comportamentos específicos através de javascript e estilizar o elemento <code>div</code> para que se comporte como uma entrada de texto. Lembre-se de capturar o conteúdo do elemento utilizando <code>getElementByID('id').innerHTML</code> e, assim, poder realizar as funções que necessita.</p>
+
+                    <h4 id="html-textarea">HTML</h4>
+                    <div class="highlight" aria-labelledby="html-textarea">
+                        <pre><code class="html">&lt;span id=&quot;aria-text-label&quot;&gt;Insira o texto &agrave; seguir:&lt;/span&gt;
+
+&lt;div role=&quot;textbox&quot; contenteditable=&quot;true&quot; aria-labelledby=&quot;aria-text-label&quot; id=&quot;aria-text&quot; aria-multiline=&quot;true&quot;&gt;&lt;/div&gt;
+
+&lt;button onclick=&quot;capturarConteudo();&quot;&gt;&lt;/button&gt;</code></pre>
+</div>
+
+                    <h4 id="css-textarea">CSS</h4>
+                    <div class="highlight" aria-labelledby="css-textarea">
+                        <pre><code class="css">#aria-text {
+    border: 1px solid black;
+    height: 100px;
+}</code></pre>
+                    </div>
+
+                    <h4 id="js-textarea">JS</h4>
+                    <div class="highlight" aria-labelledby="js-textarea">
+                        <pre><code class="js">function capturarConteudo() {
+    var texto = document.getElementById('aria-text').innerHTML;
+    armazenarDado(texto);
+}
+
+function armazenarDado(texto) {
+    // desenvolva aqui seu código para trabalhar com os dados inseridos da forma como for necessária
+}</code></pre>
+                    </div>
+
+                    <div class="bs-callout">
+                        <h4>Exemplo Ao Vivo</h4>
+                        <div class="div-exemplo">
+                            <span id="aria-text-label">Insira o texto à seguir</span>
+                            <div role="textbox" contenteditable="true" aria-labelledby="aria-text-label" id="aria-text" aria-multiline="true"></div>
+                            <button onclick="capturarConteudoExemplo();">Enviar Dados</button>
+                        </div>
+                        <p>O exemplo acima irá executar um alerta do navegador, exibindo o texto que foi escrito dentro do elemento recém criado.</p>
+                    </div>
+
+                    <div class="bs-callout bs-callout-warning">
+                        <p>Tome cuidado, pois </p>
+                    </div>
+
+                    <ul>
+                        <li><code>gridcell</code>:</li>
+                        <li><code>radio</code>:</li>
+                        <li><code>scrollbar</code>:</li>
+                        <li><code>spinbutton</code>:</li>
+                        <li><code>tab</code>:</li>
+                        <li><code>tabpanel</code>:</li>
+                        <li><code>textbox</code>:</li>
+                        <li><code>timer</code>:</li>
+                        <li><code>tooltip</code>:</li>
+                        <li><code>treeitem</code>:</li>
+                    </ul>
 
                     <h2>Navegação pelo Teclado</h2>
 
@@ -566,7 +1250,7 @@
 
                 <section class="bs-docs-section">
                     <div class="page-header">
-                        <h1 id="conteudo    ">Conteúdo e Informação</h1>
+                        <h1 id="conteudo">Conteúdo e Informação</h1>
                     </div>
 
                     <!-- NOTE: ????? -->
@@ -679,6 +1363,7 @@
 
     <script src="../js/docs.min.js"></script>
     <script src="../js/bootstrap-accessibility.js"></script>
+    <script src="../js/app.js"></script>
 
     <!-- Highlight.js -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
