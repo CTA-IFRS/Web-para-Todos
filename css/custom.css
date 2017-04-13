@@ -138,3 +138,57 @@ a .glyphicon-new-window {
     display: inline-block;
     cursor: pointer;
 }
+
+/* Exemplo de link */
+
+[role=link] {
+    color: #0064b4;
+}
+
+[role=link]:focus, [role=link]:hover {
+    color: #23527c;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Exemplo de drag and drop */
+
+.dropzone {
+    color: white;
+    background-color: gray;
+    display: block;
+    width: 350px;
+    height: 200px;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+#draggable {
+    cursor: grab;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    width: 300px;
+    padding: 0.5em;
+}
+
+#draggable:focus, #draggable:hover {
+    border: 3px solid red;
+}
+
+[aria-dropeffect=move] {
+    border: 5px solid black;
+}
+
+.drophover {
+    border: 5px solid red !important;
+}
+
+.dropzone span {
+    font-weight: bold;
+}
+
+.sronly, #alert-area, .indicator-anchor {
+    position: absolute;
+    left: -999em;
+}

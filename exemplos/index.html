@@ -15,6 +15,7 @@
 
     <!-- Documentation extras -->
     <!-- <link rel="stylesheet" href="../css/docs.min.css"> -->
+    <!-- TODO: melhorar isso aqui -->
     <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
 
     <!-- A11y Bootstrap -->
@@ -45,8 +46,9 @@
 
             <h1>Em Construção</h1>
             <p>
-                Essa página web tem a intenção de demonstrar exemplos de componentes e elementos
+                Essa página web tem a intenção demonstrar exemplos de componentes e elementos
                 acessíveis.
+                <!-- TODO: melhorar esse texto -->
             </p>
 
         </div>
@@ -251,7 +253,7 @@
 
                     <p>
                         ARIA é uma especificação técnica, publicada pela W3C, que discursa sobre
-                        como melhorar a acessibilidade de páginas web, em particular como providenciar
+                        como melhorar a acessibilidade páginas web, em particular como providenciar
                         informação semântica de conteúdos dinâmicos e componentes de interface de usuário.
                     </p>
                     <p>
@@ -299,9 +301,11 @@
 
                     <h4>Roles Abstratos</h4>
 
+                    <!-- TODO: acabar os roles abstratos -->
+
                     <p>
                         Estes roles são utilizados para dar suporte à taxonomia
-                        do role ARIA, para o propósito de definir conceitos gerais
+                        do role ARIA, para o propósito definir conceitos gerais
                         de role. São usados para indicar a natureza do elemento, e não devem ser
                         utilizados em conteúdo.
                     </p>
@@ -378,6 +382,8 @@
 
                     <h4>Roles de Widgets</h4>
 
+                    <!-- TODO: acabar os roles de widgets -->
+
                     <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para exemplos de utilização de roles de widgets.</p>
 
                     <p>Na tabela abaixo, estão relacionados os roles para composições de widgets (que representaram o widget em si) com os roles utilizados para descrever os elementos deste widget (os roles "filhos").</p>
@@ -435,6 +441,8 @@
 
                     <h4>Roles de Estrutura de Documento</h4>
 
+                    <!-- TODO: organizar melhor isso aqui -->
+
                     <p>Definem estruturas que organizam um elemento semanticamente, geralmente não interativas.</p>
 
                     <ul>
@@ -460,6 +468,8 @@
                     </ul>
 
                     <h4>Landmark Roles</h4>
+
+                    <!-- TODO: finalizar tabela de landmark roles -->
 
                     <p>Esse tipo de role é utilizado para caracterizar pontos de referência numa página, marcos de navegação. Vejamos o seguinte exemplo:</p>
                     <div class="highlight">
@@ -602,14 +612,16 @@
                     <!-- TODO: organizar isso daí embaixo -->
 
                     <h4>Atributos de Widget</h4>
+                        <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para ver os exemplos de atributos para widgets de ARIA.</p>
                     <h4>Atributos de regiões dinâmicas (live)</h4>
+                    <!-- TODO: fazer exemplos de regiões dinâmicas -->
                         <h5>aria-live</h5>
                         <h5>aria-atomic</h5>
                         <h5>aria-busy</h5>
                         <h5>aria-relevant</h5>
                     <h4>Atributos de "Arrastar e Soltar"</h4>
-                        <h5>aria-dropeffect</h5>
-                        <h5>aria-grabbed</h5>
+                        <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para ver os exemplos de atributos para widgets do tipo arrastar e soltar.</p>
+                    <!-- TODO: ver melhor qualéqueé sobre atributos de relacionamentos e estados e propriedades globais -->
                     <h4>Atributos de Relacionamentos</h4>
                     <h4>Estados e Propriedades Globais</h4>
 
@@ -625,7 +637,7 @@
                             exceções nessa regra, segundo a W3C:</p>
                         <ul>
                             <li>Se o recurso está disponível no HTML mas não é implementado, ou é implementado mas não há suporte à acessibilidade.</li>
-                            <li>Se as restrições de design visual excluem o uso de um elemento nativo em particular, porque o elemento não pode ser estilizado como necessário.</li>
+                            <li>Se as restrições design visual excluem o uso de um elemento nativo em particular, porque o elemento não pode ser estilizado como necessário.</li>
                             <li>Se o recurso não está disponível no HTML.</li>
                         </ul>
                         <p>Também não modifique semânticas nativas, como adicionar uma tag <code>p</code> com um role <code>button</code>!</p>
@@ -640,74 +652,85 @@
                         <h1 id="comportamento">Comportamento (DOM)</h1>
                     </div>
 
-                    <h2>Widgets Acessíveis com ARIA</h2>
+                    <div id="widgets-aria">
+                        <h2>Widgets Acessíveis com ARIA</h2>
 
-                    <p>
-                        Roles utilizados para representar widgets gráficos ou como parte de uma maior composição de widgets. Veja os exemplos a seguir:
-                    </p>
+                        <p>
+                            Existe uma infinidade de necessidades que
+                            desenvolvedores devem solucionar através da
+                            construção de widgets: componentes de interface de
+                            usuário que realizam determinadas funções de forma
+                            dinâmica. Entretanto, a maioria destes não possui
+                            forma de implementação nativa, ou a mesma não pode
+                            ser utilizada. Para tal, cabe ao desenvolvedor saber
+                            utilizar recursos específicos de acessibilidade, como
+                            o ARIA, para construir estes widgets. Veja os exemplos a seguir:
+                        </p>
 
-                    <h3>Exemplo de roles de alerta e diálogo de alerta:</h3>
+                        <h3>Widget de alerta e diálogo de alerta:</h3>
 
-                    <div class="bs-callout bs-callout-danger" role="alert">
-                        <h4>Ajude-nos!</h4>
-                        <p>Este exemplo precisa de aperfeiçoamento.</p>
-                    </div>
+                        <!-- TODO: melhorar o exeplo de widget de alerta e diálogo de alerta -->
 
-                    <p>Os exemplos à seguir não necessitam de muita configuração por serem mais uma questão de marcação adequada, talvez com exceção do diálogo de alerta.</p>
+                        <div class="bs-callout bs-callout-danger" role="alert">
+                            <h4>Ajude-nos!</h4>
+                            <p>Este exemplo precisa de aperfeiçoamento.</p>
+                        </div>
 
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;p role=&quot;alert&quot;&gt;Voc&ecirc; deve ler e aceitar os termos de uso!&lt;/p&gt;</code>
-                        </pre>
-                    </div>
+                        <p>Os exemplos à seguir não necessitam de muita configuração por sere mais uma questão de marcação adequada, talvez com exceção do diálogo de alerta.</p>
 
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;div role=&quot;alertdialog&quot; aria-labelledby=&quot;titulo&quot; aria-describedby=&quot;descricao&quot;&gt;
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;p role=&quot;alert&quot;&gt;Voc&ecirc; deve ler e aceitar os termos de uso!&lt;/p&gt;</code>
+                            </pre>
+                        </div>
+
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;div role=&quot;alertdialog&quot; aria-labelledby=&quot;titulo&quot; aria-describedby=&quot;descricao&quot;&gt;
     &lt;div role=&quot;document&quot; tabindex=&quot;0&quot;&gt;
         &lt;h2 id=&quot;titulo&quot;&gt;Sua sess&atilde;o de login est&aacute; para expirar!&lt;/h2&gt;
         &lt;p id=&quot;descricao&quot;&gt;Clique no botão abaixo para extender sua sessão&lt;/p&gt;
         &lt;button&gt;OK&lt;/button&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code>
-                        </pre>
-                    </div>
+                            </pre>
+                        </div>
 
-                    <div class="bs-callout">
-                        <h4>Exemplos</h4>
-                        <h5>Alerta</h5>
-                        <p role="alert" class="alert alert-info">Você deve ler e aceitar os termos de uso!</p>
+                        <div class="bs-callout">
+                            <h4>Exemplos</h4>
+                            <h5>Alerta</h5>
+                            <p role="alert" class="alert alert-info">Você deve ler e aceitar os termos de uso!</p>
 
-                        <h5>Diálogo de Alerta</h5>
+                            <h5>Diálogo de Alerta</h5>
 
-                        <button onclick="modalDialogoAlerta();" class="btn btn-primary">Abrir Modal de Diálogo de Alerta</button>
+                            <button onclick="modalDialogoAlerta();" class="btn btn-primary">Abrir Modal de Diálogo de Alerta</button>
 
-                        <div id="modal-area" style="display: none;">
-                            <div role="alertdialog" aria-labelledby="titulo" aria-describedby="descricao" class="bs-callout bs-callout-warning">
-                                <div role="document" tabindex="0">
-                                    <h6 id="titulo">Sua sessão de login está para expirar!</h6>
-                                    <p id="descricao">Clique no botão abaixo para extender sua sessão</p>
-                                    <button class="btn btn-primary" onclick="closeModalDialogoAlerta();">OK</button>
+                            <div id="modal-area" style="display: none;">
+                                <div role="alertdialog" aria-labelledby="titulo" aria-describedby="descricao" class="bs-callout bs-callout-warning">
+                                    <div role="document" tabindex="0">
+                                        <h6 id="titulo">Sua sessão de login está para expirar!</h6>
+                                        <p id="descricao">Clique no botão abaixo para extender sua sessão</p>
+                                        <button class="btn btn-primary" onclick="closeModalDialogoAlerta();">OK</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
 
-                    <h3>Exemplo de role de botão:</h3>
-                    <p>Mesmo com o recurso já implementado, muitas vezes por questões de estilização, o desenvolvedor necessita criar um botão do zero. Para isso, é importante utilizar o role apropriado, além de disponibilizar todas as funções padrões de um botão, como executar sua ação com o clique da tecla Enter, com o clique do mouse, modificar o cursor e a aparência do botão em determinados eventos, entre outros. Veja o exemplo à seguir:</p>
-                    <h4>HTML</h4>
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;span role=&quot;button&quot; class=&quot;span-btn&quot; tabindex=&quot;0&quot; onclick=&quot;acaoBotao();&quot; onkeypress=&quot;if (event.keyCode==13) acaoBotao();&quot;&gt;OK!&lt;/span&gt;</code>
-                        </pre>
-                    </div>
+                        <h3>Widget de botão:</h3>
+                        <p>Mesmo com o recurso já implementado, muitas vezes por questões de estilização, o desenvolvedor necessita criar um botão do zero. Para isso, é importante utilizar o role apropriado, além de disponibilizar todas as funções padrões de um botão, como executar sua ação com o clique da tecla Enter, com o clique do mouse, modificar o cursor e a aparência do botão em determinados eventos, entre outros. Veja o exemplo à seguir:</p>
+                        <h4>HTML</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;span role=&quot;button&quot; id=&quot;aria-button&quot; class=&quot;span-btn&quot; tabindex=&quot;0&quot;&gt;OK!&lt;/span&gt;</code>
+                            </pre>
+                        </div>
 
-                    <h4>CSS</h4>
-                    <div class="highlight">
-                        <pre>
-                            <code class="css">.span-btn {
+                        <h4>CSS</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="css">.span-btn {
   background-color: blue;
   color: white;
   font-weight: bold;
@@ -726,37 +749,43 @@
 .span-btn:focus {
     border: 1px dotted white;
 }</code>
-                        </pre>
-                    </div>
-
-                    <h4>JS</h4>
-                    <div class="highlight">
-                        <pre><code class="js">function acaoBotao() {
-  // ação realizada pelo botão
-  alert('Botão Pressionado com sucesso!');
-}</code></pre>
-                    </div>
-
-                    <div class="div-exemplo">
-                        <div class="bs-callout">
-                            <h4>Exemplo de botão</h4>
-                            <span class="space"></span>
-                            <span role="button" class="span-btn" tabindex="0" onclick="acaoBotao();" onkeypress="if (event.keyCode==13) acaoBotao();">OK!</span>
+                            </pre>
                         </div>
-                    </div>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Não utilize este role em elementos <code>button</code> ou <code>input</code> do tipo button, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
-                    </div>
+
+                        <h4>JS</h4>
+                        <div class="highlight">
+                            <pre><code class="js">var btn = document.getElementById('aria-button');
+function acaoBotao() {
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        // ação realizada pelo botão
+        alert('Botão Pressionado com sucesso!');
+    }
+}
+btn.addEventListener('click', acaoBotao);
+btn.addEventListener('keypress', acaoBotao);</code></pre>
+                        </div>
+
+                        <div class="div-exemplo">
+                            <div class="bs-callout">
+                                <h4>Exemplo de botão</h4>
+                                <span class="space"></span>
+                                <span role="button" id="aria-button" class="span-btn" tabindex="0">OK!</span>
+                            </div>
+                        </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Não utilize este role em elementos <code>button</code> ou <code>input</code> do tipo button, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                        </div>
 
 
 
-                    <h3>Exemplo de roles de menu:</h3>
+                        <h3>Widget de menu:</h3>
 
+                        <!-- TODO: criar texto para widget de menu -->
 
-                    <h4>HTML</h4>
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;ul role=&quot;menu&quot; id=&quot;vertical-menu&quot; tabindex=&quot;0&quot;&gt;
+                        <h4>HTML</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;ul role=&quot;menu&quot; id=&quot;vertical-menu&quot; tabindex=&quot;0&quot;&gt;
     &lt;li tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Item 1&lt;/li&gt;
     &lt;li tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Item 2&lt;/li&gt;
     &lt;div role=&quot;group&quot; id=&quot;radiogroup&quot;&gt;
@@ -766,9 +795,9 @@
     &lt;/div&gt;
 &lt;/ul&gt;
 
-</code></pre></div>
-<div class="highlight">
-<pre><code class="html">&lt;div role=&quot;menubar&quot; id=&quot;horizontal-menu&quot; tabindex=&quot;0&quot;&gt;
+    </code></pre></div>
+    <div class="highlight">
+    <pre><code class="html">&lt;div role=&quot;menubar&quot; id=&quot;horizontal-menu&quot; tabindex=&quot;0&quot;&gt;
     &lt;span tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Novo Documento&lt;/span&gt;
     &lt;span tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Abrir Documento&lt;/span&gt;
     &lt;div role=&quot;group&quot;&gt;
@@ -776,12 +805,12 @@
         &lt;span tabindex=&quot;0&quot; class=&quot;checkbox-item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot;&gt;Salvar na Nuvem&lt;/span&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code>
-                        </pre>
-                    </div>
+                            </pre>
+                        </div>
 
-                    <h4>CSS</h4>
-                    <div class="highlight">
-                        <pre><code class="css">li[role=menuitem], li[role=menuitemradio], li[role=menuitemcheckbox] {
+                        <h4>CSS</h4>
+                        <div class="highlight">
+                            <pre><code class="css">li[role=menuitem], li[role=menuitemradio], li[role=menuitemcheckbox] {
     list-style: none;
     display: block
 }
@@ -809,11 +838,11 @@ span[role=menuitem], span[role=menuitemradio], span[role=menuitemcheckbox] {
 [aria-checked="true"] {
     background-color: grey !important;
 }</code></pre>
-                    </div>
+                        </div>
 
-                    <h4>JS</h4>
-                    <div class="highlight">
-                        <pre><code class="js">function mudarEstado(e){
+                        <h4>JS</h4>
+                        <div class="highlight">
+                            <pre><code class="js">function mudarEstado(e){
     if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
         var obj = e.target;
         if (obj) {
@@ -866,61 +895,63 @@ for (var i = 0; i < elements.length; i++) {
     elements[i].addEventListener('click', mudarEstadoRadio);
     elements[i].addEventListener('keydown', mudarEstadoRadio);
 }</code></pre>
-                    </div>
+                        </div>
 
-                    <div class="div-exemplo">
-                        <div class="bs-callout example-menu">
-                            <h4>Exemplos Ao Vivo</h4>
+                        <div class="div-exemplo">
+                            <div class="bs-callout example-menu">
+                                <h4>Exemplos Ao Vivo</h4>
 
-                            <h5>Menu Vertical com Seleções Únicas no Grupo de Opções</h5>
+                                <h5>Menu Vertical com Seleções Únicas no Grupo de Opções</h5>
 
-                            <ul role="menu" id="vertical-menu" tabindex="0">
-                                <li tabindex="0" role="menuitem">Item 1</li>
-                                <li tabindex="0" role="menuitem">Item 2</li>
-                                <div role="group" id="radiogroup">
-                                    <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 1</li>
-                                    <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 2</li>
-                                    <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="true">Opção 3</li>
-                                </div>
-                            </ul>
+                                <ul role="menu" id="vertical-menu" tabindex="0">
+                                    <li tabindex="0" role="menuitem">Item 1</li>
+                                    <li tabindex="0" role="menuitem">Item 2</li>
+                                    <div role="group" id="radiogroup">
+                                        <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 1</li>
+                                        <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 2</li>
+                                        <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="true">Opção 3</li>
+                                    </div>
+                                </ul>
 
-                            <h5>Menu Horizontal com Seleções Múltiplas no Grupo de Opções</h5>
+                                <h5>Menu Horizontal com Seleções Múltiplas no Grupo de Opções</h5>
 
-                            <div role="menubar" id="horizontal-menu" tabindex="0">
-                                <span tabindex="0" role="menuitem">Novo Documento</span>
-                                <span tabindex="0" role="menuitem">Abrir Documento</span>
-                                <div role="group">
-                                    <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="true">Salvar Automaticamente</span>
-                                    <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="false">Salvar na Nuvem</span>
+                                <div role="menubar" id="horizontal-menu" tabindex="0">
+                                    <span tabindex="0" role="menuitem">Novo Documento</span>
+                                    <span tabindex="0" role="menuitem">Abrir Documento</span>
+                                    <div role="group">
+                                        <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="true">Salvar Automaticamente</span>
+                                        <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="false">Salvar na Nuvem</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="bs-callout bs-callout-info">
-                        <p>Enquanto <code>menu</code> representa um menu de forma genérica, <code>menubar</code> necessariamente representa um menu horizontal.</p>
-                    </div>
-                    <div class="bs-callout bs-callout-info">
-                        <p>Menus não precisam, necessariamente, serem atribuidos à listas (elemento <code>ul</code>).</p>
-                    </div>
-
+                        <div class="bs-callout bs-callout-info">
+                            <p>Enquanto <code>menu</code> representa um menu de forma genérica, <code>menubar</code> necessariamente representa um menu horizontal.</p>
+                        </div>
+                        <div class="bs-callout bs-callout-info">
+                            <p>Menus não precisam, necessariamente, serem atribuidos à listas (elemento <code>ul</code>).</p>
+                        </div>
 
 
-                    <h3>Exemplo de role de caixa de seleção e "interruptor" (<span lang="en">switch</span>):</h3>
 
-                    <h4>HTML</h4>
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
+                        <h3>Widget de caixa de seleção e "interruptor" (<span lang="en">switch</span>):</h3>
+
+                        <!-- TODO: texto para widget de caixa de seleção e interruptor -->
+
+                        <h4>HTML</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
     &lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
     &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
 &lt;/div&gt;</code>
-                        </pre>
-                    </div>
+                            </pre>
+                        </div>
 
-                    <h4>CSS</h4>
-                    <div class="highlight">
-                        <pre><code class="css">.example-checkbox span[aria-checked=false] {
+                        <h4>CSS</h4>
+                        <div class="highlight">
+                            <pre><code class="css">.example-checkbox span[aria-checked=false] {
     width: 17px;
     height: 17px;
     background-color: grey;
@@ -934,11 +965,11 @@ for (var i = 0; i < elements.length; i++) {
     display: inline-block;
     cursor: pointer;
 }</code></pre>
-                    </div>
+                        </div>
 
-                    <h4>JS</h4>
-                    <div class="highlight">
-                        <pre><code class="js">function trocarSelecao(e) {
+                        <h4>JS</h4>
+                        <div class="highlight">
+                            <pre><code class="js">function trocarSelecao(e) {
     if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
         if (e.target.getAttribute('aria-checked') == 'true') {
             e.target.setAttribute('aria-checked', 'false');
@@ -952,112 +983,160 @@ for (var i = 0; i < elements.length; i++) {
 var checkbox = document.getElementById('chk1');
 checkbox.addEventListener('click', trocarSelecao);
 checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
-                    </div>
-
-                    <div class="bs-callout">
-                        <h4>Exemplo Ao Vivo</h4>
-                        <div class="example-checkbox">
-                            <span role="checkbox" aria-checked="false" tabindex="0" id="chk1"></span>
-                            <label for="chk1">Lembrar minhas preferências</label>
                         </div>
-                    </div>
 
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Não utilize este role em elementos <code>input</code> do tipo checkbox, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
-                        <p>Também lembre-se que, se for extritamente necessário construir uma caixa de seleção dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
-                    </div>
+                        <div class="bs-callout">
+                            <h4>Exemplo</h4>
+                            <div class="example-checkbox">
+                                <span role="checkbox" aria-checked="false" tabindex="0" id="chk1"></span>
+                                <label for="chk1">Lembrar minhas preferências</label>
+                            </div>
+                        </div>
 
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Não utilize este role em elementos <code>input</code> do tipo checkbox, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                            <p>Também lembre-se que, se for extritamente necessário construir uma caixa de seleção dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+                        </div>
+
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
 &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas preferências&lt;/label&gt;</code>
-                        </pre>
-                    </div>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Este role é muito parecido com o role de caixa de seleção, entretanto, não admite valor misto. Este tipo de valor deve ser tratado por agentes de usuário como igual a <code>false</code></p>
-                    </div>
+                            </pre>
+                        </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Este role é muito parecido com o role de caixa de seleção, entretanto, não admite valor misto. Este tipo de valor deve ser tratado por agentes de usuário como igual a <code>false</code></p>
+                            <p>Para diferenciá-lo do exemplo da caixa de seleção, você pode alterar o CSS de forma que visualmente o elemento lembre um switch.</p>
+                        </div>
 
 
 
-                    <h3>Exemplo de role de caixa de diálogo:</h3>
-                    <div class="highlight">
-                        <pre>
-<code class="html">&lt;div role=&quot;dialog&quot; aria-labelledby=&quot;titulo&quot; aria-describedby=&quot;descricao&quot;&gt;
+                        <h3>Widget de caixa de diálogo:</h3>
+
+                        <!-- TODO: melhorar exemplo de widget de caixa de diálogo -->
+
+                        <div class="highlight">
+                            <pre>
+    <code class="html">&lt;div role=&quot;dialog&quot; aria-labelledby=&quot;titulo&quot; aria-describedby=&quot;descricao&quot;&gt;
     &lt;h2 id=&quot;titulo&quot;&gt;Mensagem enviada com sucesso!&lt;/h2&gt;
     &lt;p id=&quot;descricao&quot;&gt;Sua mensagem foi enviada e ser&aacute; respondida brevemente.&lt;/p&gt;
     &lt;button&gt;Fechar&lt;/button&gt;
 &lt;/div&gt;</code>
-                        </pre>
-                    </div>
+                            </pre>
+                        </div>
 
 
 
-                    <h3>Exemplo de role de link:</h3>
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;span role=&quot;link&quot;&gt;Isto &eacute; um link&lt;/span&gt;</code>
-                        </pre>
-                    </div>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Não utilize este role em links nativos do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
-                        <p>Também lembre-se que, se for extritamente necessário construir um link dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
-                    </div>
+                        <h3>Widget de link:</h3>
 
-                    <h3>Exemplo de role de status:</h3>
-                    <div class="highlight">
-                        <pre>
-                            <code class="html">&lt;p role=&quot;status&quot;&gt;Suas mudanças foram salvas automaticamente.&lt;/p&gt;</code>
-                        </pre>
-                    </div>
+                        <!-- TODO: fazer texto para widget de link -->
 
-                    <h3>Exemplo de role de log e marquee:</h3>
-                    <div class="highlight">
-                        <pre><code class="html">&lt;div id=&quot;chat&quot; role=&quot;log&quot; aria-live=&quot;polite&quot;&gt;
-    ...
+                        <h4>HTML</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;span role=&quot;link&quot; id=&quot;link&quot; tabindex=&quot;0&quot;&gt;Site do Centro Tecn&oacute;l&oacute;gico de Acessibilidade&lt;/span&gt;</code>
+                            </pre>
+                        </div>
+
+                        <h4>CSS</h4>
+                        <div class="highlight">
+                            <pre><code class="css">[role=link] {
+    color: #0064b4;
+}
+
+[role=link]:focus, [role=link]:hover {
+    color: #23527c;
+    text-decoration: underline;
+    cursor: pointer;
+}</code></pre>
+                        </div>
+
+                        <h4>JS</h4>
+                        <div class="highlight">
+                            <pre><code class="js">var link = document.getElementById('link');
+
+function linkToCTA(e) {
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        window.location.href = 'http://cta.ifrs.edu.br';
+    }
+}
+
+link.addEventListener('click', linkToCTA);
+link.addEventListener('keypress', linkToCTA);</code></pre>
+                        </div>
+
+                        <div class="bs-callout">
+                            <h4>Exemplo</h4>
+                            <span role="link" id="link" tabindex="0">Site do Centro Tecnólógico de Acessibilidade</span>
+                        </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Não utilize este role em links nativos do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                            <p>Também lembre-se que, se for extritamente necessário construir um link dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+                        </div>
+
+                        <h3>Widget de status:</h3>
+
+                        <!-- TODO: melhorar exemplo de widget de status -->
+
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;p role=&quot;status&quot;&gt;Suas mudanças foram salvas automaticamente.&lt;/p&gt;</code>
+                            </pre>
+                        </div>
+
+                        <h3>Widget de log e marquee:</h3>
+
+                        <!-- TODO: melhorar exemplo de widget de log e marquee -->
+
+                        <div class="highlight">
+                            <pre><code class="html">&lt;div id=&quot;chat&quot; role=&quot;log&quot; aria-live=&quot;polite&quot;&gt;
+        ...
 &lt;/div&gt;</code></pre>
-                    </div>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Utilizar role log implica que a região possui o valor <code>polite</code> para o a propriedade aria-live.</p>
-                    </div>
-                    <div class="highlight">
-                        <pre><code class="html">&lt;div class=&quot;algumacoisa&quot; role=&quot;marquee&quot; aria-live=&quot;polite&quot;&gt;
-    ...
+                        </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Utilizar role log implica que a região possui o valor <code>polite</code> para o a propriedade aria-live.</p>
+                        </div>
+                        <div class="highlight">
+                            <pre><code class="html">&lt;div class=&quot;algumacoisa&quot; role=&quot;marquee&quot; aria-live=&quot;polite&quot;&gt;
+        ...
 &lt;/div&gt;</code></pre>
-                    </div>
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Utilizar role marquee implica que a região possui o valor <code>off</code> para o a propriedade aria-live.</p>
-                    </div>
-                    <div class="bs-callout bs-callout-info">
-                        <p>Substitua o role log por marquee em casos em que a região live é atualizada com informação que não é relevante.</p>
-                    </div>
+                        </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Utilizar role marquee implica que a região possui o valor <code>off</code> para o a propriedade aria-live.</p>
+                        </div>
+                        <div class="bs-callout bs-callout-info">
+                            <p>Substitua o role log por marquee em casos em que a região live é atualizada com informação que não é relevante.</p>
+                        </div>
 
-                    <h3>Exemplo do roles list, listbox e combobox</h3>
+                        <h3>Exemplo do widgets de list, listbox e combobox</h3>
 
-                    <p>Os exemplos abaixo demonstram a utilização de listas e listas interativas, contendo opções ou funcionando de forma similar a elementos <code>select</code>. No primeiro, temos um exemplo de uma lista simples e não interativa.</p>
+                        <!-- TODO: melhorar exemplo de list, listbox e combobox -->
 
-                    <div class="highlight">
-                        <pre><code class="html">&lt;div class=&quot;lista&quot; role=&quot;list&quot;&gt;
+                        <p>Os exemplos abaixo demonstram a utilização de listas e listas interativas, contendo opções ou funcionando de forma similar a elementos <code>select</code>. No primeiro, temos um exemplo de uma lista simples e não interativa.</p>
+
+                        <div class="highlight">
+                            <pre><code class="html">&lt;div class=&quot;lista&quot; role=&quot;list&quot;&gt;
     &lt;div role=&quot;listitem&quot;&gt;Ovos&lt;/div&gt;
     &lt;div role=&quot;listitem&quot;&gt;Farinha&lt;/div&gt;
     &lt;div role=&quot;listitem&quot;&gt;Leite&lt;/div&gt;
     &lt;div role=&quot;listitem&quot;&gt;P&atilde;o&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                    </div>
+                        </div>
 
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Não utilize este role em listas nativas do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
-                    </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Não utilize este role em listas nativas do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                        </div>
 
 
-                    <p>Para criar listas interativas, há roles diferentes de <code>list</code>, e um deles é o <code>listbox</code>. No exemplo abaixo, há uma lista de itens selecionáveis.</p>
-                    <!-- onclick=&quot;return listItemClick(event);&quot;
-                    onkeydown=&quot;return listItemKeyEvent(event);&quot;
-                    onkeypress=&quot;return listItemKeyEvent(event);&quot;
-                    onfocus=&quot;this.className=&apos;focus&apos;;&quot;
-                    onblur=&quot;this.className=&apos;blur&apos;;&quot; -->
+                        <p>Para criar listas interativas, há roles diferentes de <code>list</code>, e um deles é o <code>listbox</code>. No exemplo abaixo, há uma lista de itens selecionáveis.</p>
+                        <!-- onclick=&quot;return listItemClick(event);&quot;
+                        onkeydown=&quot;return listItemKeyEvent(event);&quot;
+                        onkeypress=&quot;return listItemKeyEvent(event);&quot;
+                        onfocus=&quot;this.className=&apos;focus&apos;;&quot;
+                        onblur=&quot;this.className=&apos;blur&apos;;&quot; -->
 
-                    <div class="highlight">
-                        <pre><code class="html">&lt;div role=&quot;listbox&quot; tabindex=&quot;0&quot; id=&quot;listbox1&quot; aria-activedescendant=&quot;listbox1-1&quot;&gt;
+                        <div class="highlight">
+                            <pre><code class="html">&lt;div role=&quot;listbox&quot; tabindex=&quot;0&quot; id=&quot;listbox1&quot; aria-activedescendant=&quot;listbox1-1&quot;&gt;
     &lt;div role=&quot;option&quot; id=&quot;listbox1-1&quot; class=&quot;selected&quot;&gt;Verde&lt;/div&gt;
     &lt;div role=&quot;option&quot; id=&quot;listbox1-2&quot;&gt;Laranja&lt;/div&gt;
     &lt;div role=&quot;option&quot; id=&quot;listbox1-3&quot;&gt;Vermelho&lt;/div&gt;
@@ -1065,12 +1144,12 @@ checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
     &lt;div role=&quot;option&quot; id=&quot;listbox1-5&quot;&gt;Preto&lt;/div&gt;
     &lt;div role=&quot;option&quot; id=&quot;listbox1-6&quot;&gt;Violeta&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                    </div>
+                        </div>
 
-                    <p>Outro role para listas interativas é o <code>combobox</code>, muito semelhante à <code>textbox</code> e utilizado em widgets que sejam como um elemento <code>select</code>, porém com uma entrada de usuário para busca ou adição de novo item. Note que ainda há uma lista utilizando <code>listbox</code> abaixo do elemento <code>input</code> com o role <code>combobox</code>.</p>
+                        <p>Outro role para listas interativas é o <code>combobox</code>, muito semelhante à <code>textbox</code> e utilizado em widgets que sejam como um elemento <code>select</code>, porém com uma entrada de usuário para busca ou adição de novo item. Note que ainda há uma lista utilizando <code>listbox</code> abaixo do elemento <code>input</code> com o role <code>combobox</code>.</p>
 
-                    <div class="highlight">
-                        <pre><code class="html">&lt;input type=&quot;text&quot;
+                        <div class="highlight">
+                            <pre><code class="html">&lt;input type=&quot;text&quot;
     aria-label=&quot;Tag&quot;
     role=&quot;combobox&quot;
     aria-expanded=&quot;true&quot;
@@ -1081,21 +1160,23 @@ aria-activedescendant=&quot;opcao_selecionada&quot;&gt;
     &lt;li role=&quot;option&quot;&gt;Zebra&lt;/li&gt;
     &lt;li role=&quot;option&quot; id=&quot;opcao_selecionada&quot;&gt;Zoom&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-                    </div>
+                        </div>
 
-                    <div class="bs-callout bs-callout-info">
-                        <p>É imporante lembrar que nos casos dos roles <code>listbox</code> e <code>combobox</code>, precisa-se desenvolver todas operações através de JavaScript, como a seleção de opções e afins.</p>
-                    </div>
+                        <div class="bs-callout bs-callout-info">
+                            <p>É imporante lembrar que nos casos dos roles <code>listbox</code> e <code>combobox</code>, precisa-se desenvolver todas operações através de JavaScript, como a seleção de opções e afins.</p>
+                        </div>
 
-                    <h3>Exemplo de role slider</h3>
+                        <h3>Widget slider</h3>
 
-                    <div class="bs-callout bs-callout-danger">
-                        <h4>Precisa de melhorias!</h4>
-                        <p>Neste exemplo há falta de JavaScript e CSS apropriados para a criação do widget.</p>
-                    </div>
+                        <!-- TODO: melhorar exemplo de slider -->
 
-                    <div class="highlight">
-                        <pre><code class="html">&lt;label for=&quot;day-handle&quot;&gt;Dias da Semana&lt;/label&gt;
+                        <div class="bs-callout bs-callout-danger">
+                            <h4>Precisa de melhorias!</h4>
+                            <p>Neste exemplo há falta de JavaScript e CSS apropriados para a criação do widget.</p>
+                        </div>
+
+                        <div class="highlight">
+                            <pre><code class="html">&lt;label for=&quot;day-handle&quot;&gt;Dias da Semana&lt;/label&gt;
 &lt;div class=&quot;day-slider&quot;&gt;
   &lt;div id=&quot;day-handle&quot; class=&quot;day-slider-handle&quot; role=&quot;slider&quot; aria-labelledby=&quot;day-handle&quot;
      aria-valuemin=&quot;1&quot;
@@ -1104,24 +1185,24 @@ aria-activedescendant=&quot;opcao_selecionada&quot;&gt;
      aria-valuetext=&quot;Segunda-feira&quot;&gt;
  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                    </div>
+                        </div>
 
-                    <div class="highlight">
-                        <pre><code class="js">var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        <div class="highlight">
+                            <pre><code class="js">var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var updateSlider = function (newValue) {
     var handle = document.getElementById("day-handle");
     handle.setAttribute("aria-valuenow", newValue.toString());
     handle.setAttribute("aria-valuetext", dayNames[newValue]);
 };</code></pre>
-                    </div>
+                        </div>
 
-                    <h3>Exemplo de role de barra de progresso</h3>
+                        <h3>Widget de barra de progresso</h3>
 
-                    <p>Utilizando os roles e atributos de estado e propriedades adequados, uma barra de progresso que faria diferença apenas visual pode, agora, apresentar valores máximos, mínimos e ainda indicar o valor atual.</p>
+                        <p>Utilizando os roles e atributos de estado e propriedades adequados, uma barra de progresso que faria diferença apenas visual pode, agora, apresentar valores máximos, mínimos e ainda indicar o valor atual.</p>
 
-                    <h4 id="html-progressbar">HTML</h4>
-                    <div class="highlight" aria-labelledby="html-progressbar">
-                        <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
+                        <h4 id="html-progressbar">HTML</h4>
+                        <div class="highlight" aria-labelledby="html-progressbar">
+                            <pre><code class="html">&lt;div class=&quot;progress&quot;&gt;
     &lt;div class=&quot;progress-bar&quot; id=&quot;progress-bar&quot;
     role=&quot;progressbar&quot;
     aria-valuenow=&quot;20&quot;
@@ -1132,11 +1213,11 @@ var updateSlider = function (newValue) {
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;button onclick=&quot;aumentar10(&apos;progress-bar&apos;);&quot; &gt;Aumentar 10%&lt;/button&gt;</code></pre>
-                    </div>
+                        </div>
 
-                    <h4 id="css-progressbar">CSS</h4>
-                    <div class="highlight" aria-labelledby="css-progressbar">
-                        <pre><code class="css">#progress {
+                        <h4 id="css-progressbar">CSS</h4>
+                        <div class="highlight" aria-labelledby="css-progressbar">
+                            <pre><code class="css">#progress {
     height: 30px;
     overflow: hidden;
     background-color: #f5f5f5;
@@ -1151,11 +1232,11 @@ var updateSlider = function (newValue) {
     background-color: blue;
     transition: width .6s ease;
 }</code></pre>
-                    </div>
+                        </div>
 
-                    <h4 id="js-progressbar">JS</h4>
-                    <div class="highlight" aria-labelledby="js-progressbar">
-                        <pre><code class="js">function aumentar10(progressbarID) {
+                        <h4 id="js-progressbar">JS</h4>
+                        <div class="highlight" aria-labelledby="js-progressbar">
+                            <pre><code class="js">function aumentar10(progressbarID) {
     var barra = document.getElementById(progressbarID);
     valuenow = barra.getAttribute('aria-valuenow');
     if (valuenow != "100") {
@@ -1166,43 +1247,43 @@ var updateSlider = function (newValue) {
     }
     return true;
 }</code></pre>
-                    </div>
-
-                    <div class="bs-callout">
-                        <h4>Exemplo Ao Vivo</h4>
-                        <p>Ao pressionar o botão, uma adição de 10% será dada na barra de progresso abaixo.</p>
-                        <div class="exemple">
-                            <div class="progress">
-                                <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">20 %</div>
-                           </div>
-                           <button onclick="aumentar10('progress-bar');" class="btn btn-default">Aumentar 10%</button>
                         </div>
-                    </div>
 
-                    <h3>Exemplo de role de área de texto</h3>
+                        <div class="bs-callout">
+                            <h4>Exemplo</h4>
+                            <p>Ao pressionar o botão, uma adição de 10% será dada na barra de progresso abaixo.</p>
+                            <div class="exemple">
+                                <div class="progress">
+                                    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">20 %</div>
+                               </div>
+                               <button onclick="aumentar10('progress-bar');" class="btn btn-default">Aumentar 10%</button>
+                            </div>
+                        </div>
 
-                    <p>Para criar um elemento de entrada de texto utilizando o role aria <code>textbox</code>, é necessário adiocionar comportamentos específicos através de javascript e estilizar o elemento <code>div</code> para que se comporte como uma entrada de texto. Lembre-se de capturar o conteúdo do elemento utilizando <code>getElementByID('id').innerHTML</code> e, assim, poder realizar as funções que necessita.</p>
+                        <h3>Widget de área de texto</h3>
 
-                    <h4 id="html-textarea">HTML</h4>
-                    <div class="highlight" aria-labelledby="html-textarea">
-                        <pre><code class="html">&lt;span id=&quot;aria-text-label&quot;&gt;Insira o texto &agrave; seguir:&lt;/span&gt;
+                        <p>Para criar um elemento de entrada de texto utilizando o role aria <code>textbox</code>, é necessário adiocionar comportamentos específicos através de javascript e estilizar o elemento <code>div</code> para que se comporte como uma entrada de texto. Lembre-se de capturar o conteúdo do elemento utilizando <code>getElementByID('id').innerHTML</code> e, assim, poder realizar as funções que necessita.</p>
+
+                        <h4 id="html-textarea">HTML</h4>
+                        <div class="highlight" aria-labelledby="html-textarea">
+                            <pre><code class="html">&lt;span id=&quot;aria-text-label&quot;&gt;Insira o texto &agrave; seguir:&lt;/span&gt;
 
 &lt;div role=&quot;textbox&quot; contenteditable=&quot;true&quot; aria-labelledby=&quot;aria-text-label&quot; id=&quot;aria-text&quot; aria-multiline=&quot;true&quot;&gt;&lt;/div&gt;
 
 &lt;button onclick=&quot;capturarConteudo();&quot;&gt;&lt;/button&gt;</code></pre>
-</div>
+    </div>
 
-                    <h4 id="css-textarea">CSS</h4>
-                    <div class="highlight" aria-labelledby="css-textarea">
-                        <pre><code class="css">#aria-text {
+                        <h4 id="css-textarea">CSS</h4>
+                        <div class="highlight" aria-labelledby="css-textarea">
+                            <pre><code class="css">#aria-text {
     border: 1px solid black;
     height: 100px;
 }</code></pre>
-                    </div>
+                        </div>
 
-                    <h4 id="js-textarea">JS</h4>
-                    <div class="highlight" aria-labelledby="js-textarea">
-                        <pre><code class="js">function capturarConteudo() {
+                        <h4 id="js-textarea">JS</h4>
+                        <div class="highlight" aria-labelledby="js-textarea">
+                            <pre><code class="js">function capturarConteudo() {
     var texto = document.getElementById('aria-text').innerHTML;
     armazenarDado(texto);
 }
@@ -1210,40 +1291,270 @@ var updateSlider = function (newValue) {
 function armazenarDado(texto) {
     // desenvolva aqui seu código para trabalhar com os dados inseridos da forma como for necessária
 }</code></pre>
-                    </div>
-
-                    <div class="bs-callout">
-                        <h4>Exemplo Ao Vivo</h4>
-                        <div class="div-exemplo">
-                            <span id="aria-text-label">Insira o texto à seguir</span>
-                            <div role="textbox" contenteditable="true" aria-labelledby="aria-text-label" id="aria-text" aria-multiline="true"></div>
-                            <button onclick="capturarConteudoExemplo();">Enviar Dados</button>
                         </div>
-                        <p>O exemplo acima irá executar um alerta do navegador, exibindo o texto que foi escrito dentro do elemento recém criado.</p>
+
+                        <div class="bs-callout">
+                            <h4>Exemplo</h4>
+                            <div class="div-exemplo">
+                                <span id="aria-text-label">Insira o texto à seguir</span>
+                                <div role="textbox" contenteditable="true" aria-labelledby="aria-text-label" id="aria-text" aria-multiline="true"></div>
+                                <button onclick="capturarConteudoExemplo();">Enviar Dados</button>
+                            </div>
+                            <p>O exemplo acima irá executar um alerta do navegador, exibindo o texto que foi escrito dentro do elemento recém criado.</p>
+                        </div>
+
+                        <!-- TODO: eu ia fazer um "tome cuidado pois" mas não lembro o que era, verificar isso depois -->
+
+                        <h3>Widget de Arrastar e Soltar</h3>
+
+                        <h4>HTML</h4>
+                        <div class="highlight">
+                            <pre><code class="html">&#x3C;div id=&#x22;alert-area&#x22; aria-live=&#x22;assertive&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div id=&#x22;maindrag&#x22;&#x3E;
+    &#x3C;a href=&#x22;#&#x22; class=&#x22;indicator-anchor&#x22; style=&#x22;display:none;&#x22;&#x3E;In&#xED;cio do componente de arrastar e soltar&#x3C;/a&#x3E;
+    &#x3C;div id=&#x22;draggable&#x22; tabindex=&#x22;0&#x22; draggable=&#x22;true&#x22; ondragstart=&#x22;event.dataTransfer.setData( &#x27;text/plain&#x27;,null)&#x22; aria-grabbed=&#x22;false&#x22;&#x3E;
+        Lavar a lou&#xE7;a
+    &#x3C;/div&#x3E;
+
+    &#x3C;div class=&#x22;dropzone&#x22;&#x3E;
+        &#x3C;span id=&#x22;drop1&#x22;&#x3E;Para Fazer&#x3C;/span&#x3E;
+    &#x3C;/div&#x3E;
+
+    &#x3C;div class=&#x22;dropzone&#x22;&#x3E;
+        &#x3C;span id=&#x22;drop2&#x22;&#x3E;Fazendo&#x3C;/span&#x3E;
+    &#x3C;/div&#x3E;
+
+    &#x3C;div class=&#x22;dropzone&#x22;&#x3E;
+        &#x3C;span id=&#x22;drop3&#x22;&#x3E;Feito&#x3C;/span&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;a href=&#x22;#&#x22; class=&#x22;indicator-anchor&#x22; style=&#x22;display:none;&#x22;&#x3E;Fim do componente de arrastar e soltar&#x3C;/a&#x3E;
+&#x3C;/div&#x3E;</code></pre>
+                        </div>
+
+                        <h4>CSS</h4>
+                        <div class="highlight">
+                            <pre><code class="css">.dropzone {
+    color: white;
+    background-color: gray;
+    display: block;
+    width: 350px;
+    height: 200px;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+#draggable {
+    cursor: grab;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    width: 300px;
+    padding: 0.5em;
+}
+
+#draggable:focus, #draggable:hover {
+    border: 3px solid red;
+}
+
+[aria-dropeffect=move] {
+    border: 5px solid black;
+}
+
+.drophover {
+    border: 5px solid red !important;
+}
+
+.dropzone span {
+    font-weight: bold;
+}
+
+.sronly, #alert-area, .indicator-anchor {
+    position: absolute;
+    left: -999em;
+}</code></pre>
+                        </div>
+
+                        <h4>JS</h4>
+                        <div class="highlight">
+                            <pre><code class="js">var dragged;
+
+var verify_dropELement = false;
+
+var dnd_alert = document.getElementById('alert-area');
+
+function dragStart(event) {
+    // TODO: limitar a navegação por tab apenas entre as dropzones quando o elemento arrastável é pegos
+    if (event.type == 'dragstart' || (event.type == 'keypress' &amp;&amp; event.keyCode == '13')) {
+
+        // Ativa âncoras de começo e fim do widget
+        var anchors = document.getElementsByClassName('indicator-anchor');
+        for (var i = 0; i < anchors.length; i++) {
+            anchors[i].removeAttribute('style');
+        }
+
+        // Anuncia que o elemento foi capturado
+        var msg = document.createTextNode("O elemento foi capturado");
+        dnd_alert.appendChild(msg);
+
+        // Remove o tabindex do elemento arrastável
+        dragged = event.target;
+        dragged.removeAttribute('tabindex');
+        var parent = dragged.parentNode;
+
+        // modifica o atributo aria-grabbed como true no elemento
+        event.target.setAttribute("aria-grabbed", true);
+        var dropzones = document.getElementsByClassName('dropzone');
+        for (var i = 0; i < dropzones.length; i++) {
+            dropzones[i].setAttribute("aria-dropeffect", "move");
+            dropzones[i].setAttribute('tabindex', '0');
+        }
+    }
+}
+
+function dragEnd(event) {
+    // modifica o atributo aria-grabbed para false
+    if (event.type == 'dragend' || (event.type == 'keypress' &amp;&amp; event.keyCode == '13' &amp;&amp; verify_dropELement)) {
+        if (verify_dropELement) {
+
+            var anchors = document.getElementsByClassName('indicator-anchor');
+            for (var i = 0; i < anchors.length; i++) {
+                anchors[i].setAttribute('style', 'display:none;')
+            }
+
+            var msg = document.createTextNode("O elemento foi largado");
+            dnd_alert.appendChild(msg);
+            event.target.setAttribute("aria-grabbed", false);
+            var dropzones = document.getElementsByClassName('dropzone');
+            for (var i = 0; i < dropzones.length; i++) {
+                dropzones[i].removeAttribute("aria-dropeffect");
+                dropzones[i].removeAttribute('tabindex');
+                dropzones[i].className = "dropzone"
+            }
+        }
+        verify_dropELement = false;
+    }
+}
+
+function dragOver(event) {
+    // previne o comportamento padrão para permitir que o elemento arrastado seja soltado dentro
+    event.preventDefault();
+}
+
+function dragEnter(event) {
+    var el = event.target;
+    if (el.className == "dropzone" || el.className == "dropzone drophover") {
+        // adiciona o atributo aria-dropeffect como move, indicando que o efeito realizado ao arrastar e soltar um elemento é movê-lo
+        el.className = "dropzone drophover";
+    }
+}
+
+
+
+function dragLeave(event) {
+    var el = event.target;
+    if (el.className == "dropzone" || el.className == "dropzone drophover") {
+        // remove o atributo quando o elemento arrastado não está mais sobre este alvo
+        el.className = "dropzone";
+    }
+}
+
+
+
+function dropElement(event) {
+    if (event.type == 'drop' || (event.type == 'keypress' &amp;&amp; event.keyCode == '13' &amp;&amp; !verify_dropELement)) {
+        // previne a ação padrão (abre como link para alguns elementos)
+        event.preventDefault();
+        var el = event.target;
+        // move o elemento arrastado para o alvo
+        dragged.setAttribute('tabindex', 0);
+        if (el.className == "dropzone" || el.className == "dropzone drophover") {
+            el.appendChild(dragged);
+        }
+        verify_dropELement = true;
+    }
+}
+
+var main = document.getElementById('maindrag');
+
+var draggable = document.getElementById('draggable');
+
+var dropzones = document.getElementsByClassName('dropzone');
+
+
+draggable.addEventListener('keypress', dragStart, false);
+main.addEventListener("dragstart", dragStart, false);
+
+main.addEventListener("dragend", dragEnd, false);
+
+main.addEventListener("dragover", dragOver, false);
+
+main.addEventListener("dragenter", dragEnter, false);
+
+main.addEventListener("dragleave", dragLeave, false);
+
+main.addEventListener("drop", dropElement, false);
+
+for (var i = 0; i < dropzones.length; i++) {
+    dropzones[i].addEventListener('focus', dragEnter, false);
+    dropzones[i].addEventListener('blur', dragLeave, false);
+    dropzones[i].addEventListener('keypress', dropElement, true);
+    dropzones[i].addEventListener('keypress', dragEnd, true);
+}</code></pre>
+
+
+
+                        </div>
+                        <div class="bs-callout">
+                            <h4>Exemplo</h4>
+                            <p>Para utilizar o componente de arrastar e soltar deste exemplo, utilizando um teclado, as instruções são bastante simples. Confira a lista abaixo:</p>
+
+                            <ul>
+                                <li>Selecione o elemento "Lavar a Louça" utilizando a tecla Enter.</li>
+                                <li>Navegue pelas áreas em que o elemento pode ser largado utilizando a tecla tab.</li>
+                                <li>Selecione a área desejada utilizando a tecla Enter.</li>
+                                <li>Há âncoras para indicar o início e fim da seção em que existe áreas para largar o elemento.</li>
+                            </ul>
+                            <div id="alert-area" aria-live="assertive"></div>
+                            <div id="maindrag">
+                                <a href="#" class="indicator-anchor" style="display:none;">Início do componente de arrastar e soltar</a>
+                                <div id="draggable" tabindex="0" draggable="true" ondragstart="event.dataTransfer.setData( 'text/plain',null)" aria-grabbed="false">
+                                    Lavar a louça
+                                </div>
+
+                                <div class="dropzone">
+                                    <span id="drop1">Para Fazer</span>
+                                </div>
+
+                                <div class="dropzone">
+                                    <span id="drop2">Fazendo</span>
+                                </div>
+
+                                <div class="dropzone">
+                                    <span id="drop3">Feito</span>
+                                </div>
+                                <a href="#" class="indicator-anchor" style="display:none;">Fim do componente de arrastar e soltar</a>
+                            </div>
+                        </div>
+
+                        <ul>
+                            <li><code>gridcell</code>:</li>
+                            <li><code>radio</code>:</li>
+                            <li><code>scrollbar</code>:</li>
+                            <li><code>spinbutton</code>:</li>
+                            <li><code>tab</code>:</li>
+                            <li><code>tabpanel</code>:</li>
+                            <li><code>textbox</code>:</li>
+                            <li><code>timer</code>:</li>
+                            <li><code>tooltip</code>:</li>
+                            <li><code>treeitem</code>:</li>
+                        </ul>
+
+                        <h2>Navegação por Teclado</h2>
+                        <!-- TODO: seção de navegação por teclado -->
+
+                        <h2>Foco</h2>
+                        <!-- TODO: seção de foco -->
                     </div>
-
-                    <div class="bs-callout bs-callout-warning">
-                        <p>Tome cuidado, pois </p>
-                    </div>
-
-                    <ul>
-                        <li><code>gridcell</code>:</li>
-                        <li><code>radio</code>:</li>
-                        <li><code>scrollbar</code>:</li>
-                        <li><code>spinbutton</code>:</li>
-                        <li><code>tab</code>:</li>
-                        <li><code>tabpanel</code>:</li>
-                        <li><code>textbox</code>:</li>
-                        <li><code>timer</code>:</li>
-                        <li><code>tooltip</code>:</li>
-                        <li><code>treeitem</code>:</li>
-                    </ul>
-
-                    <h2>Navegação pelo Teclado</h2>
-
-                    <h2>Elementos de Arrastar e Soltar (<span lang="en">drag and drop</span>)</h2>
-
-                    <!-- TODO: navegação por teclado, elementos focáveis, drag and drop -->
 
                 </section>
 
@@ -1253,7 +1564,10 @@ function armazenarDado(texto) {
                         <h1 id="conteudo">Conteúdo e Informação</h1>
                     </div>
 
-                    <!-- NOTE: ????? -->
+                    <!--
+                        NOTE: não sei o que fazer aqui
+                        TODO: ir atrás do que fazer aqui
+                    -->
 
                 </section>
 
@@ -1263,7 +1577,12 @@ function armazenarDado(texto) {
                         <h1 id="apresentacao">Apresentação e Design</h1>
                     </div>
 
+                    <h2>Cores e Contraste</h2>
                     <!-- TODO: contraste, cores, daltonismo, etc -->
+
+                    <h2>Responsividade</h2>
+                    <!-- TODO: responsividade -->
+
 
                 </section>
 
@@ -1271,6 +1590,48 @@ function armazenarDado(texto) {
                 <section class="bs-docs-section">
                     <div class="page-header">
                         <h1 id="multimidia">Multimídia</h1>
+                    </div>
+
+                    <h2>Imagens</h2>
+
+                    <p>
+                        Por razões bastante óbvias, imagens não são um recurso
+                        completamente acessível. Pessoas com problemas de visão
+                        e até mesmo cegueira, por exemplo, tem dificuldades na
+                        interpretação de elementos que sejam muito visuais, e
+                        a presença de imagens como componentes essenciais no
+                        conteúdo de uma página podem dificultar o entendimento
+                        da mesma. Dessa forma, é necessário apresentar
+                        alternativas para que a informação contida na imagem
+                        possa ser compreendida.
+                    </p>
+
+                    <h3>Texto Alternativo</h3>
+
+                    <p>
+                        Através do atributo <code>alt</code>, o desenvolvedor
+                        pode criar um texto alternativo à imagem, cujo objetivo
+                        seja descrever os elementos da imagem.
+                    </p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&#x3C;img src=&#x22;exemplo.png&#x22; alt=&#x22;pessoa cega utilizando um computador de mesa e fones de ouvido&#x22;&#x3E;</code></pre>
+                    </div>
+
+                    <div class="bs-callout bs-callout-warning">
+                        <h4>Atenção especial para imagens decorativas!</h4>
+                        <p>
+                            Uma prática muito comum no desenvolvimento web é a utilização de imagens como
+                            recurso decorativo. Essas imagens não são essenciais para a compreensão da página,
+                            portanto elas não necessitam de texto alternativo.
+                        </p>
+
+                        <p>
+                            Mas é importante não confundir um usuário que utiliza leitor de tela, por exemplo, que pode
+                            entender que essa imagem é essencial para a compreensão da página. Dessa forma, uma
+                            prática recomendada é a inserção da imagem decorativa através de CSS. Assim, agentes de
+                            usuário (como o leitor de tela) não interpretam o elemento como imagem.
+                        </p>
                     </div>
 
                     <h2>Conteúdo Independente de Fluxo</h2>
@@ -1340,12 +1701,133 @@ function armazenarDado(texto) {
                         </pre>
                     </div>
 
+                    <h2>Áudio e Vídeo</h2>
+
+                    <h3>Áudio</h3>
+
+                    <p>
+                        Uma das novidades que a quinta versão do HTML trouxe
+                        aos desenvolvedores foi a possibilidade de criar conteúdo
+                        multimídia de forma nativa. A vantagem aqui é que plugins
+                        pesados e ultrapassados, como Flash, se tornaram obsoletos. Os mesmos
+                        também continham diversos problemas relacionados à acessibilidade e performance.
+                    </p>
+
+                    <p>
+                        A tag <code>audio</code> foi criada para aprimorar a incorporação
+                        de áudio em páginas web. Com ela, é possível adicionar múltiplas fontes,
+                        arquivos de legenda, etc. Veja os exemplos à seguir:
+                    </p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;audio src=&quot;audio-example.ogg&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+&lt;/audio&gt;</code></pre>
+                    </div>
+
+                    <p>
+                        O exemplo acima é a forma mais básica de reproduçao de áudio nativa no HTML5.
+                        Mas não é completamente acessível: navegadores que não tem suporte ao formato OGG
+                        de áudio não serão capazes de reproduzir.
+                    </p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;audio controls=&quot;controls&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+
+    &lt;source src=&quot;audio-example.wav&quot; type=&quot;audio/wav&quot;&gt;
+    &lt;source src=&quot;audio-example.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+    &lt;source src=&quot;audio-example.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</code></pre>
+                    </div>
+
+                    <p>
+                        Este último exemplo, diferente do primeiro, possui suporte à diferentes
+                        formatos de áudio e, dessa forma, é mais capaz de ser executado sem
+                        maiores problemas na maioria dos navegadores modernos. Mas não devemos
+                        apenas nos preocuparmos com compatibilidade, ao falar de acessibilidade,
+                        mas também a disponibilização desse conteúdo em outros formatos de mídia,
+                        como texto. Vamos adiante:
+                    </p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;audio controls=&quot;controls&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+
+    &lt;source src=&quot;audio-example.wav&quot; type=&quot;audio/wav&quot;&gt;
+    &lt;source src=&quot;audio-example.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+    &lt;source src=&quot;audio-example.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+
+    &lt;track kind=&quot;captions&quot; src=&quot;audio-example.en.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+    &lt;track kind=&quot;captions&quot; src=&quot;audio-example.sv.vtt&quot; srclang=&quot;pt&quot; label=&quot;Portugu&ecirc;s&quot;&gt;
+&lt;/audio&gt;</code></pre>
+                    </div>
+
+                    <p>
+                        Com a tag <code>track</code> ainda podemos definir
+                        tipos diferentes de conteúdo textual para o áudio. Veja
+                        na seção à seguir mais opções para este elemento: <a href="#multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</a>
+                    </p>
+
+                    <h3>Vídeo</h3>
+                    <!-- TODO: vídeo, vídeo com múltiplas faixas de áudio, vídeo com transcrição textual, vídeo com legendas, etc -->
+
+                    <p>
+                        Assim como acontecia com mídias de áudio, vídeos na web
+                        também dependiam de plugins como Flash e apresentavam
+                        problemas de acessibilidade, e o recurso nativo aprimorou
+                        a inserção destas mídias na web. Veja os exemplos:
+                    </p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;video src=&quot;filme.ogg&quot; poster=&quot;posterimage.jpg&quot;&gt;
+    Seu navegador n&atilde;o possui suporte &agrave; videos.
+&lt;/video&gt;</code></pre>
+                    </div>
+
+                    <p>
+                        Também podemos incrementar este vídeo com legendas, assim como no próximo exemplo:
+                    </p>
+
+                    <div class="highlight">
+                        <pre><code class="html">&lt;video src=&quot;filme.ogg&quot; poster=&quot;posterimage.jpg&quot;&gt;
+    Seu navegador n&atilde;o possui suporte &agrave; videos.
+    &lt;track kind=&quot;subtitles&quot; src=&quot;filme.pt.vtt&quot; srclang=&quot;pt&quot; label=&quot;Portugu&ecirc;s&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;filme.en.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;filme.sv.vtt&quot; srclang=&quot;sv&quot; label=&quot;Svenska&quot;&gt;
+&lt;/video&gt;</code></pre>
+                    </div>
+
+                    <p>
+                        Assim como a tag áudio, podemos incrementar ainda mais o
+                        vídeo com múltiplas fontes do mesmo arquivo em formatos
+                        diferentes, da mesma forma. Também podemos especificar
+                        diferentes tipos de conteúdo textual, como transcrições e
+                        afins. Veja a seção à seguir para mais informações: <a href="#multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</a>
+                    </p>
+
+                    <h3 id="multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</h3>
+                    <!-- TODO: exemplos de uso da tag track -->
+
+                    <ul>
+                        <li>subtitles</li>
+                        <li>captions</li>
+                        <li>descriptions</li>
+                        <li>chapters</li>
+                        <li>metadata</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <pre><code class="html"></code></pre>
+                    </div>
+
                 </section>
 
 
                 <section class="bs-docs-section">
                     <div class="page-header">
                         <h1 id="formulario">Formulário</h1>
+                        <!-- TODO: formulário -->
                     </div>
                 </section>
             </div>
