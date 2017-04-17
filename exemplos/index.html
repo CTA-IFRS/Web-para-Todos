@@ -1809,16 +1809,71 @@ for (var i = 0; i < dropzones.length; i++) {
                     <h3 id="multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</h3>
                     <!-- TODO: exemplos de uso da tag track -->
 
+                    <p>
+                        A tag <code>track</code> é um elemento que adiciona conteúdo textual alternativo
+                        à áudios e vídeos. O atributo <code>kind</code> desta tag define o tipo de conteúdo (ou seja,
+                        para que serve este arquivo textual dentro do escopo da mídia) e
+                        admite 5 tipos, sendo estes:
+                    </p>
+
                     <ul>
-                        <li>subtitles</li>
-                        <li>captions</li>
-                        <li>descriptions</li>
-                        <li>chapters</li>
-                        <li>metadata</li>
+                        <li>
+                            <code>subtitles</code>: conteúdo do tipo legendas. Providencia
+                            traduções de conteúdo que não pode ser interpretado por quem
+                            vê ou escuta a mídia, como tradução em português de uma mídia
+                            em inglês. Também pode conter informação adicional,
+                            como por exemplo textos que aparecem em um vídeo.
+                        </li>
+                        <li>
+                            <code>captions</code>: outro tipo de conteúdo de legenda. O
+                            diferencial é que este tipo pretende transcrever o áudio, mesmo
+                            que este não seja diálogo, e possivelmente também uma tradução.
+                            Inclui informação não verbal de importância, como telefone tocando
+                            ou efeitos sonoros. Adequado à usuários que possuem deficiências
+                            auditivas ou para reproduções sem áudio de um vídeo.
+                        </li>
+                        <li>
+                            <code>descriptions</code>: descrição textual da mídia.
+                            Adequado à usuários com problemas de visão, como cegueira, ou em
+                            situações em que o vídeo não pode ser exibido.
+                        </li>
+                        <li>
+                            <code>chapters</code>: títulos de capítulos, para serem
+                            usados quando o usuário está navegando pela mídia.
+                        </li>
+                        <li>
+                            <code>metadata</code>: faixas utilizadas por scripts. Não
+                            é visível pelo usuário.
+                        </li>
                     </ul>
 
+                    <p>
+                        Além do atributo <code>kind</code>, ainda há os atributos:
+                        <code>src</code>, apontando para o arquivo; <code>label</code>,
+                        apresentando um rótulo para o conteúdo textual; e <code>srclang</code>,
+                        indicando a língua em que está o conteúdo. Veja o exemplo à seguir, que
+                        mostra o uso de <code>track</code> em um vídeo:
+                    </p>
+
                     <div class="highlight">
-                        <pre><code class="html"></code></pre>
+                        <pre><code class="html">&lt;video controls poster=&quot;poster.gif&quot;&gt;
+    &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;source src=&quot;video.ogv&quot; type=&quot;video/ogv&quot;&gt;
+
+    &lt;track kind=&quot;captions&quot; src=&quot;transcricoes.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;descriptions&quot; src=&quot;descricoes.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;chapters&quot; src=&quot;capitulos.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;subtitles&quot; src=&quot;legendas_es.vtt&quot; srclang=&quot;es&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;legendas_en.vtt&quot; srclang=&quot;en&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;legendas_pt.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;metadata&quot; src=&quot;keyStage1.vtt&quot; srclang=&quot;pt&quot; label=&quot;Key Stage 1&quot;&gt;
+    &lt;track kind=&quot;metadata&quot; src=&quot;keyStage2.vtt&quot; srclang=&quot;pt&quot; label=&quot;Key Stage 2&quot;&gt;
+    &lt;track kind=&quot;metadata&quot; src=&quot;keyStage3.vtt&quot; srclang=&quot;pt&quot; label=&quot;Key Stage 3&quot;&gt;
+&lt;/video&gt;</code></pre>
                     </div>
 
                 </section>
