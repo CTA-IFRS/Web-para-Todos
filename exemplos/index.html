@@ -1883,6 +1883,94 @@ for (var i = 0; i < dropzones.length; i++) {
                     <div class="page-header">
                         <h1 id="formulario">Formulário</h1>
                         <!-- TODO: formulário -->
+
+                        <h2>Validação</h2>
+
+                        <p>
+                            Na área da segurança, a validação de dados é um processo
+                            de extrema importância. E mesmo que ela deva ser realizada
+                            no servidor, por questões de comodidade ela deve, também,
+                            ser implementada no lado do cliente. Entretanto, muitas
+                            vezes essa informação apresenta problemas para utilizadores
+                            de tecnologias assistivas, fazendo-se necessário o cuidado
+                            na implementação dela.
+                        </p>
+
+                            <h3>Campos Obrigatórios e Asterisco</h3>
+
+                            <p>
+                                Uma prática muito comum entre autores é indicar
+                                campos obrigatórios utilizando asterisco. Essa
+                                prática é interessante, pois demarca determinados
+                                campos como obrigatório sem utilizar muita informação
+                                textual.
+                            </p>
+
+                            <p>
+                                O problema com o asterisco é que o mesmo não faz
+                                sentido se lido por um leitor de tela, por exemplo.
+                                Dessa forma, a informação de que este campo é obrigatório
+                                se perde, criando confusão para usuários de tecnologias
+                                assistivas.
+                            </p>
+
+                            <p>
+                                Para validar campos de entrada obrigatórios, o
+                                autor pode utilizar o atributo <code>required</code>,
+                                um recurso nativo do HTML5. Além deste atributo,
+                                é possível utilizar JavaScript para a mesma função,
+                                porém requer muito mais código. Veja o exemplo:
+                            </p>
+
+                            <div class="highlight">
+                                <pre><code class="html">&lt;label for=&quot;password&quot;&gt;Senha*&lt;/label&gt;
+&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; required&gt;</code></pre>
+                            </div>
+
+                            <p>
+                                Mas apenas validar o campo como obrigatório não é
+                                suficiente: é necessário demonstrar que o campo é
+                                obrigatório antes de validá-lo. Para tal, muitos
+                                autores utilizam um asterisco, mas como dito anteriormente,
+                                não é uma prática acessível. Para contornar isso, é possível
+                                utilizar uma imagem de asterisco inserida através de CSS,
+                                em um elemento que possua um texto "Campo obrigatório"
+                                escondido. Para tal, o autor deve apenas utilizar um
+                                elemento <code>span</code> com uma classe de sua
+                                escolha, e através de CSS deixar o texto "fora da
+                                tela" e atribuindo como imagem de background a imagem
+                                de um asterisco. Você pode utilizar imagens PNG, GIF, SVG,
+                                ícones de alguma fonte específica (como Font Awesome,
+                                Foundation Icons, etc) ou formatos de sua escolha. O exemplo a seguir refatora o anterior,
+                                trocando o caractere do asterisco pela alternativa
+                                acessível descrita:
+                            </p>
+
+                            <h4>HTML</h4>
+                            <div class="highlight">
+                                <pre><code class="html">&lt;label for=&quot;password&quot;&gt;Senha &lt;span class=&quot;obrigatorio&quot;&gt;campo obrigat&oacute;rio&lt;/span&gt;&lt;/label&gt;
+&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; required&gt;</code></pre>
+                            </div>
+
+                            <h4>CSS</h4>
+                            <div class="highlight">
+                                <pre><code class="css">.obrigatorio{
+    background-image: url('asterisco.png');
+    position: absolute;
+    left: -9999em;
+}</code></pre>
+                            </div>
+
+                            <h3>Retorno de Erros e Regiões Dinâmicas</h3>
+
+                        <h2>Widgets Alternativos (ARIA)</h2>
+                        <!-- TODO: widgets alternativos
+                            - contenteditable
+                            - switch
+                            - botao
+                            - seleção
+                            - etc...
+                        -->
                     </div>
                 </section>
             </div>
