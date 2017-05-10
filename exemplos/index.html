@@ -716,68 +716,6 @@
                             </div>
                         </div>
 
-
-
-                        <h3>Widget de botão:</h3>
-                        <p>Mesmo com o recurso já implementado, muitas vezes por questões de estilização, o desenvolvedor necessita criar um botão do zero. Para isso, é importante utilizar o role apropriado, além de disponibilizar todas as funções padrões de um botão, como executar sua ação com o clique da tecla Enter, com o clique do mouse, modificar o cursor e a aparência do botão em determinados eventos, entre outros. Veja o exemplo à seguir:</p>
-                        <h4>HTML</h4>
-                        <div class="highlight">
-                            <pre>
-                                <code class="html">&lt;span role=&quot;button&quot; id=&quot;aria-button&quot; class=&quot;span-btn&quot; tabindex=&quot;0&quot;&gt;OK!&lt;/span&gt;</code>
-                            </pre>
-                        </div>
-
-                        <h4>CSS</h4>
-                        <div class="highlight">
-                            <pre>
-                                <code class="css">.span-btn {
-  background-color: blue;
-  color: white;
-  font-weight: bold;
-  padding: 1em;
-  cursor: pointer;
-}
-
-.span-btn:hover {
-  background-color: black;
-}
-
-.span-btn:active {
-  border: 3px solid red;
-}
-
-.span-btn:focus {
-    border: 1px dotted white;
-}</code>
-                            </pre>
-                        </div>
-
-                        <h4>JS</h4>
-                        <div class="highlight">
-                            <pre><code class="js">var btn = document.getElementById('aria-button');
-function acaoBotao() {
-    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
-        // ação realizada pelo botão
-        alert('Botão Pressionado com sucesso!');
-    }
-}
-btn.addEventListener('click', acaoBotao);
-btn.addEventListener('keypress', acaoBotao);</code></pre>
-                        </div>
-
-                        <div class="div-exemplo">
-                            <div class="bs-callout">
-                                <h4>Exemplo de botão</h4>
-                                <span class="space"></span>
-                                <span role="button" id="aria-button" class="span-btn" tabindex="0">OK!</span>
-                            </div>
-                        </div>
-                        <div class="bs-callout bs-callout-warning">
-                            <p>Não utilize este role em elementos <code>button</code> ou <code>input</code> do tipo button, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
-                        </div>
-
-
-
                         <h3>Widget de menu:</h3>
 
                         <!-- TODO: criar texto para widget de menu -->
@@ -932,83 +870,6 @@ for (var i = 0; i < elements.length; i++) {
                         <div class="bs-callout bs-callout-info">
                             <p>Menus não precisam, necessariamente, serem atribuidos à listas (elemento <code>ul</code>).</p>
                         </div>
-
-
-
-                        <h3>Widget de caixa de seleção e "interruptor" (<span lang="en">switch</span>):</h3>
-
-                        <!-- TODO: texto para widget de caixa de seleção e interruptor -->
-
-                        <h4>HTML</h4>
-                        <div class="highlight">
-                            <pre>
-                                <code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
-    &lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
-    &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
-&lt;/div&gt;</code>
-                            </pre>
-                        </div>
-
-                        <h4>CSS</h4>
-                        <div class="highlight">
-                            <pre><code class="css">.example-checkbox span[aria-checked=false] {
-    width: 17px;
-    height: 17px;
-    background-color: grey;
-    display: inline-block;
-    cursor: pointer;
-}
-.example-checkbox span[aria-checked=true] {
-    width: 17px;
-    height: 17px;
-    background-color: green;
-    display: inline-block;
-    cursor: pointer;
-}</code></pre>
-                        </div>
-
-                        <h4>JS</h4>
-                        <div class="highlight">
-                            <pre><code class="js">function trocarSelecao(e) {
-    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
-        if (e.target.getAttribute('aria-checked') == 'true') {
-            e.target.setAttribute('aria-checked', 'false');
-        }
-        else {
-            e.target.setAttribute('aria-checked', 'true');
-        }
-    }
-}
-
-var checkbox = document.getElementById('chk1');
-checkbox.addEventListener('click', trocarSelecao);
-checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
-                        </div>
-
-                        <div class="bs-callout">
-                            <h4>Exemplo</h4>
-                            <div class="example-checkbox">
-                                <span role="checkbox" aria-checked="false" tabindex="0" id="chk1"></span>
-                                <label for="chk1">Lembrar minhas preferências</label>
-                            </div>
-                        </div>
-
-                        <div class="bs-callout bs-callout-warning">
-                            <p>Não utilize este role em elementos <code>input</code> do tipo checkbox, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
-                            <p>Também lembre-se que, se for extritamente necessário construir uma caixa de seleção dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
-                        </div>
-
-                        <div class="highlight">
-                            <pre>
-                                <code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
-&lt;label for=&quot;chk1&quot;&gt;Lembrar minhas preferências&lt;/label&gt;</code>
-                            </pre>
-                        </div>
-                        <div class="bs-callout bs-callout-warning">
-                            <p>Este role é muito parecido com o role de caixa de seleção, entretanto, não admite valor misto. Este tipo de valor deve ser tratado por agentes de usuário como igual a <code>false</code></p>
-                            <p>Para diferenciá-lo do exemplo da caixa de seleção, você pode alterar o CSS de forma que visualmente o elemento lembre um switch.</p>
-                        </div>
-
 
 
                         <h3>Widget de caixa de diálogo:</h3>
@@ -1166,36 +1027,6 @@ aria-activedescendant=&quot;opcao_selecionada&quot;&gt;
                             <p>É imporante lembrar que nos casos dos roles <code>listbox</code> e <code>combobox</code>, precisa-se desenvolver todas operações através de JavaScript, como a seleção de opções e afins.</p>
                         </div>
 
-                        <h3>Widget slider</h3>
-
-                        <!-- TODO: melhorar exemplo de slider -->
-
-                        <div class="bs-callout bs-callout-danger">
-                            <h4>Precisa de melhorias!</h4>
-                            <p>Neste exemplo há falta de JavaScript e CSS apropriados para a criação do widget.</p>
-                        </div>
-
-                        <div class="highlight">
-                            <pre><code class="html">&lt;label for=&quot;day-handle&quot;&gt;Dias da Semana&lt;/label&gt;
-&lt;div class=&quot;day-slider&quot;&gt;
-  &lt;div id=&quot;day-handle&quot; class=&quot;day-slider-handle&quot; role=&quot;slider&quot; aria-labelledby=&quot;day-handle&quot;
-     aria-valuemin=&quot;1&quot;
-     aria-valuemax=&quot;7&quot;
-     aria-valuenow=&quot;2&quot;
-     aria-valuetext=&quot;Segunda-feira&quot;&gt;
- &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                        </div>
-
-                        <div class="highlight">
-                            <pre><code class="js">var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var updateSlider = function (newValue) {
-    var handle = document.getElementById("day-handle");
-    handle.setAttribute("aria-valuenow", newValue.toString());
-    handle.setAttribute("aria-valuetext", dayNames[newValue]);
-};</code></pre>
-                        </div>
-
                         <h3>Widget de barra de progresso</h3>
 
                         <p>Utilizando os roles e atributos de estado e propriedades adequados, uma barra de progresso que faria diferença apenas visual pode, agora, apresentar valores máximos, mínimos e ainda indicar o valor atual.</p>
@@ -1259,51 +1090,6 @@ var updateSlider = function (newValue) {
                                <button onclick="aumentar10('progress-bar');" class="btn btn-default">Aumentar 10%</button>
                             </div>
                         </div>
-
-                        <h3>Widget de área de texto</h3>
-
-                        <p>Para criar um elemento de entrada de texto utilizando o role aria <code>textbox</code>, é necessário adiocionar comportamentos específicos através de javascript e estilizar o elemento <code>div</code> para que se comporte como uma entrada de texto. Lembre-se de capturar o conteúdo do elemento utilizando <code>getElementByID('id').innerHTML</code> e, assim, poder realizar as funções que necessita.</p>
-
-                        <h4 id="html-textarea">HTML</h4>
-                        <div class="highlight" aria-labelledby="html-textarea">
-                            <pre><code class="html">&lt;span id=&quot;aria-text-label&quot;&gt;Insira o texto &agrave; seguir:&lt;/span&gt;
-
-&lt;div role=&quot;textbox&quot; contenteditable=&quot;true&quot; aria-labelledby=&quot;aria-text-label&quot; id=&quot;aria-text&quot; aria-multiline=&quot;true&quot;&gt;&lt;/div&gt;
-
-&lt;button onclick=&quot;capturarConteudo();&quot;&gt;&lt;/button&gt;</code></pre>
-    </div>
-
-                        <h4 id="css-textarea">CSS</h4>
-                        <div class="highlight" aria-labelledby="css-textarea">
-                            <pre><code class="css">#aria-text {
-    border: 1px solid black;
-    height: 100px;
-}</code></pre>
-                        </div>
-
-                        <h4 id="js-textarea">JS</h4>
-                        <div class="highlight" aria-labelledby="js-textarea">
-                            <pre><code class="js">function capturarConteudo() {
-    var texto = document.getElementById('aria-text').innerHTML;
-    armazenarDado(texto);
-}
-
-function armazenarDado(texto) {
-    // desenvolva aqui seu código para trabalhar com os dados inseridos da forma como for necessária
-}</code></pre>
-                        </div>
-
-                        <div class="bs-callout">
-                            <h4>Exemplo</h4>
-                            <div class="div-exemplo">
-                                <span id="aria-text-label">Insira o texto à seguir</span>
-                                <div role="textbox" contenteditable="true" aria-labelledby="aria-text-label" id="aria-text" aria-multiline="true"></div>
-                                <button onclick="capturarConteudoExemplo();">Enviar Dados</button>
-                            </div>
-                            <p>O exemplo acima irá executar um alerta do navegador, exibindo o texto que foi escrito dentro do elemento recém criado.</p>
-                        </div>
-
-                        <!-- TODO: eu ia fazer um "tome cuidado pois" mas não lembro o que era, verificar isso depois -->
 
                         <h3>Widget de Arrastar e Soltar</h3>
 
@@ -1963,7 +1749,25 @@ for (var i = 0; i < dropzones.length; i++) {
 
                             <h3>Retorno de Erros e Regiões Dinâmicas</h3>
 
-                        <h2>Widgets Alternativos (ARIA)</h2>
+                            <p>
+                                Mesmo que o recurso nativo do HTML5 para retornos seja acessível,
+                                como a informação de campos inválidos ou em branco,
+                                ainda é necessário que desenvolvedores
+                                criem seus próprios métodos para informar erros em
+                                um formulário. Um exemplo bastante comum é a validação
+                                de CPF, por exemplo.
+                            </p>
+
+                            <p>
+                                Para tal, o desenvolvedor se obriga a utilizar
+                                bastante JavaScript, tanto puro quanto na forma de
+                                bibliotecas. Mas, muitas vezes, essas bibliotecas
+                                não utilizam recursos acessíveis, ou o autor não
+                                se preocupou em tornar essa informação mais compreensível
+                                para usuários que utilizam tecnologias assistivas.
+                            </p>
+
+                        <h2>Widgets Alternativos para Formulários (ARIA)</h2>
                         <!-- TODO: widgets alternativos
                             - contenteditable
                             - switch
@@ -1971,6 +1775,216 @@ for (var i = 0; i < dropzones.length; i++) {
                             - seleção
                             - etc...
                         -->
+
+                        <h3>Widget de botão:</h3>
+                        <p>Mesmo com o recurso já implementado, muitas vezes por questões de estilização, o desenvolvedor necessita criar um botão do zero. Para isso, é importante utilizar o role apropriado, além de disponibilizar todas as funções padrões de um botão, como executar sua ação com o clique da tecla Enter, com o clique do mouse, modificar o cursor e a aparência do botão em determinados eventos, entre outros. Veja o exemplo à seguir:</p>
+                        <h4>HTML</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;span role=&quot;button&quot; id=&quot;aria-button&quot; class=&quot;span-btn&quot; tabindex=&quot;0&quot;&gt;OK!&lt;/span&gt;</code>
+                            </pre>
+                        </div>
+
+                        <h4>CSS</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="css">.span-btn {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.span-btn:hover {
+  background-color: black;
+}
+
+.span-btn:active {
+  border: 3px solid red;
+}
+
+.span-btn:focus {
+    border: 1px dotted white;
+}</code>
+                            </pre>
+                        </div>
+
+                        <h4>JS</h4>
+                        <div class="highlight">
+                            <pre><code class="js">var btn = document.getElementById('aria-button');
+function acaoBotao() {
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        // ação realizada pelo botão
+        alert('Botão Pressionado com sucesso!');
+    }
+}
+btn.addEventListener('click', acaoBotao);
+btn.addEventListener('keypress', acaoBotao);</code></pre>
+                        </div>
+
+                        <div class="div-exemplo">
+                            <div class="bs-callout">
+                                <h4>Exemplo de botão</h4>
+                                <span class="space"></span>
+                                <span role="button" id="aria-button" class="span-btn" tabindex="0">OK!</span>
+                            </div>
+                        </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Não utilize este role em elementos <code>button</code> ou <code>input</code> do tipo button, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                        </div>
+
+
+                        <h3>Widget de caixa de seleção e "interruptor" (<span lang="en">switch</span>):</h3>
+
+                        <!-- TODO: texto para widget de caixa de seleção e interruptor -->
+
+                        <h4>HTML</h4>
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
+    &lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+    &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+
+                        <h4>CSS</h4>
+                        <div class="highlight">
+                            <pre><code class="css">.example-checkbox span[aria-checked=false] {
+    width: 17px;
+    height: 17px;
+    background-color: grey;
+    display: inline-block;
+    cursor: pointer;
+}
+.example-checkbox span[aria-checked=true] {
+    width: 17px;
+    height: 17px;
+    background-color: green;
+    display: inline-block;
+    cursor: pointer;
+}</code></pre>
+                        </div>
+
+                        <h4>JS</h4>
+                        <div class="highlight">
+                            <pre><code class="js">function trocarSelecao(e) {
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        if (e.target.getAttribute('aria-checked') == 'true') {
+            e.target.setAttribute('aria-checked', 'false');
+        }
+        else {
+            e.target.setAttribute('aria-checked', 'true');
+        }
+    }
+}
+
+var checkbox = document.getElementById('chk1');
+checkbox.addEventListener('click', trocarSelecao);
+checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
+                        </div>
+
+                        <div class="bs-callout">
+                            <h4>Exemplo</h4>
+                            <div class="example-checkbox">
+                                <span role="checkbox" aria-checked="false" tabindex="0" id="chk1"></span>
+                                <label for="chk1">Lembrar minhas preferências</label>
+                            </div>
+                        </div>
+
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Não utilize este role em elementos <code>input</code> do tipo checkbox, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+                            <p>Também lembre-se que, se for extritamente necessário construir uma caixa de seleção dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+                        </div>
+
+                        <div class="highlight">
+                            <pre>
+                                <code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+&lt;label for=&quot;chk1&quot;&gt;Lembrar minhas preferências&lt;/label&gt;</code>
+                            </pre>
+                        </div>
+                        <div class="bs-callout bs-callout-warning">
+                            <p>Este role é muito parecido com o role de caixa de seleção, entretanto, não admite valor misto. Este tipo de valor deve ser tratado por agentes de usuário como igual a <code>false</code></p>
+                            <p>Para diferenciá-lo do exemplo da caixa de seleção, você pode alterar o CSS de forma que visualmente o elemento lembre um switch.</p>
+                        </div>
+
+                        <h3>Widget slider</h3>
+
+                        <!-- TODO: melhorar exemplo de slider -->
+
+                        <div class="bs-callout bs-callout-danger">
+                            <h4>Precisa de melhorias!</h4>
+                            <p>Neste exemplo há falta de JavaScript e CSS apropriados para a criação do widget.</p>
+                        </div>
+
+                        <div class="highlight">
+                            <pre><code class="html">&lt;label for=&quot;day-handle&quot;&gt;Dias da Semana&lt;/label&gt;
+&lt;div class=&quot;day-slider&quot;&gt;
+  &lt;div id=&quot;day-handle&quot; class=&quot;day-slider-handle&quot; role=&quot;slider&quot; aria-labelledby=&quot;day-handle&quot;
+     aria-valuemin=&quot;1&quot;
+     aria-valuemax=&quot;7&quot;
+     aria-valuenow=&quot;2&quot;
+     aria-valuetext=&quot;Segunda-feira&quot;&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+
+                        <div class="highlight">
+                            <pre><code class="js">var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var updateSlider = function (newValue) {
+    var handle = document.getElementById("day-handle");
+    handle.setAttribute("aria-valuenow", newValue.toString());
+    handle.setAttribute("aria-valuetext", dayNames[newValue]);
+};</code></pre>
+                        </div>
+
+                        <h3>Widget de área de texto</h3>
+
+                        <p>Para criar um elemento de entrada de texto utilizando o role aria <code>textbox</code>, é necessário adiocionar comportamentos específicos através de javascript e estilizar o elemento <code>div</code> para que se comporte como uma entrada de texto. Lembre-se de capturar o conteúdo do elemento utilizando <code>getElementByID('id').innerHTML</code> e, assim, poder realizar as funções que necessita.</p>
+
+                        <h4 id="html-textarea">HTML</h4>
+                        <div class="highlight" aria-labelledby="html-textarea">
+                            <pre><code class="html">&lt;span id=&quot;aria-text-label&quot;&gt;Insira o texto &agrave; seguir:&lt;/span&gt;
+
+&lt;div role=&quot;textbox&quot; contenteditable=&quot;true&quot; aria-labelledby=&quot;aria-text-label&quot; id=&quot;aria-text&quot; aria-multiline=&quot;true&quot;&gt;&lt;/div&gt;
+
+&lt;button onclick=&quot;capturarConteudo();&quot;&gt;&lt;/button&gt;</code></pre>
+    </div>
+
+                        <h4 id="css-textarea">CSS</h4>
+                        <div class="highlight" aria-labelledby="css-textarea">
+                            <pre><code class="css">#aria-text {
+    border: 1px solid black;
+    height: 100px;
+}</code></pre>
+                        </div>
+
+                        <h4 id="js-textarea">JS</h4>
+                        <div class="highlight" aria-labelledby="js-textarea">
+                            <pre><code class="js">function capturarConteudo() {
+    var texto = document.getElementById('aria-text').innerHTML;
+    armazenarDado(texto);
+}
+
+function armazenarDado(texto) {
+    // desenvolva aqui seu código para trabalhar com os dados inseridos da forma como for necessária
+}</code></pre>
+                        </div>
+
+                        <div class="bs-callout">
+                            <h4>Exemplo</h4>
+                            <div class="div-exemplo">
+                                <span id="aria-text-label">Insira o texto à seguir</span>
+                                <div role="textbox" contenteditable="true" aria-labelledby="aria-text-label" id="aria-text" aria-multiline="true"></div>
+                                <button onclick="capturarConteudoExemplo();">Enviar Dados</button>
+                            </div>
+                            <p>O exemplo acima irá executar um alerta do navegador, exibindo o texto que foi escrito dentro do elemento recém criado.</p>
+                        </div>
+
+                        <!-- TODO: eu ia fazer um "tome cuidado pois" mas não lembro o que era, verificar isso depois -->
+
+
                     </div>
                 </section>
             </div>
