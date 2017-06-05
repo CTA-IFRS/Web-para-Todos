@@ -260,3 +260,65 @@ for (var i = 0; i < dropzones.length; i++) {
     dropzones[i].addEventListener('keypress', dropElement, true);
     dropzones[i].addEventListener('keypress', dragEnd, true);
 }
+
+// Validação de Formulário - mensagens em alert
+function validateForm() {
+    var element = document.forms['formNameValidate']['name'];
+    if (element.value == "") {
+        alert('Nome não pode estar em branco!');
+        element.focus();
+        return false;
+    }
+}
+
+// Validação de Formulário - mensagens agrupadas
+function validate_form() {
+
+    console.log('here');
+
+    if (document.getElementById('msg-alert')) {
+        document.getElementById('msg-alert').remove();
+    }
+
+    var ol = document.createElement('ol');
+
+    var container = document.getElementById('formExValidation'); // modificar aqui para mudar onde o formulário está inserido
+
+    ol.id = 'msg-alert';
+
+    var labels = document.getElementsByTagName('label');
+
+    var bool = true;
+
+    var form = document.forms['formToValidate'];
+
+    for (var i = 0; i < form.length; i++) {
+        var element = form[i];
+        if (element.value == "") {
+            var link = document.createElement('a');
+            link.href = element.id;
+            for (var x = 0; x < labels.length; x++) {
+                if (labels[x].getAttribute('for') == element.id)
+                {
+                    var l = labels[x].innerHTML;
+                }
+            }
+            link.innerHTML = l;
+            var msg = document.createTextNode(' não pode estar em branco!');
+
+            var li = document.createElement('li');
+
+            li.appendChild(link);
+            li.appendChild(msg);
+            ol.appendChild(li);
+            bool = false;
+        }
+    }
+
+    if (!bool) {
+        container.insertBefore(ol, form);
+        ol.focus();
+    }
+
+    return bool;
+}
