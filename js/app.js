@@ -282,7 +282,7 @@ function validate_form() {
 
     var ol = document.createElement('ol');
 
-    var container = document.getElementById('formExValidation'); // modificar aqui para mudar onde o formulário está inserido
+    var container = document.getElementById('alert-form-area');
 
     ol.id = 'msg-alert';
 
@@ -316,7 +316,7 @@ function validate_form() {
     }
 
     if (!bool) {
-        container.insertBefore(ol, form);
+        container.appendChild(ol);
         ol.focus();
     }
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Teste</title>
+    </head>
+    <body>
+        <span aria-live="assertive" role="alert" id="alert-form-area"></span>
+        <form class="form" action="index.html" name="formToValidate" method="post" onsubmit="return validate_form()">
+            <label for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
+            <label for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
+            <label for="ageValidate">Idade</label> <input type="number" name="age" id="ageValidate">
+            <input type="submit" name="submit" value="Enviar">
+        </form>
+        <script type="text/javascript">
+        function validate_form() {
+            if (document.getElementById('msg-alert')) {
+                document.getElementById('msg-alert').remove();
+            }
+
+            var ol = document.createElement('ol');
+
+            var container = document.getElementById('alert-form-area');
+
+            ol.id = 'msg-alert';
+
+            var labels = document.getElementsByTagName('label');
+
+            var bool = true;
+
+            for (var i = 0; i < document.forms['formToValidate'].length; i++) {
+                var element = document.forms['formToValidate'][i];
+                if (element.value == "") {
+                    var link = document.createElement('a');
+                    link.href = element.id;
+                    for (var x = 0; x < labels.length; x++) {
+                        if (labels[x].getAttribute('for') == element.id)
+                        {
+                            var l = labels[x].innerHTML;
+                        }
+                    }
+                    link.innerHTML = l;
+                    var msg = document.createTextNode(' não pode estar em branco!');
+
+                    var li = document.createElement('li');
+
+                    li.appendChild(link);
+                    li.appendChild(msg);
+                    ol.appendChild(li);
+                    bool = false;
+                }
+            }
+
+            if (!bool) {
+                container.appendChild(ol);
+                ol.focus();
+            }
+
+            return bool;
+            }
+        </script>
+    </body>
+</html>

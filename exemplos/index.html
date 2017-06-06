@@ -1868,7 +1868,8 @@ for (var i = 0; i < dropzones.length; i++) {
                             <h5>HTML</h5>
 
                             <div class="highlight">
-                                <pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
+                                <pre><code class="html">&lt;span aria-live=&quot;assertive&quot; role=&quot;alert&quot; id=&quot;alert-form-area&quot;&gt;&lt;/span&gt;
+&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
     &lt;label for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
     &lt;label for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
     &lt;label for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;age&quot; id=&quot;ageValidate&quot;&gt;
@@ -1886,7 +1887,7 @@ for (var i = 0; i < dropzones.length; i++) {
 
     var ol = document.createElement('ol');
 
-    var container = document.body; // modificar aqui para mudar onde o formulário está inserido
+    var container = document.getElementById('alert-form-area');
 
     ol.id = 'msg-alert';
 
@@ -1918,7 +1919,7 @@ for (var i = 0; i < dropzones.length; i++) {
     }
 
     if (!bool) {
-        document.body.insertBefore(ol, document.forms['formToValidate']);
+        container.appendChild(ol);
         ol.focus();
     }
 
@@ -1929,6 +1930,7 @@ for (var i = 0; i < dropzones.length; i++) {
                             <div class="div-exemplo">
                                 <div class="bs-callout" id="formExValidation">
                                     <h5>Exemplo de Validação de Formulário</h4>
+                                    <span aria-live="assertive" role="alert" id="alert-form-area"></span>
                                     <form class="form" action="index.html" name="formToValidate" id="formToValidate" method="post" onsubmit="return validate_form()">
                                         <fieldset>
                                             <label for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
