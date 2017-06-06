@@ -1899,7 +1899,7 @@ for (var i = 0; i < dropzones.length; i++) {
         var element = document.forms['formToValidate'][i];
         if (element.value == "") {
             var link = document.createElement('a');
-            link.href = element.id;
+            link.href = '#' + element.id;
             for (var x = 0; x < labels.length; x++) {
                 if (labels[x].getAttribute('for') == element.id)
                 {
@@ -1947,6 +1947,19 @@ for (var i = 0; i < dropzones.length; i++) {
                             </div>
 
                             <h4>Mensagem de Erro Embutida no Campo</h4>
+
+                            <p>
+                                  Por último, é possível informar o erro no
+                                  formulário diretamente no campo em questão. A
+                                  maioria dos novos navegadores já implementam
+                                  isso de forma básica em cima de campos de formulário,
+                                  apresentando este tipo de mensagem para informar
+                                  erros no campo. Ainda assim, formas alternativas
+                                  de validação se fazem necessárias pela variedade
+                                  de informações que são necessárias na aplicação
+                                  que está sendo desenvolvida, como validação de CPF,
+                                  por exemplo.
+                            </p>
 
                             <p></p>
 

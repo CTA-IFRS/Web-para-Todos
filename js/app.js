@@ -296,7 +296,7 @@ function validate_form() {
         var element = form[i];
         if (element.value == "") {
             var link = document.createElement('a');
-            link.href = element.id;
+            link.href = '#' + element.id;
             for (var x = 0; x < labels.length; x++) {
                 if (labels[x].getAttribute('for') == element.id)
                 {
