@@ -1964,11 +1964,11 @@ for (var i = 0; i < dropzones.length; i++) {
                             <div class="highlight">
                                 <pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToInlineValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
 
-    &lt;label for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
 
-    &lt;label for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
 
-    &lt;label for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;ageValidate&quot; id=&quot;ageValidate&quot;&gt;
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;ageValidate&quot; id=&quot;ageValidate&quot;&gt;
 
     &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
 
@@ -2032,9 +2032,9 @@ function validate_form() {
                                 <div class="bs-callout" id="formExValidation">
                                     <h5>Exemplo de Validação de Formulário</h4>
                                     <form class="form" action="index.html" name="formToInlineValidate" method="post" onsubmit="return validate_form()">
-                                        <label for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
-                                        <label for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
-                                        <label for="ageValidate">Idade</label> <input type="number" name="ageValidate" id="ageValidate">
+                                        <label aria-live="assertive" aria-atomic="true" for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
+                                        <label aria-live="assertive" aria-atomic="true" for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
+                                        <label aria-live="assertive" aria-atomic="true" for="ageValidate">Idade</label> <input type="number" name="ageValidate" id="ageValidate">
                                         <input type="submit" name="submit" value="Enviar" id="formSubmitValidate">
                                     </form>
                                 </div>
