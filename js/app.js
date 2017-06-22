@@ -356,7 +356,7 @@ function append_msg(msg, form_input) {
     }
 }
 
-function validate_form() {
+function validate_form_inline() {
 
     remove_olds('warning-msg');
 
