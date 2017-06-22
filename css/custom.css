@@ -192,3 +192,19 @@ a .glyphicon-new-window {
     position: absolute;
     left: -999em;
 }
+
+/* Validação de Formulário - Inline */
+label[for=formNameValidate],
+label[for=formEmailValidate],
+label[for=ageValidate],
+input#formNameValidate,
+input#formEmailValidate,
+input#ageValidate {
+    display: block;
+}
+label[for=formNameValidate],
+label[for=formEmailValidate],
+label[for=ageValidate],
+input#formSubmitValidate {
+    margin-top: 1em;
+}

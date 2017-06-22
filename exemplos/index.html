@@ -1901,8 +1901,7 @@ for (var i = 0; i < dropzones.length; i++) {
             var link = document.createElement('a');
             link.href = '#' + element.id;
             for (var x = 0; x < labels.length; x++) {
-                if (labels[x].getAttribute('for') == element.id)
-                {
+                if (labels[x].getAttribute('for') == element.id) {
                     var l = labels[x].innerHTML;
                 }
             }
@@ -1961,7 +1960,85 @@ for (var i = 0; i < dropzones.length; i++) {
                                   por exemplo.
                             </p>
 
-                            <p></p>
+                            <h5>HTML</h5>
+                            <div class="highlight">
+                                <pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToInlineValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
+
+    &lt;label for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
+
+    &lt;label for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
+
+    &lt;label for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;ageValidate&quot; id=&quot;ageValidate&quot;&gt;
+
+    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
+
+&lt;/form&gt;</code></pre>
+                            </div>
+
+                            <h5>JS</h5>
+                            <div class="highlight">
+                                <pre><code class="js">function remove_olds(className) {
+    var warning_length = document.getElementsByClassName(className).length;
+    if (document.getElementsByClassName(className)) {
+        for (var i = 0; i < warning_length; i++) {
+            document.getElementsByClassName(className)[0].remove();
+        }
+    }
+}
+
+function span_msg(className, txt) {
+    var msg = document.createElement('span');
+    msg.className = className;
+    var txtNode = document.createTextNode(txt);
+    msg.appendChild(txtNode);
+
+    return msg;
+}
+
+function append_msg(msg, form_input) {
+    if (form_input.value == "") {
+        for (var i = 0; i < document.getElementsByTagName('label').length; i++) {
+            if (document.getElementsByTagName('label')[i].getAttribute('for') == form_input.id) {
+                document.getElementsByTagName('label')[i].appendChild(msg.cloneNode(true));
+                form_input.setAttribute('aria-invalid', 'true');
+            }
+        }
+        return true;
+    }
+    else {
+        form_input.setAttribute('aria-invalid', 'false');
+    }
+}
+
+function validate_form() {
+
+    remove_olds('warning-msg');
+
+    var bool = true;
+    var forms = document.forms['formToInlineValidate'];
+    var msg = span_msg('warning-msg', ' (este campo está incorreto!)');
+
+    for (var i = 0; i < forms.length; i++) {
+        if (append_msg(msg, forms[i])) {
+            bool = false;
+        }
+    }
+
+    return bool;
+}</code></pre>
+                            </div>
+
+                            <div class="div-exemplo">
+                                <div class="bs-callout" id="formExValidation">
+                                    <h5>Exemplo de Validação de Formulário</h4>
+                                    <form class="form" action="index.html" name="formToInlineValidate" method="post" onsubmit="return validate_form()">
+                                        <label for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
+                                        <label for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
+                                        <label for="ageValidate">Idade</label> <input type="number" name="ageValidate" id="ageValidate">
+                                        <input type="submit" name="submit" value="Enviar" id="formSubmitValidate">
+                                    </form>
+                                </div>
+                            </div>
 
                         <h2>Widgets Alternativos para Formulários (ARIA)</h2>
                         <!-- TODO: widgets alternativos

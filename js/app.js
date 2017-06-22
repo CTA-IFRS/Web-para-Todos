@@ -298,8 +298,7 @@ function validate_form() {
             var link = document.createElement('a');
             link.href = '#' + element.id;
             for (var x = 0; x < labels.length; x++) {
-                if (labels[x].getAttribute('for') == element.id)
-                {
+                if (labels[x].getAttribute('for') == element.id) {
                     var l = labels[x].innerHTML;
                 }
             }
@@ -318,6 +317,57 @@ function validate_form() {
     if (!bool) {
         container.appendChild(ol);
         ol.focus();
+    }
+
+    return bool;
+}
+
+// Validação de Formulário - inline
+function remove_olds(className) {
+    var warning_length = document.getElementsByClassName(className).length;
+    if (document.getElementsByClassName(className)) {
+        for (var i = 0; i < warning_length; i++) {
+            document.getElementsByClassName(className)[0].remove();
+        }
+    }
+}
+
+function span_msg(className, txt) {
+    var msg = document.createElement('span');
+    msg.className = className;
+    var txtNode = document.createTextNode(txt);
+    msg.appendChild(txtNode);
+
+    return msg;
+}
+
+function append_msg(msg, form_input) {
+    if (form_input.value == "") {
+        for (var i = 0; i < document.getElementsByTagName('label').length; i++) {
+            if (document.getElementsByTagName('label')[i].getAttribute('for') == form_input.id) {
+                document.getElementsByTagName('label')[i].appendChild(msg.cloneNode(true));
+                form_input.setAttribute('aria-invalid', 'true');
+            }
+        }
+        return true;
+    }
+    else {
+        form_input.setAttribute('aria-invalid', 'false');
+    }
+}
+
+function validate_form() {
+
+    remove_olds('warning-msg');
+
+    var bool = true;
+    var forms = document.forms['formToInlineValidate'];
+    var msg = span_msg('warning-msg', ' (este campo está incorreto!)');
+
+    for (var i = 0; i < forms.length; i++) {
+        if (append_msg(msg, forms[i])) {
+            bool = false;
+        }
     }
 
     return bool;
