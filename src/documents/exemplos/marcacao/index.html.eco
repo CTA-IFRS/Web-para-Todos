@@ -1,0 +1,14 @@
+<section class="bs-docs-section">
+    <div class="page-header">
+        <h1 id="marcacao">Marcação</h1>
+    </div>
+
+    <h2>Tags de Seções Comuns</h2>
+
+    <%- @include('exemplos/marcacao/secoes-comuns.html') %>
+
+    <h2>WAI-ARIA</h2>
+
+    <%- @include('exemplos/marcacao/wai-aria.html') %>
+
+</section>

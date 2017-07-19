@@ -1,0 +1,34 @@
+<section class="bs-docs-section">
+    <div class="page-header">
+        <h1 id="formulario">Formulário</h1>
+
+        <h2>Validação</h2>
+
+        <p>
+            Na área da segurança, a validação de dados é um processo
+            de extrema importância. E mesmo que ela deva ser realizada
+            no servidor, por questões de comodidade ela deve, também,
+            ser implementada no lado do cliente. Entretanto, muitas
+            vezes essa informação apresenta problemas para utilizadores
+            de tecnologias assistivas, fazendo-se necessário o cuidado
+            na implementação dela.
+        </p>
+
+        <% for file in @getFilesAtPath('exemplos/formulario/validacao').toJSON(): %>
+            <%- file.contentRenderedWithoutLayouts %>
+        <% end %>
+
+        <h2>Widgets Alternativos para Formulários (ARIA)</h2>
+        <!-- TODO: widgets alternativos
+            - contenteditable
+            - switch
+            - botao
+            - seleção
+            - etc...
+        -->
+
+        <% for file in @getFilesAtPath('exemplos/formulario/alt-widgets-aria').toJSON(): %>
+            <%- file.contentRenderedWithoutLayouts %>
+        <% end %>
+    </div>
+</section>

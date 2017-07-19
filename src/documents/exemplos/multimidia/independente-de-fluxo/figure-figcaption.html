@@ -1,0 +1,64 @@
+<h3>As tags Figure e Figcaption</h3>
+
+<p>
+    A tag <code>figure</code> representa conteúdos independentes,
+    frequentemente com uma legenda (com a tag <code>figcaption</code>), e referido como uma única
+    unidade. Esse elemento é relacionado com o fluxo principal
+    da página, mas a posição dele é independente deste fluxo.
+    Geralmente representa imagens, ilustrações, diagramas,
+    códigos ou outros esquemas, referenciados no conteúdo principal.
+    As tags que compõe essa funcionalidade são:
+</p>
+
+<h4>Exemplos</h4>
+
+<p>
+    Neste exemplo, há uma imagem, e para a mesma há uma legenda:
+</p>
+
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;figure&gt;
+&lt;img src=&rdquo;imagem.png&rdquo; alt=&rdquo;bola&nbsp;de&nbsp;basquete&nbsp;num&nbsp;fundo&nbsp;branco&rdquo;&gt;
+&lt;figcaption&gt; Figura 1. Bola de basquete&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+    </pre>
+</div>
+
+<p>
+    Neste outro, há um elemento criado com a tag canvas, e sua
+    posição é independente do fluxo da página, e portanto melhor
+    utilizado com a tag <code>figure</code>:
+</p>
+
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;figure&gt;
+&lt;canvas id=&quot;example&quot; role=&quot;img&quot;&gt;&lt;/canvas&gt;
+&lt;figcaption&gt;Figura 2. Exemplo de uso da tag canvas&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+    </pre>
+</div>
+
+<div class="bs-callout bs-callout-info">
+    <p>Note aqui a utilização de um <code>role</code> de imagem no elemento canvas</p>
+</div>
+
+<p>
+    Também é possível utilizar códigos, e outros tipos de elementos:
+</p>
+
+<div class="highlight">
+    <pre>
+        <code class="html php">&lt;figure&gt;
+&lt;figcaption&gt;Exemplo de c&oacute;digo PHP&lt;/figcaption&gt;
+&lt;pre&gt;
+&lt;code class=&quot;php&quot;&gt;
+&lt;?php
+echo &lsquo;Ol&aacute; Mundo!&rsquo;;
+?&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;/figure&gt;</code>
+    </pre>
+</div>

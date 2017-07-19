@@ -1,0 +1,80 @@
+<h4>Roles Abstratos</h4>
+
+<!-- TODO: acabar os roles abstratos -->
+
+<p>
+    Estes roles são utilizados para dar suporte à taxonomia
+    do role ARIA, para o propósito definir conceitos gerais
+    de role. São usados para indicar a natureza do elemento, e não devem ser
+    utilizados em conteúdo.
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Role e Descrição</th>
+            <th>Role de superclasse</th>
+            <th>Role de subclasse</th>
+            <th>Estados e Propriedades Suportados</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>command</code>: um formato de widget que realiza uma ação, mas não recebe informação de entrada.</td>
+            <td><code>widget</code></td>
+            <td><code>link</code>, <code>link</code> e <code>menuitem</code></td>
+            <td>Não há</td>
+        </tr>
+        <tr>
+            <td><code>composite</code>: um widget que possa conter descendentes navegáveis.</td>
+            <td><code>widget</code></td>
+            <td><code>grid</code>, <code>select</code> e <code>tablist</code></td>
+            <td><code>aria-activedescendant</code></td>
+        </tr>
+        <tr>
+            <td><code>input</code>: tipo genérico de widget que permite entrada do usuário</td>
+            <td><code>widget</code></td>
+            <td><code>checkbox</code>, <code>option</code>, <code>select</code>, <code>scrollbar</code>, <code>slider</code>, <code>spinbutton</code>, <code>textbox</code></td>
+            <td>Não há</td>
+        </tr>
+        <tr>
+            <td><code>landmark</code>: região da página que pretende ser uma ponto de referência navegável.</td>
+            <td><code>region</code></td>
+            <td><code>application</code>, <code>banner</code>, <code>complementary</code>, <code>contentinfo</code>, <code>form</code>, <code>main</code>, <code>navigation</code>, <code>search</code></td>
+            <td>Não há</td>
+        </tr>
+        <tr>
+            <td><code>range</code>: uma entrada representando uma extensão de valores que podem ser definidos pelo usuário.</td>
+            <td><code>widget</code></td>
+            <td><code>progressbar</code>, <code>scrollbar</code>, <code>slider</code>, <code>spinbutton</code></td>
+            <td><code>aria-valuemax</code>, <code>aria-valuemin</code>, <code>aria-valuenow</code>, <code>aria-valuetext</code></td>
+        </tr>
+        <tr>
+            <td><code>roletype</code>:</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>section</code>:</td>
+        </tr>
+        <tr>
+            <td><code>sectionhead</code>:</td>
+        </tr>
+        <tr>
+            <td><code>select</code>:</td>
+        </tr>
+        <tr>
+            <td><code>structure</code>:</td>
+        </tr>
+        <tr>
+            <td><code>widget</code>:</td>
+        </tr>
+        <tr>
+            <td><code>window</code>:</td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

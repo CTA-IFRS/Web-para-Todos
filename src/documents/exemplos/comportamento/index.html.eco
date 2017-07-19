@@ -1,0 +1,45 @@
+<section class="bs-docs-section">
+    <div class="page-header">
+        <h1 id="comportamento">Comportamento (DOM)</h1>
+    </div>
+
+    <div id="widgets-aria">
+        <h2>Widgets Acessíveis com ARIA</h2>
+
+        <p>
+            Existe uma infinidade de necessidades que
+            desenvolvedores devem solucionar através da
+            construção de widgets: componentes de interface de
+            usuário que realizam determinadas funções de forma
+            dinâmica. Entretanto, a maioria destes não possui
+            forma de implementação nativa, ou a mesma não pode
+            ser utilizada. Para tal, cabe ao desenvolvedor saber
+            utilizar recursos específicos de acessibilidade, como
+            o ARIA, para construir estes widgets. Veja os exemplos a seguir:
+        </p>
+
+        <% for file in @getFilesAtPath('exemplos/comportamento/widgets-aria').toJSON(): %>
+            <%- file.contentRenderedWithoutLayouts %>
+        <% end %>
+
+        <ul>
+            <li><code>gridcell</code>:</li>
+            <li><code>radio</code>:</li>
+            <li><code>scrollbar</code>:</li>
+            <li><code>spinbutton</code>:</li>
+            <li><code>tab</code>:</li>
+            <li><code>tabpanel</code>:</li>
+            <li><code>textbox</code>:</li>
+            <li><code>timer</code>:</li>
+            <li><code>tooltip</code>:</li>
+            <li><code>treeitem</code>:</li>
+        </ul>
+
+        <h2>Navegação por Teclado</h2>
+        <!-- TODO: seção de navegação por teclado -->
+
+        <h2>Foco</h2>
+        <!-- TODO: seção de foco -->
+    </div>
+
+</section>

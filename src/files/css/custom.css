@@ -1,0 +1,210 @@
+/* Botões da Página Inicial */
+.btn-homepage {
+    margin-bottom: 2em;
+}
+
+.btn-homepage a.btn-lg {
+    font-size: 2em;
+}
+
+/* Página de exemplos */
+.bs-docs-header a {
+    color: white !important;
+    text-decoration: underline !important;
+}
+/*
+
+Logos
+
+*/
+
+/*IFRS*/
+#logo-ifrs {}
+/*CTA*/
+#logo-cta {}
+/*Web para Todos*/
+#logo-webparatodos {}
+
+/* Tag figure */
+figcaption {
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5em;
+}
+
+figure.code figcaption {
+    text-align: left;
+}
+
+code {
+    padding-right: 0 !important;
+}
+
+/* Cabeçalhos */
+
+h5 {
+    font-size: 16px;
+}
+
+/* Ícone de nova página */
+
+a .glyphicon-new-window {
+    font-size: 0.7em;
+    top: -3px;
+}
+
+/* span de Espaço em Branco para evitar uso de <br> */
+
+.space {
+    height: 1em;
+    display: block;
+}
+
+/* Exemplos */
+
+.div-exemplo {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.div-exemplo #aria-text {
+    border: 1px solid black;
+    height: 100px;
+}
+
+.span-btn {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.span-btn:hover {
+  background-color: black;
+}
+
+.span-btn:active {
+  border: 3px solid red;
+}
+
+.span-btn:focus {
+    border: 1px dotted white;
+}
+
+/* Exemplo do menu, menuitem, menuitemradio e menuitemcheckbox*/
+
+.example-menu li[role=menuitem], .example-menu li[role=menuitemradio], .example-menu li[role=menuitemcheckbox] {
+    list-style: none;
+    display: block
+}
+
+.example-menu ul[role=menu] li, .example-menu div[role=menubar] span {
+    background-color: black;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+}
+
+.example-menu ul[role=menu] li:hover, .example-menu div[role=menubar] span:hover, .example-menu ul[role=menu] li:focus, .example-menu div[role=menubar] span:focus {
+    background-color: lightgrey;
+    color: black;
+}
+
+.example-menu span[role=menuitem], .example-menu span[role=menuitemradio], .example-menu span[role=menuitemcheckbox] {
+    list-style: none;
+    margin-bottom: 0.5em;
+    margin-right: 0;
+    margin-left: 0;
+    display: inline-block
+}
+
+.example-menu span[aria-checked="true"], .example-menu li[aria-checked="true"] {
+    background-color: grey !important;
+}
+
+/* Exemplo do checkbox */
+.example-checkbox span[aria-checked=false] {
+    width: 17px;
+    height: 17px;
+    background-color: grey;
+    display: inline-block;
+    cursor: pointer;
+}
+.example-checkbox span[aria-checked=true] {
+    width: 17px;
+    height: 17px;
+    background-color: green;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Exemplo de link */
+
+[role=link] {
+    color: #0064b4;
+}
+
+[role=link]:focus, [role=link]:hover {
+    color: #23527c;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Exemplo de drag and drop */
+
+.dropzone {
+    color: white;
+    background-color: gray;
+    display: block;
+    width: 350px;
+    height: 200px;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+#draggable {
+    cursor: grab;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    width: 300px;
+    padding: 0.5em;
+}
+
+#draggable:focus, #draggable:hover {
+    border: 3px solid red;
+}
+
+[aria-dropeffect=move] {
+    border: 5px solid black;
+}
+
+.drophover {
+    border: 5px solid red !important;
+}
+
+.dropzone span {
+    font-weight: bold;
+}
+
+.sronly, #alert-area, .indicator-anchor {
+    position: absolute;
+    left: -999em;
+}
+
+/* Validação de Formulário - Inline */
+label[for=formNameValidate],
+label[for=formEmailValidate],
+label[for=ageValidate],
+input#formNameValidate,
+input#formEmailValidate,
+input#ageValidate {
+    display: block;
+}
+label[for=formNameValidate],
+label[for=formEmailValidate],
+label[for=ageValidate],
+input#formSubmitValidate {
+    margin-top: 1em;
+}

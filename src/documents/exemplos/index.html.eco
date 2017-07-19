@@ -1,0 +1,17 @@
+---
+title: "Exemplos de Componentes Acessíveis"
+layout: "default"
+ispage: true
+---
+
+<%- @include('exemplos/marcacao/index.html.eco') %>
+
+<%- @include('exemplos/multimidia/index.html.eco') %>
+
+<%- @include('exemplos/formulario/index.html.eco') %>
+
+<%- @include('exemplos/comportamento/index.html.eco') %>
+
+<%- @include('exemplos/conteudo/index.html.eco') %>
+
+<%- @include('exemplos/apresentacao/index.html.eco') %>

@@ -1,0 +1,91 @@
+<h3>O que é?</h3>
+
+<p>
+    ARIA é uma especificação técnica, publicada pela W3C, que discursa sobre
+    como melhorar a acessibilidade páginas web, em particular como providenciar
+    informação semântica de conteúdos dinâmicos e componentes de interface de usuário.
+</p>
+<p>
+    Essa especificação providencia uma série de propriedades, estados e "papéis" (roles)
+    desenhados para definir informações consisas sobre elementos de interface de usuário
+    que podem aperfeiçoar a acessibilidade e interoperabilidade do conteúdo web, permitindo
+    que o desenvolvedor transmita corretamente o comportamento e a informação estruturada
+    para tecnologias assistivas que agem diretamente na marcação do documento.
+</p>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Lembre-se dos padrões web!</h4>
+
+    <p>
+        ARIA é uma específicação muito rica na criação de aplicações web
+        acessíveis, mas lembre-se sempre de organizar o código de forma
+        semântica e seguindos os padrões web. Dessa forma, não é preciso
+        utilizar muitos recursos como ARIA, pois a página será naturalmente
+        mais acessível.
+    </p>
+</div>
+
+<div class="bs-callout bs-callout-warning">
+    <h4>Nota sobre os exemplos</h4>
+    <p>
+        Muitas formas de implementação e atribuição de recursos do WAI-ARIA
+        não são padronizadas e, portanto, são subjetivas e costumam causar
+        divergência de opiniões. Neste documento, é abordado diferentes pontos
+        de vista sobre essa implementação. Qualquer sugestão de mudança será
+        discutida e bem aceita, através da
+        <a href="https://github.com/CTA-IFRS/Web-para-Todos">Repositório do código fonte do Web para Todos no GitHub.</a>
+    </p>
+</div>
+
+
+<h3>Atributos Role</h3>
+<p>
+    Estes atributos permitem atribuir a um elemento um “papel”, uma função, dentro de uma página.
+    Existem cerca de 73 “roles”, mas eles não podem ser atribuídos de qualquer forma.
+    Ao criar um slidebar, por exemplo, utilizando um gráfico, o leitor de tela poderá
+    ler algo como “Gráfico, botão”, ao invés de algo mais significativo como “Slider,
+    valor de 42 por cento”.  Utilizando os roles é possível atribuir esse comportamento
+    à um elemento e adicionar significado a ele.
+</p>
+
+<% for file in @getFilesAtPath('exemplos/marcacao/roles').toJSON(): %>
+    <%- file.contentRenderedWithoutLayouts %>
+<% end %>
+
+<h3>Estados e Propriedades</h3>
+
+<!-- TODO: organizar isso daí embaixo -->
+
+<h4>Atributos de Widget</h4>
+    <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para ver os exemplos de atributos para widgets de ARIA.</p>
+<h4>Atributos de regiões dinâmicas (live)</h4>
+<!-- TODO: fazer exemplos de regiões dinâmicas -->
+    <h5>aria-live</h5>
+    <h5>aria-atomic</h5>
+    <h5>aria-busy</h5>
+    <h5>aria-relevant</h5>
+<h4>Atributos de "Arrastar e Soltar"</h4>
+    <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para ver os exemplos de atributos para widgets do tipo arrastar e soltar.</p>
+<!-- TODO: ver melhor qualéqueé sobre atributos de relacionamentos e estados e propriedades globais -->
+<h4>Atributos de Relacionamentos</h4>
+<h4>Estados e Propriedades Globais</h4>
+
+<div class="bs-callout bs-callout-warning">
+    <h4 id="redundant">Considerações sobre Redundância com ARIA</h4>
+    <p>
+        Antes de começar a implementar todos os atributos ARIA possíveis,
+        algumas considerações devem ser feitas, pois existem recomendações e
+        regras para seu uso. Se você puder utilizar um elemento HTML ou
+        atributo com a semântica e comportamento que você necessita já nativos,
+        ao invés de re-atribuir propósito a um elemento e adicionar um role ARIA,
+        estado ou propriedade, utilize apenas o elemento nativo. Existem três
+        exceções nessa regra, segundo a W3C:</p>
+    <ul>
+        <li>Se o recurso está disponível no HTML mas não é implementado, ou é implementado mas não há suporte à acessibilidade.</li>
+        <li>Se as restrições design visual excluem o uso de um elemento nativo em particular, porque o elemento não pode ser estilizado como necessário.</li>
+        <li>Se o recurso não está disponível no HTML.</li>
+    </ul>
+    <p>Também não modifique semânticas nativas, como adicionar uma tag <code>p</code> com um role <code>button</code>!</p>
+
+    <p>Para mais informações sobre a utilização de ARIA, visite o documento online da W3C <span lang="en"><a href="https://www.w3.org/TR/aria-in-html/">Notes on Using ARIA in HTML (em inglês). <span class="glyphicon glyphicon-new-window"><span class="sr-only">Nova Página</span></span></a></span></p>
+</div>

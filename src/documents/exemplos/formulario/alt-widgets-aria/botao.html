@@ -1,0 +1,57 @@
+<h3>Widget de botão:</h3>
+<p>Mesmo com o recurso já implementado, muitas vezes por questões de estilização, o desenvolvedor necessita criar um botão do zero. Para isso, é importante utilizar o role apropriado, além de disponibilizar todas as funções padrões de um botão, como executar sua ação com o clique da tecla Enter, com o clique do mouse, modificar o cursor e a aparência do botão em determinados eventos, entre outros. Veja o exemplo à seguir:</p>
+<h4>HTML</h4>
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;span role=&quot;button&quot; id=&quot;aria-button&quot; class=&quot;span-btn&quot; tabindex=&quot;0&quot;&gt;OK!&lt;/span&gt;</code>
+    </pre>
+</div>
+
+<h4>CSS</h4>
+<div class="highlight">
+    <pre>
+        <code class="css">.span-btn {
+background-color: blue;
+color: white;
+font-weight: bold;
+padding: 1em;
+cursor: pointer;
+}
+
+.span-btn:hover {
+background-color: black;
+}
+
+.span-btn:active {
+border: 3px solid red;
+}
+
+.span-btn:focus {
+border: 1px dotted white;
+}</code>
+    </pre>
+</div>
+
+<h4>JS</h4>
+<div class="highlight">
+    <pre><code class="js">var btn = document.getElementById('aria-button');
+function acaoBotao() {
+if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+// ação realizada pelo botão
+alert('Botão Pressionado com sucesso!');
+}
+}
+btn.addEventListener('click', acaoBotao);
+btn.addEventListener('keypress', acaoBotao);</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout">
+        <h4>Exemplo de botão</h4>
+        <span class="space"></span>
+        <span role="button" id="aria-button" class="span-btn" tabindex="0">OK!</span>
+    </div>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <p>Não utilize este role em elementos <code>button</code> ou <code>input</code> do tipo button, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+</div>

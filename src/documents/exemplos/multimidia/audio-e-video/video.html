@@ -1,0 +1,36 @@
+<h3>Vídeo</h3>
+<!-- TODO: vídeo, vídeo com múltiplas faixas de áudio, vídeo com transcrição textual, vídeo com legendas, etc -->
+
+<p>
+    Assim como acontecia com mídias de áudio, vídeos na web
+    também dependiam de plugins como Flash e apresentavam
+    problemas de acessibilidade, e o recurso nativo aprimorou
+    a inserção destas mídias na web. Veja os exemplos:
+</p>
+
+<div class="highlight">
+    <pre><code class="html">&lt;video src=&quot;filme.ogg&quot; poster=&quot;posterimage.jpg&quot;&gt;
+Seu navegador n&atilde;o possui suporte &agrave; videos.
+&lt;/video&gt;</code></pre>
+</div>
+
+<p>
+    Também podemos incrementar este vídeo com legendas, assim como no próximo exemplo:
+</p>
+
+<div class="highlight">
+    <pre><code class="html">&lt;video src=&quot;filme.ogg&quot; poster=&quot;posterimage.jpg&quot;&gt;
+Seu navegador n&atilde;o possui suporte &agrave; videos.
+&lt;track kind=&quot;subtitles&quot; src=&quot;filme.pt.vtt&quot; srclang=&quot;pt&quot; label=&quot;Portugu&ecirc;s&quot;&gt;
+&lt;track kind=&quot;subtitles&quot; src=&quot;filme.en.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+&lt;track kind=&quot;subtitles&quot; src=&quot;filme.sv.vtt&quot; srclang=&quot;sv&quot; label=&quot;Svenska&quot;&gt;
+&lt;/video&gt;</code></pre>
+</div>
+
+<p>
+    Assim como a tag áudio, podemos incrementar ainda mais o
+    vídeo com múltiplas fontes do mesmo arquivo em formatos
+    diferentes, da mesma forma. Também podemos especificar
+    diferentes tipos de conteúdo textual, como transcrições e
+    afins. Veja a seção à seguir para mais informações: <a href="#multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</a>
+</p>

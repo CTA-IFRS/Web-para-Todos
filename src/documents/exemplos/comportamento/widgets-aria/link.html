@@ -1,0 +1,46 @@
+<h3>Widget de link:</h3>
+
+<!-- TODO: fazer texto para widget de link -->
+
+<h4>HTML</h4>
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;span role=&quot;link&quot; id=&quot;link&quot; tabindex=&quot;0&quot;&gt;Site do Centro Tecn&oacute;l&oacute;gico de Acessibilidade&lt;/span&gt;</code>
+    </pre>
+</div>
+
+<h4>CSS</h4>
+<div class="highlight">
+    <pre><code class="css">[role=link] {
+color: #0064b4;
+}
+
+[role=link]:focus, [role=link]:hover {
+color: #23527c;
+text-decoration: underline;
+cursor: pointer;
+}</code></pre>
+</div>
+
+<h4>JS</h4>
+<div class="highlight">
+    <pre><code class="js">var link = document.getElementById('link');
+
+function linkToCTA(e) {
+if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+window.location.href = 'http://cta.ifrs.edu.br';
+}
+}
+
+link.addEventListener('click', linkToCTA);
+link.addEventListener('keypress', linkToCTA);</code></pre>
+</div>
+
+<div class="bs-callout">
+    <h4>Exemplo</h4>
+    <span role="link" id="link" tabindex="0">Site do Centro Tecnólógico de Acessibilidade</span>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <p>Não utilize este role em links nativos do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+    <p>Também lembre-se que, se for extritamente necessário construir um link dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+</div>

@@ -1,0 +1,139 @@
+<h4>Landmark Roles</h4>
+
+<!-- TODO: finalizar tabela de landmark roles -->
+
+<p>Esse tipo de role é utilizado para caracterizar pontos de referência numa página, marcos de navegação. Vejamos o seguinte exemplo:</p>
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;!-- Cabeçalho da Página --&gt;
+&lt;header role=&quot;banner&quot;&gt;
+&lt;h1&gt;T&iacute;tulo da P&aacute;gina&lt;/h1&gt;
+
+&lt;!-- Navegação --&gt;
+&lt;ul role=&quot;navigation&quot;&gt;
+...
+&lt;/ul&gt;
+&lt;/header&gt;
+
+&lt;!-- Conteúdo Principal --&gt;
+&lt;main role=&quot;main&quot;&gt;
+
+&lt;!-- Postagem --&gt;
+&lt;section&gt;
+
+&lt;!-- Cabeçalho da Postagem --&gt;
+&lt;header&gt;
+&lt;h1&gt;T&iacute;tulo da Postagem&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Autor: ...&lt;/li&gt;
+&lt;li&gt;Data: ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/header&gt;
+
+&lt;!-- Conteúdo/Corpo da Postagem --&gt;
+&lt;article&gt;
+...
+&lt;/article&gt;
+
+&lt;!-- Rodapé da Postagem (comentários, por exemplo) --&gt;
+&lt;footer&gt;
+...
+&lt;/footer&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+
+&lt;!-- Sidebar --&gt;
+&lt;aside role=&quot;complementary&quot;&gt;
+...
+&lt;/aside&gt;
+
+&lt;!-- Rodapé da Página --&gt;
+&lt;footer role=&quot;contentinfo&quot;&gt;
+...
+&lt;/footer&gt;</code>
+    </pre>
+</div>
+
+<p>
+    No exemplo acima, podemos perceber que há mais de uma tag header, por exemplo.
+    Falar em cabeçalhos pode ser subjetivo demais em uma página web. Temos, por
+    exemplo, o cabeçalho da página, onde há o título e ocasionalmente um menu de
+    navegação, e também temos cabeçalhos de postagens, cabeçalhos de widgets de
+    uma barra lateral, entre outros exemplos. Para diferenciá-los, podemos utilizar
+    os roles de landmark, fazendo assim a distinção entre diferentes tipos de
+    cabeçalhos, como usado nesse exemplo.
+</p>
+
+<p>Os seguintes valores para role são utilizados para pontos de referência, marcos de navegação dentro de uma página:</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Role e Descrição</th>
+            <th>Elemento relacionado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>application</code>: representa uma região da página que possui
+                um software ou aplicação única, executando uma série de tarefas para o
+                usuário. É um local onde tecnologias assistivas devem também retornar
+                as teclas de navegação do navegador de volta para a aplicação web nessa
+                região.
+                <div class="bs-callout bs-callout-warning">
+                    <p><b>Nota: </b>é extremamente recomendável utilizar este <code>role</code> com muita moderação.</p>
+                </div>
+            </td>
+            <td>Não há um elemento específico relacionado, sendo recomendado utilizar uma tag <code>div</code> genérica.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>banner</code>: uma região que contém o cabeçalho principal de uma página
+                ou título interno de uma página. A maior parte do conteúdo de um <code>banner</code>
+                é comum em todas as páginas do website, ao invés de uma específica. Tipicamente inclui
+                logos, navegações, o cabeçalho principal da página e mecanismo de pesquisa.
+                <div class="bs-callout bs-callout-warning">
+                    <p><b>Nota: </b>em qualquer documento ou página, o autor deve criar não mais que um elemento com este role.</p>
+                </div>
+            </td>
+            <td>Não há um elemento específico relacionado, sendo recomendado utilizar uma tag <code>header</code>.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>complementary</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>contentinfo</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>form</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>main</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>navigation</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>search</code>:
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

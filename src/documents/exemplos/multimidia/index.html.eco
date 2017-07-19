@@ -1,0 +1,36 @@
+<section class="bs-docs-section">
+    <div class="page-header">
+        <h1 id="multimidia">Multimídia</h1>
+    </div>
+
+    <h2>Imagens</h2>
+
+    <p>
+        Por razões bastante óbvias, imagens não são um recurso
+        completamente acessível. Pessoas com problemas de visão
+        e até mesmo cegueira, por exemplo, tem dificuldades na
+        interpretação de elementos que sejam muito visuais, e
+        a presença de imagens como componentes essenciais no
+        conteúdo de uma página podem dificultar o entendimento
+        da mesma. Dessa forma, é necessário apresentar
+        alternativas para que a informação contida na imagem
+        possa ser compreendida.
+    </p>
+
+    <% for file in @getFilesAtPath('exemplos/multimidia/imagens').toJSON(): %>
+        <%- file.contentRenderedWithoutLayouts %>
+    <% end %>
+
+    <h2>Conteúdo Independente de Fluxo</h2>
+
+    <% for file in @getFilesAtPath('exemplos/multimidia/independente-de-fluxo').toJSON(): %>
+        <%- file.contentRenderedWithoutLayouts %>
+    <% end %>
+
+    <h2>Áudio e Vídeo</h2>
+
+    <% for file in @getFilesAtPath('exemplos/multimidia/audio-e-video').toJSON(): %>
+        <%- file.contentRenderedWithoutLayouts %>
+    <% end %>
+
+</section>

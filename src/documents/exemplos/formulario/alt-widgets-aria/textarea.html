@@ -1,0 +1,42 @@
+<h3>Widget de área de texto</h3>
+
+<p>Para criar um elemento de entrada de texto utilizando o role aria <code>textbox</code>, é necessário adiocionar comportamentos específicos através de javascript e estilizar o elemento <code>div</code> para que se comporte como uma entrada de texto. Lembre-se de capturar o conteúdo do elemento utilizando <code>getElementByID('id').innerHTML</code> e, assim, poder realizar as funções que necessita.</p>
+
+<h4 id="html-textarea">HTML</h4>
+<div class="highlight" aria-labelledby="html-textarea">
+    <pre><code class="html">&lt;span id=&quot;aria-text-label&quot;&gt;Insira o texto &agrave; seguir:&lt;/span&gt;
+
+&lt;div role=&quot;textbox&quot; contenteditable=&quot;true&quot; aria-labelledby=&quot;aria-text-label&quot; id=&quot;aria-text&quot; aria-multiline=&quot;true&quot;&gt;&lt;/div&gt;
+
+&lt;button onclick=&quot;capturarConteudo();&quot;&gt;&lt;/button&gt;</code></pre>
+</div>
+
+<h4 id="css-textarea">CSS</h4>
+<div class="highlight" aria-labelledby="css-textarea">
+    <pre><code class="css">#aria-text {
+border: 1px solid black;
+height: 100px;
+}</code></pre>
+</div>
+
+<h4 id="js-textarea">JS</h4>
+<div class="highlight" aria-labelledby="js-textarea">
+    <pre><code class="js">function capturarConteudo() {
+var texto = document.getElementById('aria-text').innerHTML;
+armazenarDado(texto);
+}
+
+function armazenarDado(texto) {
+// desenvolva aqui seu código para trabalhar com os dados inseridos da forma como for necessária
+}</code></pre>
+</div>
+
+<div class="bs-callout">
+    <h4>Exemplo</h4>
+    <div class="div-exemplo">
+        <span id="aria-text-label">Insira o texto à seguir</span>
+        <div role="textbox" contenteditable="true" aria-labelledby="aria-text-label" id="aria-text" aria-multiline="true"></div>
+        <button onclick="capturarConteudoExemplo();">Enviar Dados</button>
+    </div>
+    <p>O exemplo acima irá executar um alerta do navegador, exibindo o texto que foi escrito dentro do elemento recém criado.</p>
+</div>
