@@ -12,6 +12,11 @@
     color: white !important;
     text-decoration: underline !important;
 }
+
+.bs-docs-header h1, .bs-docs-header p {
+    margin-right: inherit;
+}
+
 /*
 
 Logos

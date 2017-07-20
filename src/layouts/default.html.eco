@@ -41,16 +41,14 @@
 
 <body>
     <a class="sr-only" href="#content">Pular Navegação</a>
-    <div class="bs-docs-header" style="background-color:#0079C2; background-image: url(''); margin: 0;">
+    <div class="bs-docs-header" style="background-color:#132531; background-image: url(''); margin: 0;">
         <!-- color: #26353e -->
         <div class="container" style="color:white">
 
 
-            <h1>Em Construção</h1>
+            <h1>Exemplos de Componentes Acessíveis</h1>
             <p>
-                Essa página web tem a intenção demonstrar exemplos de componentes e elementos
-                acessíveis.
-                <!-- TODO: melhorar esse texto -->
+                O intuito dessa página é apresentar formas de contruir componentes acessíveis para páginas web, desde elementos simples como um arquivo de áudio com sua transcrição textual até widgets complexos, como um arrastar-e-soltar acessível.
             </p>
 
         </div>
