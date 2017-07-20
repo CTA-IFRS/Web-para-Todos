@@ -5,6 +5,7 @@
   "dependencies": {
     "docpad": "~6.79.4",
     "docpad-plugin-eco": "~2.2.1",
+    "docpad-plugin-ghpages": "~2.6.1",
     "docpad-plugin-livereload": "~2.9.0",
     "docpad-plugin-marked": "~2.4.0"
   },

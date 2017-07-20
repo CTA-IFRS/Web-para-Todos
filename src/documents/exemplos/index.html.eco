@@ -12,6 +12,6 @@ ispage: true
 
 <%- @include('exemplos/comportamento/index.html.eco') %>
 
-<%- @include('exemplos/conteudo/index.html.eco') %>
+<%- @include('exemplos/conteudo/index.html') %>
 
-<%- @include('exemplos/apresentacao/index.html.eco') %>
+<%- @include('exemplos/apresentacao/index.html') %>

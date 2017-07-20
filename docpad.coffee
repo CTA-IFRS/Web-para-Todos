@@ -3,6 +3,7 @@
 
 # Define the DocPad Configuration
 docpadConfig = {
+	renderPasses: 3
 	templateData:
         site:
             url: "http://gg-vostro-fedora:9778/"
