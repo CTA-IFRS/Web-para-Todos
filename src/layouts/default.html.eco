@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="../css/bootstrap-accessibility.css">
 
     <!-- A11y Bootstrap Theme -->
-    <link rel="stylesheet" href="http://jbst.eu/bootstrap-a11y-theme/a11ytheme.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-accessibility-theme.css">
 
     <!-- highlight.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">
