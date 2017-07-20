@@ -5,42 +5,41 @@
 <h4>HTML</h4>
 <div class="highlight">
     <pre>
-        <code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
-&lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
-&lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
+<code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
+    &lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+    &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
 &lt;/div&gt;</code>
     </pre>
 </div>
 
 <h4>CSS</h4>
 <div class="highlight">
-    <pre><code class="css">.example-checkbox span[aria-checked=false] {
-width: 17px;
-height: 17px;
-background-color: grey;
-display: inline-block;
-cursor: pointer;
+<pre><code class="css">.example-checkbox span[aria-checked=false] {
+    width: 17px;
+    height: 17px;
+    background-color: grey;
+    display: inline-block;
+    cursor: pointer;
 }
 .example-checkbox span[aria-checked=true] {
-width: 17px;
-height: 17px;
-background-color: green;
-display: inline-block;
-cursor: pointer;
+    width: 17px;
+    height: 17px;
+    background-color: green;
+    display: inline-block;
+    cursor: pointer;
 }</code></pre>
 </div>
 
 <h4>JS</h4>
 <div class="highlight">
-    <pre><code class="js">function trocarSelecao(e) {
-if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
-if (e.target.getAttribute('aria-checked') == 'true') {
-e.target.setAttribute('aria-checked', 'false');
-}
-else {
-e.target.setAttribute('aria-checked', 'true');
-}
-}
+<pre><code class="js">function trocarSelecao(e) {
+    if (e.type == 'click' || (e.type == 'keydown' &amp; &amp; e.keyCode == '13')) {
+        if (e.target.getAttribute('aria-checked') == 'true') {
+            e.target.setAttribute('aria-checked', 'false');
+        } else {
+            e.target.setAttribute('aria-checked', 'true');
+        }
+    }
 }
 
 var checkbox = document.getElementById('chk1');
@@ -63,7 +62,7 @@ checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
 
 <div class="highlight">
     <pre>
-        <code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+<code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
 &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas preferências&lt;/label&gt;</code>
     </pre>
 </div>

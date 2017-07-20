@@ -9,78 +9,78 @@
 <p>Abaixo, segue um exemplo do formato convencional em que os desenvolvedores organizam os elementos de uma página, através de tags <code>div</code>, IDs e classes:</p>
 <div class="highlight">
     <pre>
-    <code class="html">&lt;div id=&quot;header&quot;&gt;
-        &lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
-        &lt;div id=&quot;nav&quot;&gt;
+<code class="html">&lt;div id=&quot;header&quot;&gt;
+    &lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
+    &lt;div id=&quot;nav&quot;&gt;
+    ...
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;main&quot;&gt;
+    &lt;div class=&quot;section-article&quot;&gt;
+        &lt;div class=&quot;article-header&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-content&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-footer&quot;&gt;
         ...
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div id=&quot;main&quot;&gt;
-        &lt;div class=&quot;section-article&quot;&gt;
-            &lt;div class=&quot;article-header&quot;&gt;
-            ...
-            &lt;/div&gt;
-            &lt;div class=&quot;article-content&quot;&gt;
-            ...
-            &lt;/div&gt;
-            &lt;div class=&quot;article-footer&quot;&gt;
-            ...
-            &lt;/div&gt;
-        &lt;/div&gt;
 
-        &lt;div class=&quot;section-article&quot;&gt;
-            &lt;div class=&quot;article-header&quot;&gt;
-            ...
-            &lt;/div&gt;
-            &lt;div class=&quot;article-content&quot;&gt;
-            ...
-            &lt;/div&gt;
-            &lt;div class=&quot;article-footer&quot;&gt;
-            ...
-            &lt;/div&gt;
+    &lt;div class=&quot;section-article&quot;&gt;
+        &lt;div class=&quot;article-header&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-content&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-footer&quot;&gt;
+        ...
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div id=&quot;sidebar&quot;&gt;
-    ...
-    &lt;/div&gt;
-    &lt;div id=&quot;footer&quot;&gt;
-    ...
-    &lt;/div&gt;</code>
-    </pre>
+&lt;/div&gt;
+&lt;div id=&quot;sidebar&quot;&gt;
+...
+&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;
+...
+&lt;/div&gt;</code>
+</pre>
 </div>
 <p>No próximo exemplo, as diversas tags <code>div</code> são substítuidas por tags que indicam o tipo de elemento, sem precisar de IDs e classes para diferenciá-los.</p>
 <div class="highlight">
     <pre>
 <code class="html">&lt;header&gt;
-&lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
-&lt;nav&gt;
-...
-&lt;/nav&gt;
+    &lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
+    &lt;nav&gt;
+    ...
+    &lt;/nav&gt;
 &lt;/header&gt;
 &lt;main&gt;
-&lt;section&gt;
-&lt;header&gt;
-...
-&lt;/header&gt;
-&lt;article&gt;
-...
-&lt;/article&gt;
-&lt;footer&gt;
-...
-&lt;/footer&gt;
-&lt;/section&gt;
+    &lt;section&gt;
+        &lt;header&gt;
+        ...
+        &lt;/header&gt;
+        &lt;article&gt;
+        ...
+        &lt;/article&gt;
+        &lt;footer&gt;
+        ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
 
-&lt;section&gt;
-&lt;header&gt;
-...
-&lt;/header&gt;
-&lt;article&gt;
-...
-&lt;/article&gt;
-&lt;footer&gt;
-...
-&lt;/footer&gt;
-&lt;/section&gt;
+    &lt;section&gt;
+        &lt;header&gt;
+        ...
+        &lt;/header&gt;
+        &lt;article&gt;
+        ...
+        &lt;/article&gt;
+        &lt;footer&gt;
+        ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
 &lt;/main&gt;
 &lt;aside&gt;
 ...

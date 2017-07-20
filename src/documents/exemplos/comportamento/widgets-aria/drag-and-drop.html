@@ -2,169 +2,169 @@
 
 <h4>HTML</h4>
 <div class="highlight">
-    <pre><code class="html">&#x3C;div id=&#x22;alert-area&#x22; aria-live=&#x22;assertive&#x22;&#x3E;&#x3C;/div&#x3E;
-&#x3C;div id=&#x22;maindrag&#x22;&#x3E;
-&#x3C;a href=&#x22;#&#x22; class=&#x22;indicator-anchor&#x22; style=&#x22;display:none;&#x22;&#x3E;In&#xED;cio do componente de arrastar e soltar&#x3C;/a&#x3E;
-&#x3C;div id=&#x22;draggable&#x22; tabindex=&#x22;0&#x22; draggable=&#x22;true&#x22; ondragstart=&#x22;event.dataTransfer.setData( &#x27;text/plain&#x27;,null)&#x22; aria-grabbed=&#x22;false&#x22;&#x3E;
-Lavar a lou&#xE7;a
-&#x3C;/div&#x3E;
+<pre><code class="html">&lt;div id=&quot;alert-area&quot; aria-live=&quot;assertive&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;maindrag&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;indicator-anchor&quot; style=&quot;display:none;&quot;&gt;In&iacute;cio do componente de arrastar e soltar&lt;/a&gt;
+    &lt;div id=&quot;draggable&quot; tabindex=&quot;0&quot; draggable=&quot;true&quot; ondragstart=&quot;event.dataTransfer.setData( &apos;text/plain&apos;,null)&quot; aria-grabbed=&quot;false&quot;&gt;
+        Lavar a lou&ccedil;a
+    &lt;/div&gt;
 
-&#x3C;div class=&#x22;dropzone&#x22;&#x3E;
-&#x3C;span id=&#x22;drop1&#x22;&#x3E;Para Fazer&#x3C;/span&#x3E;
-&#x3C;/div&#x3E;
+    &lt;div class=&quot;dropzone&quot;&gt;
+        &lt;span id=&quot;drop1&quot;&gt;Para Fazer&lt;/span&gt;
+    &lt;/div&gt;
 
-&#x3C;div class=&#x22;dropzone&#x22;&#x3E;
-&#x3C;span id=&#x22;drop2&#x22;&#x3E;Fazendo&#x3C;/span&#x3E;
-&#x3C;/div&#x3E;
+    &lt;div class=&quot;dropzone&quot;&gt;
+        &lt;span id=&quot;drop2&quot;&gt;Fazendo&lt;/span&gt;
+    &lt;/div&gt;
 
-&#x3C;div class=&#x22;dropzone&#x22;&#x3E;
-&#x3C;span id=&#x22;drop3&#x22;&#x3E;Feito&#x3C;/span&#x3E;
-&#x3C;/div&#x3E;
-&#x3C;a href=&#x22;#&#x22; class=&#x22;indicator-anchor&#x22; style=&#x22;display:none;&#x22;&#x3E;Fim do componente de arrastar e soltar&#x3C;/a&#x3E;
-&#x3C;/div&#x3E;</code></pre>
+    &lt;div class=&quot;dropzone&quot;&gt;
+        &lt;span id=&quot;drop3&quot;&gt;Feito&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;a href=&quot;#&quot; class=&quot;indicator-anchor&quot; style=&quot;display:none;&quot;&gt;Fim do componente de arrastar e soltar&lt;/a&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
 <h4>CSS</h4>
 <div class="highlight">
-    <pre><code class="css">.dropzone {
-color: white;
-background-color: gray;
-display: block;
-width: 350px;
-height: 200px;
-padding: 1em;
-margin: 0.5em;
+<pre><code class="css">.dropzone {
+    color: white;
+    background-color: gray;
+    display: block;
+    width: 350px;
+    height: 200px;
+    padding: 1em;
+    margin: 0.5em;
 }
 
 #draggable {
-cursor: grab;
-color: white;
-font-weight: bold;
-background-color: black;
-width: 300px;
-padding: 0.5em;
+    cursor: grab;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    width: 300px;
+    padding: 0.5em;
 }
 
 #draggable:focus, #draggable:hover {
-border: 3px solid red;
+    border: 3px solid red;
 }
 
 [aria-dropeffect=move] {
-border: 5px solid black;
+    border: 5px solid black;
 }
 
 .drophover {
-border: 5px solid red !important;
+    border: 5px solid red !important;
 }
 
 .dropzone span {
-font-weight: bold;
+    font-weight: bold;
 }
 
 .sronly, #alert-area, .indicator-anchor {
-position: absolute;
-left: -999em;
+    position: absolute;
+    left: -999em;
 }</code></pre>
 </div>
 
 <h4>JS</h4>
 <div class="highlight">
-    <pre><code class="js">var dragged;
+<pre><code class="js">var dragged;
 
 var verify_dropELement = false;
 
 var dnd_alert = document.getElementById('alert-area');
 
 function dragStart(event) {
-// TODO: limitar a navegação por tab apenas entre as dropzones quando o elemento arrastável é pegos
-if (event.type == 'dragstart' || (event.type == 'keypress' &amp;&amp; event.keyCode == '13')) {
+    // TODO: limitar a navegação por tab apenas entre as dropzones quando o elemento arrastável é pegos
+    if (event.type == 'dragstart' || (event.type == 'keypress' &amp; &amp; event.keyCode == '13')) {
 
-// Ativa âncoras de começo e fim do widget
-var anchors = document.getElementsByClassName('indicator-anchor');
-for (var i = 0; i < anchors.length; i++) {
-anchors[i].removeAttribute('style');
-}
+        // Ativa âncoras de começo e fim do widget
+        var anchors = document.getElementsByClassName('indicator-anchor');
+        for (var i = 0; i < anchors.length; i++) {
+            anchors[i].removeAttribute('style');
+        }
 
-// Anuncia que o elemento foi capturado
-var msg = document.createTextNode("O elemento foi capturado");
-dnd_alert.appendChild(msg);
+        // Anuncia que o elemento foi capturado
+        var msg = document.createTextNode("O elemento foi capturado");
+        dnd_alert.appendChild(msg);
 
-// Remove o tabindex do elemento arrastável
-dragged = event.target;
-dragged.removeAttribute('tabindex');
-var parent = dragged.parentNode;
+        // Remove o tabindex do elemento arrastável
+        dragged = event.target;
+        dragged.removeAttribute('tabindex');
+        var parent = dragged.parentNode;
 
-// modifica o atributo aria-grabbed como true no elemento
-event.target.setAttribute("aria-grabbed", true);
-var dropzones = document.getElementsByClassName('dropzone');
-for (var i = 0; i < dropzones.length; i++) {
-dropzones[i].setAttribute("aria-dropeffect", "move");
-dropzones[i].setAttribute('tabindex', '0');
-}
-}
+        // modifica o atributo aria-grabbed como true no elemento
+        event.target.setAttribute("aria-grabbed", true);
+        var dropzones = document.getElementsByClassName('dropzone');
+        for (var i = 0; i < dropzones.length; i++) {
+            dropzones[i].setAttribute("aria-dropeffect", "move");
+            dropzones[i].setAttribute('tabindex', '0');
+        }
+    }
 }
 
 function dragEnd(event) {
-// modifica o atributo aria-grabbed para false
-if (event.type == 'dragend' || (event.type == 'keypress' &amp;&amp; event.keyCode == '13' &amp;&amp; verify_dropELement)) {
-if (verify_dropELement) {
+    // modifica o atributo aria-grabbed para false
+    if (event.type == 'dragend' || (event.type == 'keypress' &amp; &amp; event.keyCode == '13' &amp; &amp; verify_dropELement)) {
+        if (verify_dropELement) {
 
-var anchors = document.getElementsByClassName('indicator-anchor');
-for (var i = 0; i < anchors.length; i++) {
-anchors[i].setAttribute('style', 'display:none;')
-}
+            var anchors = document.getElementsByClassName('indicator-anchor');
+            for (var i = 0; i < anchors.length; i++) {
+                anchors[i].setAttribute('style', 'display:none;')
+            }
 
-var msg = document.createTextNode("O elemento foi largado");
-dnd_alert.appendChild(msg);
-event.target.setAttribute("aria-grabbed", false);
-var dropzones = document.getElementsByClassName('dropzone');
-for (var i = 0; i < dropzones.length; i++) {
-dropzones[i].removeAttribute("aria-dropeffect");
-dropzones[i].removeAttribute('tabindex');
-dropzones[i].className = "dropzone"
-}
-}
-verify_dropELement = false;
-}
+            var msg = document.createTextNode("O elemento foi largado");
+            dnd_alert.appendChild(msg);
+            event.target.setAttribute("aria-grabbed", false);
+            var dropzones = document.getElementsByClassName('dropzone');
+            for (var i = 0; i < dropzones.length; i++) {
+                dropzones[i].removeAttribute("aria-dropeffect");
+                dropzones[i].removeAttribute('tabindex');
+                dropzones[i].className = "dropzone"
+            }
+        }
+        verify_dropELement = false;
+    }
 }
 
 function dragOver(event) {
-// previne o comportamento padrão para permitir que o elemento arrastado seja soltado dentro
-event.preventDefault();
+    // previne o comportamento padrão para permitir que o elemento arrastado seja soltado dentro
+    event.preventDefault();
 }
 
 function dragEnter(event) {
-var el = event.target;
-if (el.className == "dropzone" || el.className == "dropzone drophover") {
-// adiciona o atributo aria-dropeffect como move, indicando que o efeito realizado ao arrastar e soltar um elemento é movê-lo
-el.className = "dropzone drophover";
-}
+    var el = event.target;
+    if (el.className == "dropzone" || el.className == "dropzone drophover") {
+        // adiciona o atributo aria-dropeffect como move, indicando que o efeito realizado ao arrastar e soltar um elemento é movê-lo
+        el.className = "dropzone drophover";
+    }
 }
 
 
 
 function dragLeave(event) {
-var el = event.target;
-if (el.className == "dropzone" || el.className == "dropzone drophover") {
-// remove o atributo quando o elemento arrastado não está mais sobre este alvo
-el.className = "dropzone";
-}
+    var el = event.target;
+    if (el.className == "dropzone" || el.className == "dropzone drophover") {
+        // remove o atributo quando o elemento arrastado não está mais sobre este alvo
+        el.className = "dropzone";
+    }
 }
 
 
 
 function dropElement(event) {
-if (event.type == 'drop' || (event.type == 'keypress' &amp;&amp; event.keyCode == '13' &amp;&amp; !verify_dropELement)) {
-// previne a ação padrão (abre como link para alguns elementos)
-event.preventDefault();
-var el = event.target;
-// move o elemento arrastado para o alvo
-dragged.setAttribute('tabindex', 0);
-if (el.className == "dropzone" || el.className == "dropzone drophover") {
-el.appendChild(dragged);
-}
-verify_dropELement = true;
-}
+    if (event.type == 'drop' || (event.type == 'keypress' &amp; &amp; event.keyCode == '13' &amp; &amp; !verify_dropELement)) {
+        // previne a ação padrão (abre como link para alguns elementos)
+        event.preventDefault();
+        var el = event.target;
+        // move o elemento arrastado para o alvo
+        dragged.setAttribute('tabindex', 0);
+        if (el.className == "dropzone" || el.className == "dropzone drophover") {
+            el.appendChild(dragged);
+        }
+        verify_dropELement = true;
+    }
 }
 
 var main = document.getElementById('maindrag');
@@ -188,10 +188,10 @@ main.addEventListener("dragleave", dragLeave, false);
 main.addEventListener("drop", dropElement, false);
 
 for (var i = 0; i < dropzones.length; i++) {
-dropzones[i].addEventListener('focus', dragEnter, false);
-dropzones[i].addEventListener('blur', dragLeave, false);
-dropzones[i].addEventListener('keypress', dropElement, true);
-dropzones[i].addEventListener('keypress', dragEnd, true);
+    dropzones[i].addEventListener('focus', dragEnter, false);
+    dropzones[i].addEventListener('blur', dragLeave, false);
+    dropzones[i].addEventListener('keypress', dropElement, true);
+    dropzones[i].addEventListener('keypress', dragEnd, true);
 }</code></pre>
 
 

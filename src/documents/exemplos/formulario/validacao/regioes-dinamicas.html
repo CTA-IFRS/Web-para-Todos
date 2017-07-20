@@ -73,21 +73,21 @@
 
 <h5>HTML</h5>
 <div class="highlight">
-    <pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; method=&quot;post&quot; name=&quot;formName&quot; onsubmit=&quot;return validate()&quot;&gt;
-&lt;label for=&quot;name&quot;&gt;Nome:&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot;&gt;
-&lt;input type=&quot;submit&quot; name=&quot;Enviar&quot; value=&quot;Enviar&quot;&gt;
+<pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; method=&quot;post&quot; name=&quot;formName&quot; onsubmit=&quot;return validate()&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Nome:&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot;&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;Enviar&quot; value=&quot;Enviar&quot;&gt;
 &lt;/form&gt;</code></pre>
 </div>
 
 <h5>JS</h5>
 <div class="highlight">
-    <pre><code class="js">function validate() {
-var element = document.forms['formName']['name'];
-if (element.value == "") {
-alert('Nome não pode estar em branco!');
-element.focus();
-return false;
-}
+<pre><code class="js">function validate() {
+    var element = document.forms['formName']['name'];
+    if (element.value == "") {
+        alert('Nome não pode estar em branco!');
+        element.focus();
+        return false;
+    }
 }</code></pre>
 </div>
 
@@ -131,49 +131,49 @@ return false;
 <h5>JS</h5>
 
 <div class="highlight">
-    <pre><code class="js">function validate_form() {
-if (document.getElementById('msg-alert')) {
-document.getElementById('msg-alert').remove();
-}
+<pre><code class="js">function validate_form() {
+    if (document.getElementById('msg-alert')) {
+        document.getElementById('msg-alert').remove();
+    }
 
-var ol = document.createElement('ol');
+    var ol = document.createElement('ol');
 
-var container = document.getElementById('alert-form-area');
+    var container = document.getElementById('alert-form-area');
 
-ol.id = 'msg-alert';
+    ol.id = 'msg-alert';
 
-var labels = document.getElementsByTagName('label');
+    var labels = document.getElementsByTagName('label');
 
-var bool = true;
+    var bool = true;
 
-for (var i = 0; i < document.forms['formToValidate'].length; i++) {
-var element = document.forms['formToValidate'][i];
-if (element.value == "") {
-var link = document.createElement('a');
-link.href = '#' + element.id;
-for (var x = 0; x < labels.length; x++) {
-if (labels[x].getAttribute('for') == element.id) {
-var l = labels[x].innerHTML;
-}
-}
-link.innerHTML = l;
-var msg = document.createTextNode(' não pode estar em branco!');
+    for (var i = 0; i < document.forms['formToValidate'].length; i++) {
+        var element = document.forms['formToValidate'][i];
+        if (element.value == "") {
+            var link = document.createElement('a');
+            link.href = '#' + element.id;
+            for (var x = 0; x < labels.length; x++) {
+                if (labels[x].getAttribute('for') == element.id) {
+                    var l = labels[x].innerHTML;
+                }
+            }
+            link.innerHTML = l;
+            var msg = document.createTextNode(' não pode estar em branco!');
 
-var li = document.createElement('li');
+            var li = document.createElement('li');
 
-li.appendChild(link);
-li.appendChild(msg);
-ol.appendChild(li);
-bool = false;
-}
-}
+            li.appendChild(link);
+            li.appendChild(msg);
+            ol.appendChild(li);
+            bool = false;
+        }
+    }
 
-if (!bool) {
-container.appendChild(ol);
-ol.focus();
-}
+    if (!bool) {
+        container.appendChild(ol);
+        ol.focus();
+    }
 
-return bool;
+    return bool;
 }</code></pre>
 </div>
 
@@ -213,69 +213,68 @@ return bool;
 
 <h5>HTML</h5>
 <div class="highlight">
-    <pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToInlineValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
+<pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToInlineValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
 
-&lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
 
-&lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
 
-&lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;ageValidate&quot; id=&quot;ageValidate&quot;&gt;
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;ageValidate&quot; id=&quot;ageValidate&quot;&gt;
 
-&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
 
 &lt;/form&gt;</code></pre>
 </div>
 
 <h5>JS</h5>
 <div class="highlight">
-    <pre><code class="js">function remove_olds(className) {
-var warning_length = document.getElementsByClassName(className).length;
-if (document.getElementsByClassName(className)) {
-for (var i = 0; i < warning_length; i++) {
-document.getElementsByClassName(className)[0].remove();
-}
-}
+<pre><code class="js">function remove_olds(className) {
+    var warning_length = document.getElementsByClassName(className).length;
+    if (document.getElementsByClassName(className)) {
+        for (var i = 0; i < warning_length; i++) {
+            document.getElementsByClassName(className)[0].remove();
+        }
+    }
 }
 
 function span_msg(className, txt) {
-var msg = document.createElement('span');
-msg.className = className;
-var txtNode = document.createTextNode(txt);
-msg.appendChild(txtNode);
+    var msg = document.createElement('span');
+    msg.className = className;
+    var txtNode = document.createTextNode(txt);
+    msg.appendChild(txtNode);
 
-return msg;
+    return msg;
 }
 
 function append_msg(msg, form_input) {
-if (form_input.value == "") {
-for (var i = 0; i < document.getElementsByTagName('label').length; i++) {
-if (document.getElementsByTagName('label')[i].getAttribute('for') == form_input.id) {
-document.getElementsByTagName('label')[i].appendChild(msg.cloneNode(true));
-form_input.setAttribute('aria-invalid', 'true');
-}
-}
-return true;
-}
-else {
-form_input.setAttribute('aria-invalid', 'false');
-}
+    if (form_input.value == "") {
+        for (var i = 0; i < document.getElementsByTagName('label').length; i++) {
+            if (document.getElementsByTagName('label')[i].getAttribute('for') == form_input.id) {
+                document.getElementsByTagName('label')[i].appendChild(msg.cloneNode(true));
+                form_input.setAttribute('aria-invalid', 'true');
+            }
+        }
+        return true;
+    } else {
+        form_input.setAttribute('aria-invalid', 'false');
+    }
 }
 
 function validate_form() {
 
-remove_olds('warning-msg');
+    remove_olds('warning-msg');
 
-var bool = true;
-var forms = document.forms['formToInlineValidate'];
-var msg = span_msg('warning-msg', ' (este campo está incorreto!)');
+    var bool = true;
+    var forms = document.forms['formToInlineValidate'];
+    var msg = span_msg('warning-msg', ' (este campo está incorreto!)');
 
-for (var i = 0; i < forms.length; i++) {
-if (append_msg(msg, forms[i])) {
-bool = false;
-}
-}
+    for (var i = 0; i < forms.length; i++) {
+        if (append_msg(msg, forms[i])) {
+            bool = false;
+        }
+    }
 
-return bool;
+    return bool;
 }</code></pre>
 </div>
 

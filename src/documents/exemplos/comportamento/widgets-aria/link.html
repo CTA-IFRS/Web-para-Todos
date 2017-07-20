@@ -11,25 +11,25 @@
 
 <h4>CSS</h4>
 <div class="highlight">
-    <pre><code class="css">[role=link] {
-color: #0064b4;
+<pre><code class="css">[role=link] {
+        color: #0064b4;
 }
 
 [role=link]:focus, [role=link]:hover {
-color: #23527c;
-text-decoration: underline;
-cursor: pointer;
+    color: #23527c;
+    text-decoration: underline;
+    cursor: pointer;
 }</code></pre>
 </div>
 
 <h4>JS</h4>
 <div class="highlight">
-    <pre><code class="js">var link = document.getElementById('link');
+<pre><code class="js">var link = document.getElementById('link');
 
 function linkToCTA(e) {
-if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
-window.location.href = 'http://cta.ifrs.edu.br';
-}
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        window.location.href = 'http://cta.ifrs.edu.br';
+    }
 }
 
 link.addEventListener('click', linkToCTA);
