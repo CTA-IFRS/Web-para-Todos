@@ -10,7 +10,8 @@
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
-    "start": "node_modules/.bin/docpad-server"
+    "start": "node_modules/.bin/docpad-server",
+    "deploy": "node_modules/.bin/docpad deploy-ghpages --env static"
   },
   "devDependencies": {}
 }
