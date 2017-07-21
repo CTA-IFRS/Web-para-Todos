@@ -1,0 +1,301 @@
+<section class="bs-docs-section">
+    <div class="page-header">
+        <h1 id="multimidia">Multimídia</h1>
+    </div>
+
+    <h2>Imagens</h2>
+
+    <p>
+        Por razões bastante óbvias, imagens não são um recurso
+        completamente acessível. Pessoas com problemas de visão
+        e até mesmo cegueira, por exemplo, tem dificuldades na
+        interpretação de elementos que sejam muito visuais, e
+        a presença de imagens como componentes essenciais no
+        conteúdo de uma página podem dificultar o entendimento
+        da mesma. Dessa forma, é necessário apresentar
+        alternativas para que a informação contida na imagem
+        possa ser compreendida.
+    </p>
+
+    
+        <h3>Texto Alternativo</h3>
+
+<p>
+    Através do atributo <code>alt</code>, o desenvolvedor
+    pode criar um texto alternativo à imagem, cujo objetivo
+    seja descrever os elementos da imagem.
+</p>
+
+<div class="highlight">
+    <pre><code class="html">&#x3C;img src=&#x22;exemplo.png&#x22; alt=&#x22;pessoa cega utilizando um computador de mesa e fones de ouvido&#x22;&#x3E;</code></pre>
+</div>
+
+<div class="bs-callout bs-callout-warning">
+    <h4>Atenção especial para imagens decorativas!</h4>
+    <p>
+        Uma prática muito comum no desenvolvimento web é a utilização de imagens como
+        recurso decorativo. Essas imagens não são essenciais para a compreensão da página,
+        portanto elas não necessitam de texto alternativo.
+    </p>
+
+    <p>
+        Mas é importante não confundir um usuário que utiliza leitor de tela, por exemplo, que pode
+        entender que essa imagem é essencial para a compreensão da página. Dessa forma, uma
+        prática recomendada é a inserção da imagem decorativa através de CSS. Assim, agentes de
+        usuário (como o leitor de tela) não interpretam o elemento como imagem.
+    </p>
+</div>
+
+    
+
+    <h2>Conteúdo Independente de Fluxo</h2>
+
+    
+        <h3>As tags Figure e Figcaption</h3>
+
+<p>
+    A tag <code>figure</code> representa conteúdos independentes,
+    frequentemente com uma legenda (com a tag <code>figcaption</code>), e referido como uma única
+    unidade. Esse elemento é relacionado com o fluxo principal
+    da página, mas a posição dele é independente deste fluxo.
+    Geralmente representa imagens, ilustrações, diagramas,
+    códigos ou outros esquemas, referenciados no conteúdo principal.
+    As tags que compõe essa funcionalidade são:
+</p>
+
+<h4>Exemplos</h4>
+
+<p>
+    Neste exemplo, há uma imagem, e para a mesma há uma legenda:
+</p>
+
+<div class="highlight">
+    <pre>
+<code class="html">&lt;figure&gt;
+    &lt;img src=&rdquo;imagem.png&rdquo; alt=&rdquo;bola&nbsp;de&nbsp;basquete&nbsp;num&nbsp;fundo&nbsp;branco&rdquo;&gt;
+    &lt;figcaption&gt; Figura 1. Bola de basquete&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+    </pre>
+</div>
+
+<p>
+    Neste outro, há um elemento criado com a tag canvas, e sua
+    posição é independente do fluxo da página, e portanto melhor
+    utilizado com a tag <code>figure</code>:
+</p>
+
+<div class="highlight">
+    <pre>
+<code class="html">&lt;figure&gt;
+    &lt;canvas id=&quot;example&quot; role=&quot;img&quot;&gt;&lt;/canvas&gt;
+    &lt;figcaption&gt;Figura 2. Exemplo de uso da tag canvas&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+    </pre>
+</div>
+
+<div class="bs-callout bs-callout-info">
+    <p>Note aqui a utilização de um <code>role</code> de imagem no elemento canvas</p>
+</div>
+
+<p>
+    Também é possível utilizar códigos, e outros tipos de elementos:
+</p>
+
+<div class="highlight">
+    <pre>
+<code class="html php">&lt;figure&gt;
+    &lt;figcaption&gt;Exemplo de c&oacute;digo PHP&lt;/figcaption&gt;
+    &lt;pre&gt;
+        &lt;code class=&quot;php&quot;&gt;
+        &lt;?php
+        echo &lsquo;Ol&aacute; Mundo!&rsquo;;
+        ?&gt;
+        &lt;/code&gt;
+    &lt;/pre&gt;
+&lt;/figure&gt;</code>
+    </pre>
+</div>
+
+    
+
+    <h2>Áudio e Vídeo</h2>
+
+    
+        <h3>Áudio</h3>
+
+<p>
+    Uma das novidades que a quinta versão do HTML trouxe
+    aos desenvolvedores foi a possibilidade de criar conteúdo
+    multimídia de forma nativa. A vantagem aqui é que plugins
+    pesados e ultrapassados, como Flash, se tornaram obsoletos. Os mesmos
+    também continham diversos problemas relacionados à acessibilidade e performance.
+</p>
+
+<p>
+    A tag <code>audio</code> foi criada para aprimorar a incorporação
+    de áudio em páginas web. Com ela, é possível adicionar múltiplas fontes,
+    arquivos de legenda, etc. Veja os exemplos à seguir:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;audio src=&quot;audio-example.ogg&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+&lt;/audio&gt;</code></pre>
+</div>
+
+<p>
+    O exemplo acima é a forma mais básica de reproduçao de áudio nativa no HTML5.
+    Mas não é completamente acessível: navegadores que não tem suporte ao formato OGG
+    de áudio não serão capazes de reproduzir.
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;audio controls=&quot;controls&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+
+    &lt;source src=&quot;audio-example.wav&quot; type=&quot;audio/wav&quot;&gt;
+    &lt;source src=&quot;audio-example.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+    &lt;source src=&quot;audio-example.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</code></pre>
+</div>
+
+<p>
+    Este último exemplo, diferente do primeiro, possui suporte à diferentes
+    formatos de áudio e, dessa forma, é mais capaz de ser executado sem
+    maiores problemas na maioria dos navegadores modernos. Mas não devemos
+    apenas nos preocuparmos com compatibilidade, ao falar de acessibilidade,
+    mas também a disponibilização desse conteúdo em outros formatos de mídia,
+    como texto. Vamos adiante:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;audio controls=&quot;controls&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+
+    &lt;source src=&quot;audio-example.wav&quot; type=&quot;audio/wav&quot;&gt;
+    &lt;source src=&quot;audio-example.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+    &lt;source src=&quot;audio-example.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+
+    &lt;track kind=&quot;captions&quot; src=&quot;audio-example.en.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+    &lt;track kind=&quot;captions&quot; src=&quot;audio-example.sv.vtt&quot; srclang=&quot;pt&quot; label=&quot;Portugu&ecirc;s&quot;&gt;
+&lt;/audio&gt;</code></pre>
+</div>
+
+<p>
+    Com a tag <code>track</code> ainda podemos definir
+    tipos diferentes de conteúdo textual para o áudio. Veja
+    na seção à seguir mais opções para este elemento: <a href="#multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</a>
+</p>
+
+    
+        <h3 id="multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</h3>
+<!-- TODO: exemplos de uso da tag track -->
+
+<p>
+    A tag <code>track</code> é um elemento que adiciona conteúdo textual alternativo
+    à áudios e vídeos. O atributo <code>kind</code> desta tag define o tipo de conteúdo (ou seja,
+    para que serve este arquivo textual dentro do escopo da mídia) e
+    admite 5 tipos, sendo estes:
+</p>
+
+<ul>
+    <li>
+        <code>subtitles</code>: conteúdo do tipo legendas. Providencia
+        traduções de conteúdo que não pode ser interpretado por quem
+        vê ou escuta a mídia, como tradução em português de uma mídia
+        em inglês. Também pode conter informação adicional,
+        como por exemplo textos que aparecem em um vídeo.
+    </li>
+    <li>
+        <code>captions</code>: outro tipo de conteúdo de legenda. O
+        diferencial é que este tipo pretende transcrever o áudio, mesmo
+        que este não seja diálogo, e possivelmente também uma tradução.
+        Inclui informação não verbal de importância, como telefone tocando
+        ou efeitos sonoros. Adequado à usuários que possuem deficiências
+        auditivas ou para reproduções sem áudio de um vídeo.
+    </li>
+    <li>
+        <code>descriptions</code>: descrição textual da mídia.
+        Adequado à usuários com problemas de visão, como cegueira, ou em
+        situações em que o vídeo não pode ser exibido.
+    </li>
+    <li>
+        <code>chapters</code>: títulos de capítulos, para serem
+        usados quando o usuário está navegando pela mídia.
+    </li>
+    <li>
+        <code>metadata</code>: faixas utilizadas por scripts. Não
+        é visível pelo usuário.
+    </li>
+</ul>
+
+<p>
+    Além do atributo <code>kind</code>, ainda há os atributos:
+    <code>src</code>, apontando para o arquivo; <code>label</code>,
+    apresentando um rótulo para o conteúdo textual; e <code>srclang</code>,
+    indicando a língua em que está o conteúdo. Veja o exemplo à seguir, que
+    mostra o uso de <code>track</code> em um vídeo:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;video controls poster=&quot;poster.gif&quot;&gt;
+    &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;source src=&quot;video.ogv&quot; type=&quot;video/ogv&quot;&gt;
+
+    &lt;track kind=&quot;captions&quot; src=&quot;transcricoes.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;descriptions&quot; src=&quot;descricoes.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;chapters&quot; src=&quot;capitulos.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;subtitles&quot; src=&quot;legendas_es.vtt&quot; srclang=&quot;es&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;legendas_en.vtt&quot; srclang=&quot;en&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;legendas_pt.vtt&quot; srclang=&quot;pt&quot;&gt;
+
+    &lt;track kind=&quot;metadata&quot; src=&quot;keyStage1.vtt&quot; srclang=&quot;pt&quot; label=&quot;Key Stage 1&quot;&gt;
+    &lt;track kind=&quot;metadata&quot; src=&quot;keyStage2.vtt&quot; srclang=&quot;pt&quot; label=&quot;Key Stage 2&quot;&gt;
+    &lt;track kind=&quot;metadata&quot; src=&quot;keyStage3.vtt&quot; srclang=&quot;pt&quot; label=&quot;Key Stage 3&quot;&gt;
+&lt;/video&gt;</code></pre>
+</div>
+
+    
+        <h3>Vídeo</h3>
+<!-- TODO: vídeo, vídeo com múltiplas faixas de áudio, vídeo com transcrição textual, vídeo com legendas, etc -->
+
+<p>
+    Assim como acontecia com mídias de áudio, vídeos na web
+    também dependiam de plugins como Flash e apresentavam
+    problemas de acessibilidade, e o recurso nativo aprimorou
+    a inserção destas mídias na web. Veja os exemplos:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;video src=&quot;filme.ogg&quot; poster=&quot;posterimage.jpg&quot;&gt;
+    Seu navegador n&atilde;o possui suporte &agrave; videos.
+&lt;/video&gt;</code></pre>
+</div>
+
+<p>
+    Também podemos incrementar este vídeo com legendas, assim como no próximo exemplo:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;video src=&quot;filme.ogg&quot; poster=&quot;posterimage.jpg&quot;&gt;
+    Seu navegador n&atilde;o possui suporte &agrave; videos.
+    &lt;track kind=&quot;subtitles&quot; src=&quot;filme.pt.vtt&quot; srclang=&quot;pt&quot; label=&quot;Portugu&ecirc;s&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;filme.en.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+    &lt;track kind=&quot;subtitles&quot; src=&quot;filme.sv.vtt&quot; srclang=&quot;sv&quot; label=&quot;Svenska&quot;&gt;
+&lt;/video&gt;</code></pre>
+</div>
+
+<p>
+    Assim como a tag áudio, podemos incrementar ainda mais o
+    vídeo com múltiplas fontes do mesmo arquivo em formatos
+    diferentes, da mesma forma. Também podemos especificar
+    diferentes tipos de conteúdo textual, como transcrições e
+    afins. Veja a seção à seguir para mais informações: <a href="#multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</a>
+</p>
+
+    
+
+</section>

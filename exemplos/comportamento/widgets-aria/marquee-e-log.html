@@ -1,0 +1,81 @@
+<h3>Widget de log e marquee:</h3>
+
+<!-- TODO: melhorar exemplo de widget de log e marquee -->
+
+<div class="highlight">
+<pre><code class="html">&lt;div id=&quot;chat&quot; role=&quot;log&quot; aria-live=&quot;polite&quot;&gt;
+    ...
+&lt;/div&gt;</code></pre>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <p>Utilizar role log implica que a região possui o valor <code>polite</code> para o a propriedade aria-live.</p>
+</div>
+<div class="highlight">
+<pre><code class="html">&lt;div class=&quot;algumacoisa&quot; role=&quot;marquee&quot; aria-live=&quot;polite&quot;&gt;
+    ...
+&lt;/div&gt;</code></pre>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <p>Utilizar role marquee implica que a região possui o valor <code>off</code> para o a propriedade aria-live.</p>
+</div>
+<div class="bs-callout bs-callout-info">
+    <p>Substitua o role log por marquee em casos em que a região live é atualizada com informação que não é relevante.</p>
+</div>
+
+<h3>Exemplo do widgets de list, listbox e combobox</h3>
+
+<!-- TODO: melhorar exemplo de list, listbox e combobox -->
+
+<p>Os exemplos abaixo demonstram a utilização de listas e listas interativas, contendo opções ou funcionando de forma similar a elementos <code>select</code>. No primeiro, temos um exemplo de uma lista simples e não interativa.</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;div class=&quot;lista&quot; role=&quot;list&quot;&gt;
+    &lt;div role=&quot;listitem&quot;&gt;Ovos&lt;/div&gt;
+    &lt;div role=&quot;listitem&quot;&gt;Farinha&lt;/div&gt;
+    &lt;div role=&quot;listitem&quot;&gt;Leite&lt;/div&gt;
+    &lt;div role=&quot;listitem&quot;&gt;P&atilde;o&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div class="bs-callout bs-callout-warning">
+    <p>Não utilize este role em listas nativas do HTML, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+</div>
+
+
+<p>Para criar listas interativas, há roles diferentes de <code>list</code>, e um deles é o <code>listbox</code>. No exemplo abaixo, há uma lista de itens selecionáveis.</p>
+<!-- onclick=&quot;return listItemClick(event);&quot;
+onkeydown=&quot;return listItemKeyEvent(event);&quot;
+onkeypress=&quot;return listItemKeyEvent(event);&quot;
+onfocus=&quot;this.className=&apos;focus&apos;;&quot;
+onblur=&quot;this.className=&apos;blur&apos;;&quot; -->
+
+<div class="highlight">
+<pre><code class="html">&lt;div role=&quot;listbox&quot; tabindex=&quot;0&quot; id=&quot;listbox1&quot; aria-activedescendant=&quot;listbox1-1&quot;&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-1&quot; class=&quot;selected&quot;&gt;Verde&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-2&quot;&gt;Laranja&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-3&quot;&gt;Vermelho&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-4&quot;&gt;Azul&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-5&quot;&gt;Preto&lt;/div&gt;
+    &lt;div role=&quot;option&quot; id=&quot;listbox1-6&quot;&gt;Violeta&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<p>Outro role para listas interativas é o <code>combobox</code>, muito semelhante à <code>textbox</code> e utilizado em widgets que sejam como um elemento <code>select</code>, porém com uma entrada de usuário para busca ou adição de novo item. Note que ainda há uma lista utilizando <code>listbox</code> abaixo do elemento <code>input</code> com o role <code>combobox</code>.</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;input type=&quot;text&quot;
+    aria-label=&quot;Tag&quot;
+    role=&quot;combobox&quot;
+    aria-expanded=&quot;true&quot;
+    aria-autocomplete=&quot;list&quot;
+    aria-owns=&quot;listbox&quot;
+aria-activedescendant=&quot;opcao_selecionada&quot;&gt;
+&lt;ul role=&quot;listbox&quot; id=&quot;listbox&quot;&gt;
+    &lt;li role=&quot;option&quot;&gt;Zebra&lt;/li&gt;
+    &lt;li role=&quot;option&quot; id=&quot;opcao_selecionada&quot;&gt;Zoom&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+
+<div class="bs-callout bs-callout-info">
+    <p>É imporante lembrar que nos casos dos roles <code>listbox</code> e <code>combobox</code>, precisa-se desenvolver todas operações através de JavaScript, como a seleção de opções e afins.</p>
+</div>

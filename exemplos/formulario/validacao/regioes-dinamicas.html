@@ -1,0 +1,291 @@
+<h3>Retorno de Erros e Regiões Dinâmicas</h3>
+
+<p>
+    Mesmo que o recurso nativo do HTML5 para retornos seja acessível,
+    como a informação de campos inválidos ou em branco,
+    ainda é necessário que desenvolvedores
+    criem seus próprios métodos para informar erros em
+    um formulário. Um exemplo bastante comum é a validação
+    de CPF, por exemplo.
+</p>
+
+<p>
+    Para tal, o desenvolvedor se obriga a utilizar
+    bastante JavaScript, tanto puro quanto na forma de
+    bibliotecas. Mas, muitas vezes, essas bibliotecas
+    não utilizam recursos acessíveis, ou o autor não
+    se preocupou em tornar essa informação mais compreensível
+    para usuários que utilizam tecnologias assistivas.
+</p>
+
+<p>
+    Há duas formas de fazer isso de forma acessível, e ambas utilizam
+    ARIA e um elemento onde as mensagens irão ser inseridas, como
+    por exemplo um elemento <code>div</code>: é necessário definir o atributo
+    <code>role</code> com o valor <code>alert</code>, ou o atributo <code>aria-live</code> como
+    <code>assertive</code>. Nas duas formas é necessário o atributo <code>aria-atomic</code>
+    como <code>true</code>. Ambas irão anunciar imediatamente a mensagem
+    de erro do formulário assim que surgirem dentro do elemento <code>div</code>.
+    A mensagem de erro é inserida neste elemento através de DOM. Veja os exemplos:
+</p>
+
+<div class="highlight">
+    <pre><code class="html">&lt;div role=&quot;alert&quot; aria-atomic=&quot;true&quot; id=&quot;form-erro&quot;&gt;&lt;/div&gt;</code></pre>
+</div>
+
+<div class="highlight">
+    <pre><code class="html">&lt;div aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; id=&quot;form-erro&quot;&gt;&lt;/div&gt;</code></pre>
+</div>
+
+<p>
+    Há três formas de apresentar as mensagens de erros em formulários,
+    e estas são:
+</p>
+
+<ul>
+    <li>Em Janela de Alerta</li>
+    <li>No topo do formulário</li>
+    <li>Embutidas no campo em questão</li>
+</ul>
+
+<h4>Mensagens de Erro em Janelas de Alerta</h4>
+
+<p>
+      Para utilizar uma janela de alerta para apresentar
+      erros de formulário ao usuário, no momento em que
+      o código de validação estiver rodando, a todo campo
+      que não tenha passado na validação é aberto um elemento
+      <code>alert()</code> do JavaScript, informando o erro.
+      O problema deste tipo de validação é receber um alerta
+      para cada erro, fazendo com que assim a correção de um formulário
+      seja cansativa. Ainda assim, é uma forma interessante por apresentar
+      fácil acessibilidade.
+</p>
+
+<p>
+      Após isso, o desenvolvedor pode escolher a forma como
+      o usuário pode corrigir o erro: pode apresentar outra
+      janela de alerta do JavaScript, desta vez com um campo
+      de entrada, para inserir novamente a informação da forma
+      correta, ou mover o foco ao campo de entrada. Veja um
+      exemplo à seguir:
+</p>
+
+<h5>HTML</h5>
+<div class="highlight">
+<pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; method=&quot;post&quot; name=&quot;formName&quot; onsubmit=&quot;return validate()&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Nome:&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot;&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;Enviar&quot; value=&quot;Enviar&quot;&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
+<h5>JS</h5>
+<div class="highlight">
+<pre><code class="js">function validate() {
+    var element = document.forms['formName']['name'];
+    if (element.value == "") {
+        alert('Nome não pode estar em branco!');
+        element.focus();
+        return false;
+    }
+}</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout">
+        <h5>Exemplo de Validação de Formulário</h4>
+        <form class="form" action="index.html" method="post" name="formNameValidate" onsubmit="return validateForm()">
+            <label for="name">Nome:</label> <input type="text" name="name" id="name">
+            <input type="submit" name="Enviar" value="Enviar">
+        </form>
+    </div>
+</div>
+
+<h4>Mensagens de Erro no Topo do Formulário</h4>
+
+<p>
+      Uma boa forma de demonstrar os erros de um formulário
+      é apresentá-los no topo do formulário, com uma âncora
+      para cada item do formulário que estiver em desacordo.
+      Isto é bom pois agrega todos os erros em uma única seção.
+      O problema deste tipo de validação é que um usuário que
+      utiliza apenas o teclado para navegação, junto com um
+      leitor de tela, precisa ir até o topo do formulário
+      para verificar os erros. Assim, ele pode se esquecer
+      dos erros que existem e precisar voltar ao topo do
+      formulário para relembrá-los. Veja o exemplo à seguir:
+</p>
+
+<h5>HTML</h5>
+
+<div class="highlight">
+    <pre><code class="html">&lt;span aria-live=&quot;assertive&quot; role=&quot;alert&quot; id=&quot;alert-form-area&quot;&gt;&lt;/span&gt;
+&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
+&lt;label for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
+&lt;label for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
+&lt;label for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;age&quot; id=&quot;ageValidate&quot;&gt;
+&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
+<h5>JS</h5>
+
+<div class="highlight">
+<pre><code class="js">function validate_form() {
+    if (document.getElementById('msg-alert')) {
+        document.getElementById('msg-alert').remove();
+    }
+
+    var ol = document.createElement('ol');
+
+    var container = document.getElementById('alert-form-area');
+
+    ol.id = 'msg-alert';
+
+    var labels = document.getElementsByTagName('label');
+
+    var bool = true;
+
+    for (var i = 0; i < document.forms['formToValidate'].length; i++) {
+        var element = document.forms['formToValidate'][i];
+        if (element.value == "") {
+            var link = document.createElement('a');
+            link.href = '#' + element.id;
+            for (var x = 0; x < labels.length; x++) {
+                if (labels[x].getAttribute('for') == element.id) {
+                    var l = labels[x].innerHTML;
+                }
+            }
+            link.innerHTML = l;
+            var msg = document.createTextNode(' não pode estar em branco!');
+
+            var li = document.createElement('li');
+
+            li.appendChild(link);
+            li.appendChild(msg);
+            ol.appendChild(li);
+            bool = false;
+        }
+    }
+
+    if (!bool) {
+        container.appendChild(ol);
+        ol.focus();
+    }
+
+    return bool;
+}</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout" id="formExValidation">
+        <h5>Exemplo de Validação de Formulário</h4>
+        <span aria-live="assertive" role="alert" id="alert-form-area"></span>
+        <form class="form" action="index.html" name="formToValidate" id="formToValidate" method="post" onsubmit="return validate_form()">
+            <fieldset>
+                <label for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
+            </fieldset>
+            <fieldset>
+                <label for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
+            </fieldset>
+            <fieldset>
+                <label for="ageValidate">Idade</label> <input type="number" name="age" id="ageValidate">
+            </fieldset>
+            <input type="submit" name="submit" value="Enviar">
+        </form>
+    </div>
+</div>
+
+<h4>Mensagem de Erro Embutida no Campo</h4>
+
+<p>
+      Por último, é possível informar o erro no
+      formulário diretamente no campo em questão. A
+      maioria dos novos navegadores já implementam
+      isso de forma básica em cima de campos de formulário,
+      apresentando este tipo de mensagem para informar
+      erros no campo. Ainda assim, formas alternativas
+      de validação se fazem necessárias pela variedade
+      de informações que são necessárias na aplicação
+      que está sendo desenvolvida, como validação de CPF,
+      por exemplo.
+</p>
+
+<h5>HTML</h5>
+<div class="highlight">
+<pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToInlineValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
+
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
+
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
+
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;ageValidate&quot; id=&quot;ageValidate&quot;&gt;
+
+    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
+
+&lt;/form&gt;</code></pre>
+</div>
+
+<h5>JS</h5>
+<div class="highlight">
+<pre><code class="js">function remove_olds(className) {
+    var warning_length = document.getElementsByClassName(className).length;
+    if (document.getElementsByClassName(className)) {
+        for (var i = 0; i < warning_length; i++) {
+            document.getElementsByClassName(className)[0].remove();
+        }
+    }
+}
+
+function span_msg(className, txt) {
+    var msg = document.createElement('span');
+    msg.className = className;
+    var txtNode = document.createTextNode(txt);
+    msg.appendChild(txtNode);
+
+    return msg;
+}
+
+function append_msg(msg, form_input) {
+    if (form_input.value == "") {
+        for (var i = 0; i < document.getElementsByTagName('label').length; i++) {
+            if (document.getElementsByTagName('label')[i].getAttribute('for') == form_input.id) {
+                document.getElementsByTagName('label')[i].appendChild(msg.cloneNode(true));
+                form_input.setAttribute('aria-invalid', 'true');
+            }
+        }
+        return true;
+    } else {
+        form_input.setAttribute('aria-invalid', 'false');
+    }
+}
+
+function validate_form() {
+
+    remove_olds('warning-msg');
+
+    var bool = true;
+    var forms = document.forms['formToInlineValidate'];
+    var msg = span_msg('warning-msg', ' (este campo está incorreto!)');
+
+    for (var i = 0; i < forms.length; i++) {
+        if (append_msg(msg, forms[i])) {
+            bool = false;
+        }
+    }
+
+    return bool;
+}</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout" id="formExValidation">
+        <h5>Exemplo de Validação de Formulário</h4>
+        <form class="form" action="index.html" name="formToInlineValidate" method="post" onsubmit="return validate_form_inline()">
+            <label aria-live="assertive" aria-atomic="true" for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
+            <label aria-live="assertive" aria-atomic="true" for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
+            <label aria-live="assertive" aria-atomic="true" for="ageValidate">Idade</label> <input type="number" name="ageValidate" id="ageValidate">
+            <input type="submit" name="submit" value="Enviar" id="formSubmitValidate">
+        </form>
+    </div>
+</div>

@@ -1,0 +1,401 @@
+<h3>O que é?</h3>
+
+<p>
+    ARIA é uma especificação técnica, publicada pela W3C, que discursa sobre
+    como melhorar a acessibilidade páginas web, em particular como providenciar
+    informação semântica de conteúdos dinâmicos e componentes de interface de usuário.
+</p>
+<p>
+    Essa especificação providencia uma série de propriedades, estados e "papéis" (roles)
+    desenhados para definir informações consisas sobre elementos de interface de usuário
+    que podem aperfeiçoar a acessibilidade e interoperabilidade do conteúdo web, permitindo
+    que o desenvolvedor transmita corretamente o comportamento e a informação estruturada
+    para tecnologias assistivas que agem diretamente na marcação do documento.
+</p>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Lembre-se dos padrões web!</h4>
+
+    <p>
+        ARIA é uma específicação muito rica na criação de aplicações web
+        acessíveis, mas lembre-se sempre de organizar o código de forma
+        semântica e seguindos os padrões web. Dessa forma, não é preciso
+        utilizar muitos recursos como ARIA, pois a página será naturalmente
+        mais acessível.
+    </p>
+</div>
+
+<div class="bs-callout bs-callout-warning">
+    <h4>Nota sobre os exemplos</h4>
+    <p>
+        Muitas formas de implementação e atribuição de recursos do WAI-ARIA
+        não são padronizadas e, portanto, são subjetivas e costumam causar
+        divergência de opiniões. Neste documento, é abordado diferentes pontos
+        de vista sobre essa implementação. Qualquer sugestão de mudança será
+        discutida e bem aceita, através da
+        <a href="https://github.com/CTA-IFRS/Web-para-Todos">Repositório do código fonte do Web para Todos no GitHub.</a>
+    </p>
+</div>
+
+
+<h3>Atributos Role</h3>
+<p>
+    Estes atributos permitem atribuir a um elemento um “papel”, uma função, dentro de uma página.
+    Existem cerca de 73 “roles”, mas eles não podem ser atribuídos de qualquer forma.
+    Ao criar um slidebar, por exemplo, utilizando um gráfico, o leitor de tela poderá
+    ler algo como “Gráfico, botão”, ao invés de algo mais significativo como “Slider,
+    valor de 42 por cento”.  Utilizando os roles é possível atribuir esse comportamento
+    à um elemento e adicionar significado a ele.
+</p>
+
+
+    <h4>Roles Abstratos</h4>
+
+<!-- TODO: acabar os roles abstratos -->
+
+<p>
+    Estes roles são utilizados para dar suporte à taxonomia
+    do role ARIA, para o propósito definir conceitos gerais
+    de role. São usados para indicar a natureza do elemento, e não devem ser
+    utilizados em conteúdo.
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Role e Descrição</th>
+            <th>Role de superclasse</th>
+            <th>Role de subclasse</th>
+            <th>Estados e Propriedades Suportados</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>command</code>: um formato de widget que realiza uma ação, mas não recebe informação de entrada.</td>
+            <td><code>widget</code></td>
+            <td><code>link</code>, <code>link</code> e <code>menuitem</code></td>
+            <td>Não há</td>
+        </tr>
+        <tr>
+            <td><code>composite</code>: um widget que possa conter descendentes navegáveis.</td>
+            <td><code>widget</code></td>
+            <td><code>grid</code>, <code>select</code> e <code>tablist</code></td>
+            <td><code>aria-activedescendant</code></td>
+        </tr>
+        <tr>
+            <td><code>input</code>: tipo genérico de widget que permite entrada do usuário</td>
+            <td><code>widget</code></td>
+            <td><code>checkbox</code>, <code>option</code>, <code>select</code>, <code>scrollbar</code>, <code>slider</code>, <code>spinbutton</code>, <code>textbox</code></td>
+            <td>Não há</td>
+        </tr>
+        <tr>
+            <td><code>landmark</code>: região da página que pretende ser uma ponto de referência navegável.</td>
+            <td><code>region</code></td>
+            <td><code>application</code>, <code>banner</code>, <code>complementary</code>, <code>contentinfo</code>, <code>form</code>, <code>main</code>, <code>navigation</code>, <code>search</code></td>
+            <td>Não há</td>
+        </tr>
+        <tr>
+            <td><code>range</code>: uma entrada representando uma extensão de valores que podem ser definidos pelo usuário.</td>
+            <td><code>widget</code></td>
+            <td><code>progressbar</code>, <code>scrollbar</code>, <code>slider</code>, <code>spinbutton</code></td>
+            <td><code>aria-valuemax</code>, <code>aria-valuemin</code>, <code>aria-valuenow</code>, <code>aria-valuetext</code></td>
+        </tr>
+        <tr>
+            <td><code>roletype</code>:</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>section</code>:</td>
+        </tr>
+        <tr>
+            <td><code>sectionhead</code>:</td>
+        </tr>
+        <tr>
+            <td><code>select</code>:</td>
+        </tr>
+        <tr>
+            <td><code>structure</code>:</td>
+        </tr>
+        <tr>
+            <td><code>widget</code>:</td>
+        </tr>
+        <tr>
+            <td><code>window</code>:</td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+    <h4>Roles de Estrutura de Documento</h4>
+
+<!-- TODO: organizar melhor isso aqui -->
+
+<p>Definem estruturas que organizam um elemento semanticamente, geralmente não interativas.</p>
+
+<ul>
+    <li><code>article</code>:</li>
+    <li><code>columnheader</code>:</li>
+    <li><code>definition</code>:</li>
+    <li><code>directory</code>:</li>
+    <li><code>document</code>:</li>
+    <li><code>group</code>:</li>
+    <li><code>heading</code>:</li>
+    <li><code>img</code>:</li>
+    <li><code>list</code>:</li>
+    <li><code>listitem</code>:</li>
+    <li><code>math</code>:</li>
+    <li><code>note</code>:</li>
+    <li><code>presentation</code>:</li>
+    <li><code>region</code>:</li>
+    <li><code>row</code>:</li>
+    <li><code>rowgroup</code>:</li>
+    <li><code>rowheader</code>:</li>
+    <li><code>separator</code>:</li>
+    <li><code>toolbar</code>:</li>
+</ul>
+
+
+    <h4>Landmark Roles</h4>
+
+<!-- TODO: finalizar tabela de landmark roles -->
+
+<p>Esse tipo de role é utilizado para caracterizar pontos de referência numa página, marcos de navegação. Vejamos o seguinte exemplo:</p>
+<div class="highlight">
+    <pre>
+<code class="html">&lt;!-- Cabeçalho da Página --&gt;
+&lt;header role=&quot;banner&quot;&gt;
+    &lt;h1&gt;T&iacute;tulo da P&aacute;gina&lt;/h1&gt;
+
+    &lt;!-- Navegação --&gt;
+    &lt;ul role=&quot;navigation&quot;&gt;
+    ...
+    &lt;/ul&gt;
+&lt;/header&gt;
+
+&lt;!-- Conteúdo Principal --&gt;
+&lt;main role=&quot;main&quot;&gt;
+
+    &lt;!-- Postagem --&gt;
+    &lt;section&gt;
+
+        &lt;!-- Cabeçalho da Postagem --&gt;
+        &lt;header&gt;
+            &lt;h1&gt;T&iacute;tulo da Postagem&lt;/h1&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Autor: ...&lt;/li&gt;
+                &lt;li&gt;Data: ...&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Conteúdo/Corpo da Postagem --&gt;
+        &lt;article&gt;
+        ...
+        &lt;/article&gt;
+
+        &lt;!-- Rodapé da Postagem (comentários, por exemplo) --&gt;
+        &lt;footer&gt;
+        ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;!-- Sidebar --&gt;
+&lt;aside role=&quot;complementary&quot;&gt;
+...
+&lt;/aside&gt;
+
+&lt;!-- Rodapé da Página --&gt;
+&lt;footer role=&quot;contentinfo&quot;&gt;
+...
+&lt;/footer&gt;</code>
+    </pre>
+</div>
+
+<p>
+    No exemplo acima, podemos perceber que há mais de uma tag header, por exemplo.
+    Falar em cabeçalhos pode ser subjetivo demais em uma página web. Temos, por
+    exemplo, o cabeçalho da página, onde há o título e ocasionalmente um menu de
+    navegação, e também temos cabeçalhos de postagens, cabeçalhos de widgets de
+    uma barra lateral, entre outros exemplos. Para diferenciá-los, podemos utilizar
+    os roles de landmark, fazendo assim a distinção entre diferentes tipos de
+    cabeçalhos, como usado nesse exemplo.
+</p>
+
+<p>Os seguintes valores para role são utilizados para pontos de referência, marcos de navegação dentro de uma página:</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Role e Descrição</th>
+            <th>Elemento relacionado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <code>application</code>: representa uma região da página que possui
+                um software ou aplicação única, executando uma série de tarefas para o
+                usuário. É um local onde tecnologias assistivas devem também retornar
+                as teclas de navegação do navegador de volta para a aplicação web nessa
+                região.
+                <div class="bs-callout bs-callout-warning">
+                    <p><b>Nota: </b>é extremamente recomendável utilizar este <code>role</code> com muita moderação.</p>
+                </div>
+            </td>
+            <td>Não há um elemento específico relacionado, sendo recomendado utilizar uma tag <code>div</code> genérica.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>banner</code>: uma região que contém o cabeçalho principal de uma página
+                ou título interno de uma página. A maior parte do conteúdo de um <code>banner</code>
+                é comum em todas as páginas do website, ao invés de uma específica. Tipicamente inclui
+                logos, navegações, o cabeçalho principal da página e mecanismo de pesquisa.
+                <div class="bs-callout bs-callout-warning">
+                    <p><b>Nota: </b>em qualquer documento ou página, o autor deve criar não mais que um elemento com este role.</p>
+                </div>
+            </td>
+            <td>Não há um elemento específico relacionado, sendo recomendado utilizar uma tag <code>header</code>.</td>
+        </tr>
+        <tr>
+            <td>
+                <code>complementary</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>contentinfo</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>form</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>main</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>navigation</code>:
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <code>search</code>:
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+    <h4>Roles de Widgets</h4>
+
+<!-- TODO: acabar os roles de widgets -->
+
+<p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para exemplos de utilização de roles de widgets.</p>
+
+<p>Na tabela abaixo, estão relacionados os roles para composições de widgets (que representaram o widget em si) com os roles utilizados para descrever os elementos deste widget (os roles "filhos").</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Roles para composição de widgets:</th>
+            <th>Roles filhos:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>grid</code></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>list</code></td>
+            <td><code>listitem</code> e <code>group</code></td>
+        </tr>
+        <tr>
+            <td><code>listbox</code></td>
+            <td><code>option</code></td>
+        </tr>
+        <tr>
+            <td><code>combobox</code></td>
+            <td>N.A.</td>
+        </tr>
+        <tr>
+            <td><code>menu</code></td>
+            <td><code>menuitem</code>, <code>menuitemradio</code> e <code>menuitemcheckbox</code></td>
+        </tr>
+        <tr>
+            <td><code>menubar</code></td>
+            <td><code>menuitem</code>, <code>menuitemradio</code> e <code>menuitemcheckbox</code></td>
+        </tr>
+        <tr>
+            <td><code>radiogroup</code></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>tablist</code></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>tree</code></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><code>treegrid</code></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h3>Estados e Propriedades</h3>
+
+<!-- TODO: organizar isso daí embaixo -->
+
+<h4>Atributos de Widget</h4>
+    <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para ver os exemplos de atributos para widgets de ARIA.</p>
+<h4>Atributos de regiões dinâmicas (live)</h4>
+<!-- TODO: fazer exemplos de regiões dinâmicas -->
+    <h5>aria-live</h5>
+    <h5>aria-atomic</h5>
+    <h5>aria-busy</h5>
+    <h5>aria-relevant</h5>
+<h4>Atributos de "Arrastar e Soltar"</h4>
+    <p>Veja a seção <a href="#comportamento">Comportamento (DOM)</a> para ver os exemplos de atributos para widgets do tipo arrastar e soltar.</p>
+<!-- TODO: ver melhor qualéqueé sobre atributos de relacionamentos e estados e propriedades globais -->
+<h4>Atributos de Relacionamentos</h4>
+<h4>Estados e Propriedades Globais</h4>
+
+<div class="bs-callout bs-callout-warning">
+    <h4 id="redundant">Considerações sobre Redundância com ARIA</h4>
+    <p>
+        Antes de começar a implementar todos os atributos ARIA possíveis,
+        algumas considerações devem ser feitas, pois existem recomendações e
+        regras para seu uso. Se você puder utilizar um elemento HTML ou
+        atributo com a semântica e comportamento que você necessita já nativos,
+        ao invés de re-atribuir propósito a um elemento e adicionar um role ARIA,
+        estado ou propriedade, utilize apenas o elemento nativo. Existem três
+        exceções nessa regra, segundo a W3C:</p>
+    <ul>
+        <li>Se o recurso está disponível no HTML mas não é implementado, ou é implementado mas não há suporte à acessibilidade.</li>
+        <li>Se as restrições design visual excluem o uso de um elemento nativo em particular, porque o elemento não pode ser estilizado como necessário.</li>
+        <li>Se o recurso não está disponível no HTML.</li>
+    </ul>
+    <p>Também não modifique semânticas nativas, como adicionar uma tag <code>p</code> com um role <code>button</code>!</p>
+
+    <p>Para mais informações sobre a utilização de ARIA, visite o documento online da W3C <span lang="en"><a href="https://www.w3.org/TR/aria-in-html/">Notes on Using ARIA in HTML (em inglês). <span class="glyphicon glyphicon-new-window"><span class="sr-only">Nova Página</span></span></a></span></p>
+</div>

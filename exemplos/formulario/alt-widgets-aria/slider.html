@@ -1,0 +1,29 @@
+<h3>Widget slider</h3>
+
+<!-- TODO: melhorar exemplo de slider -->
+
+<div class="bs-callout bs-callout-danger">
+    <h4>Precisa de melhorias!</h4>
+    <p>Neste exemplo há falta de JavaScript e CSS apropriados para a criação do widget.</p>
+</div>
+
+<div class="highlight">
+<pre><code class="html">&lt;label for=&quot;day-handle&quot;&gt;Dias da Semana&lt;/label&gt;
+&lt;div class=&quot;day-slider&quot;&gt;
+    &lt;div id=&quot;day-handle&quot; class=&quot;day-slider-handle&quot; role=&quot;slider&quot; aria-labelledby=&quot;day-handle&quot;
+        aria-valuemin=&quot;1&quot;
+        aria-valuemax=&quot;7&quot;
+        aria-valuenow=&quot;2&quot;
+        aria-valuetext=&quot;Segunda-feira&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div class="highlight">
+<pre><code class="js">var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var updateSlider = function (newValue) {
+    var handle = document.getElementById("day-handle");
+    handle.setAttribute("aria-valuenow", newValue.toString());
+    handle.setAttribute("aria-valuetext", dayNames[newValue]);
+};</code></pre>
+</div>

@@ -1,0 +1,597 @@
+<section class="bs-docs-section">
+    <div class="page-header">
+        <h1 id="formulario">Formulário</h1>
+
+        <h2>Validação</h2>
+
+        <p>
+            Na área da segurança, a validação de dados é um processo
+            de extrema importância. E mesmo que ela deva ser realizada
+            no servidor, por questões de comodidade ela deve, também,
+            ser implementada no lado do cliente. Entretanto, muitas
+            vezes essa informação apresenta problemas para utilizadores
+            de tecnologias assistivas, fazendo-se necessário o cuidado
+            na implementação dela.
+        </p>
+
+        
+            <h3>Campos Obrigatórios e Asterisco</h3>
+
+<p>
+    Uma prática muito comum entre autores é indicar
+    campos obrigatórios utilizando asterisco. Essa
+    prática é interessante, pois demarca determinados
+    campos como obrigatório sem utilizar muita informação
+    textual.
+</p>
+
+<p>
+    O problema com o asterisco é que o mesmo não faz
+    sentido se lido por um leitor de tela, por exemplo.
+    Dessa forma, a informação de que este campo é obrigatório
+    se perde, criando confusão para usuários de tecnologias
+    assistivas.
+</p>
+
+<p>
+    Para validar campos de entrada obrigatórios, o
+    autor pode utilizar o atributo <code>required</code>,
+    um recurso nativo do HTML5. Além deste atributo,
+    é possível utilizar JavaScript para a mesma função,
+    porém requer muito mais código. Veja o exemplo:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;label for=&quot;password&quot;&gt;Senha*&lt;/label&gt;
+&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; required&gt;</code></pre>
+</div>
+
+<p>
+    Mas apenas validar o campo como obrigatório não é
+    suficiente: é necessário demonstrar que o campo é
+    obrigatório antes de validá-lo. Para tal, muitos
+    autores utilizam um asterisco, mas como dito anteriormente,
+    não é uma prática acessível. Para contornar isso, é possível
+    utilizar uma imagem de asterisco inserida através de CSS,
+    em um elemento que possua um texto "Campo obrigatório"
+    escondido. Para tal, o autor deve apenas utilizar um
+    elemento <code>span</code> com uma classe de sua
+    escolha, e através de CSS deixar o texto "fora da
+    tela" e atribuindo como imagem de background a imagem
+    de um asterisco. Você pode utilizar imagens PNG, GIF, SVG,
+    ícones de alguma fonte específica (como Font Awesome,
+    Foundation Icons, etc) ou formatos de sua escolha. O exemplo a seguir refatora o anterior,
+    trocando o caractere do asterisco pela alternativa
+    acessível descrita:
+</p>
+
+<h4>HTML</h4>
+<div class="highlight">
+<pre><code class="html">&lt;label for=&quot;password&quot;&gt;Senha &lt;span class=&quot;obrigatorio&quot;&gt;campo obrigat&oacute;rio&lt;/span&gt;&lt;/label&gt;
+&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; required&gt;</code></pre>
+</div>
+
+<h4>CSS</h4>
+<div class="highlight">
+<pre><code class="css">.obrigatorio{
+    background-image: url('asterisco.png');
+    position: absolute;
+    left: -9999em;
+}</code></pre>
+</div>
+
+        
+            <h3>Retorno de Erros e Regiões Dinâmicas</h3>
+
+<p>
+    Mesmo que o recurso nativo do HTML5 para retornos seja acessível,
+    como a informação de campos inválidos ou em branco,
+    ainda é necessário que desenvolvedores
+    criem seus próprios métodos para informar erros em
+    um formulário. Um exemplo bastante comum é a validação
+    de CPF, por exemplo.
+</p>
+
+<p>
+    Para tal, o desenvolvedor se obriga a utilizar
+    bastante JavaScript, tanto puro quanto na forma de
+    bibliotecas. Mas, muitas vezes, essas bibliotecas
+    não utilizam recursos acessíveis, ou o autor não
+    se preocupou em tornar essa informação mais compreensível
+    para usuários que utilizam tecnologias assistivas.
+</p>
+
+<p>
+    Há duas formas de fazer isso de forma acessível, e ambas utilizam
+    ARIA e um elemento onde as mensagens irão ser inseridas, como
+    por exemplo um elemento <code>div</code>: é necessário definir o atributo
+    <code>role</code> com o valor <code>alert</code>, ou o atributo <code>aria-live</code> como
+    <code>assertive</code>. Nas duas formas é necessário o atributo <code>aria-atomic</code>
+    como <code>true</code>. Ambas irão anunciar imediatamente a mensagem
+    de erro do formulário assim que surgirem dentro do elemento <code>div</code>.
+    A mensagem de erro é inserida neste elemento através de DOM. Veja os exemplos:
+</p>
+
+<div class="highlight">
+    <pre><code class="html">&lt;div role=&quot;alert&quot; aria-atomic=&quot;true&quot; id=&quot;form-erro&quot;&gt;&lt;/div&gt;</code></pre>
+</div>
+
+<div class="highlight">
+    <pre><code class="html">&lt;div aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; id=&quot;form-erro&quot;&gt;&lt;/div&gt;</code></pre>
+</div>
+
+<p>
+    Há três formas de apresentar as mensagens de erros em formulários,
+    e estas são:
+</p>
+
+<ul>
+    <li>Em Janela de Alerta</li>
+    <li>No topo do formulário</li>
+    <li>Embutidas no campo em questão</li>
+</ul>
+
+<h4>Mensagens de Erro em Janelas de Alerta</h4>
+
+<p>
+      Para utilizar uma janela de alerta para apresentar
+      erros de formulário ao usuário, no momento em que
+      o código de validação estiver rodando, a todo campo
+      que não tenha passado na validação é aberto um elemento
+      <code>alert()</code> do JavaScript, informando o erro.
+      O problema deste tipo de validação é receber um alerta
+      para cada erro, fazendo com que assim a correção de um formulário
+      seja cansativa. Ainda assim, é uma forma interessante por apresentar
+      fácil acessibilidade.
+</p>
+
+<p>
+      Após isso, o desenvolvedor pode escolher a forma como
+      o usuário pode corrigir o erro: pode apresentar outra
+      janela de alerta do JavaScript, desta vez com um campo
+      de entrada, para inserir novamente a informação da forma
+      correta, ou mover o foco ao campo de entrada. Veja um
+      exemplo à seguir:
+</p>
+
+<h5>HTML</h5>
+<div class="highlight">
+<pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; method=&quot;post&quot; name=&quot;formName&quot; onsubmit=&quot;return validate()&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Nome:&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot;&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;Enviar&quot; value=&quot;Enviar&quot;&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
+<h5>JS</h5>
+<div class="highlight">
+<pre><code class="js">function validate() {
+    var element = document.forms['formName']['name'];
+    if (element.value == "") {
+        alert('Nome não pode estar em branco!');
+        element.focus();
+        return false;
+    }
+}</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout">
+        <h5>Exemplo de Validação de Formulário</h4>
+        <form class="form" action="index.html" method="post" name="formNameValidate" onsubmit="return validateForm()">
+            <label for="name">Nome:</label> <input type="text" name="name" id="name">
+            <input type="submit" name="Enviar" value="Enviar">
+        </form>
+    </div>
+</div>
+
+<h4>Mensagens de Erro no Topo do Formulário</h4>
+
+<p>
+      Uma boa forma de demonstrar os erros de um formulário
+      é apresentá-los no topo do formulário, com uma âncora
+      para cada item do formulário que estiver em desacordo.
+      Isto é bom pois agrega todos os erros em uma única seção.
+      O problema deste tipo de validação é que um usuário que
+      utiliza apenas o teclado para navegação, junto com um
+      leitor de tela, precisa ir até o topo do formulário
+      para verificar os erros. Assim, ele pode se esquecer
+      dos erros que existem e precisar voltar ao topo do
+      formulário para relembrá-los. Veja o exemplo à seguir:
+</p>
+
+<h5>HTML</h5>
+
+<div class="highlight">
+    <pre><code class="html">&lt;span aria-live=&quot;assertive&quot; role=&quot;alert&quot; id=&quot;alert-form-area&quot;&gt;&lt;/span&gt;
+&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
+&lt;label for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
+&lt;label for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
+&lt;label for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;age&quot; id=&quot;ageValidate&quot;&gt;
+&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
+<h5>JS</h5>
+
+<div class="highlight">
+<pre><code class="js">function validate_form() {
+    if (document.getElementById('msg-alert')) {
+        document.getElementById('msg-alert').remove();
+    }
+
+    var ol = document.createElement('ol');
+
+    var container = document.getElementById('alert-form-area');
+
+    ol.id = 'msg-alert';
+
+    var labels = document.getElementsByTagName('label');
+
+    var bool = true;
+
+    for (var i = 0; i < document.forms['formToValidate'].length; i++) {
+        var element = document.forms['formToValidate'][i];
+        if (element.value == "") {
+            var link = document.createElement('a');
+            link.href = '#' + element.id;
+            for (var x = 0; x < labels.length; x++) {
+                if (labels[x].getAttribute('for') == element.id) {
+                    var l = labels[x].innerHTML;
+                }
+            }
+            link.innerHTML = l;
+            var msg = document.createTextNode(' não pode estar em branco!');
+
+            var li = document.createElement('li');
+
+            li.appendChild(link);
+            li.appendChild(msg);
+            ol.appendChild(li);
+            bool = false;
+        }
+    }
+
+    if (!bool) {
+        container.appendChild(ol);
+        ol.focus();
+    }
+
+    return bool;
+}</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout" id="formExValidation">
+        <h5>Exemplo de Validação de Formulário</h4>
+        <span aria-live="assertive" role="alert" id="alert-form-area"></span>
+        <form class="form" action="index.html" name="formToValidate" id="formToValidate" method="post" onsubmit="return validate_form()">
+            <fieldset>
+                <label for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
+            </fieldset>
+            <fieldset>
+                <label for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
+            </fieldset>
+            <fieldset>
+                <label for="ageValidate">Idade</label> <input type="number" name="age" id="ageValidate">
+            </fieldset>
+            <input type="submit" name="submit" value="Enviar">
+        </form>
+    </div>
+</div>
+
+<h4>Mensagem de Erro Embutida no Campo</h4>
+
+<p>
+      Por último, é possível informar o erro no
+      formulário diretamente no campo em questão. A
+      maioria dos novos navegadores já implementam
+      isso de forma básica em cima de campos de formulário,
+      apresentando este tipo de mensagem para informar
+      erros no campo. Ainda assim, formas alternativas
+      de validação se fazem necessárias pela variedade
+      de informações que são necessárias na aplicação
+      que está sendo desenvolvida, como validação de CPF,
+      por exemplo.
+</p>
+
+<h5>HTML</h5>
+<div class="highlight">
+<pre><code class="html">&lt;form class=&quot;form&quot; action=&quot;index.html&quot; name=&quot;formToInlineValidate&quot; method=&quot;post&quot; onsubmit=&quot;return validate_form()&quot;&gt;
+
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formNameValidate&quot;&gt;Nome&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;formNameValidate&quot; id=&quot;formNameValidate&quot;&gt;
+
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;formEmailValidate&quot;&gt;Email&lt;/label&gt; &lt;input type=&quot;email&quot; name=&quot;formEmailValidate&quot; id=&quot;formEmailValidate&quot;&gt;
+
+    &lt;label aria-live=&quot;assertive&quot; aria-atomic=&quot;true&quot; for=&quot;ageValidate&quot;&gt;Idade&lt;/label&gt; &lt;input type=&quot;number&quot; name=&quot;ageValidate&quot; id=&quot;ageValidate&quot;&gt;
+
+    &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Enviar&quot;&gt;
+
+&lt;/form&gt;</code></pre>
+</div>
+
+<h5>JS</h5>
+<div class="highlight">
+<pre><code class="js">function remove_olds(className) {
+    var warning_length = document.getElementsByClassName(className).length;
+    if (document.getElementsByClassName(className)) {
+        for (var i = 0; i < warning_length; i++) {
+            document.getElementsByClassName(className)[0].remove();
+        }
+    }
+}
+
+function span_msg(className, txt) {
+    var msg = document.createElement('span');
+    msg.className = className;
+    var txtNode = document.createTextNode(txt);
+    msg.appendChild(txtNode);
+
+    return msg;
+}
+
+function append_msg(msg, form_input) {
+    if (form_input.value == "") {
+        for (var i = 0; i < document.getElementsByTagName('label').length; i++) {
+            if (document.getElementsByTagName('label')[i].getAttribute('for') == form_input.id) {
+                document.getElementsByTagName('label')[i].appendChild(msg.cloneNode(true));
+                form_input.setAttribute('aria-invalid', 'true');
+            }
+        }
+        return true;
+    } else {
+        form_input.setAttribute('aria-invalid', 'false');
+    }
+}
+
+function validate_form() {
+
+    remove_olds('warning-msg');
+
+    var bool = true;
+    var forms = document.forms['formToInlineValidate'];
+    var msg = span_msg('warning-msg', ' (este campo está incorreto!)');
+
+    for (var i = 0; i < forms.length; i++) {
+        if (append_msg(msg, forms[i])) {
+            bool = false;
+        }
+    }
+
+    return bool;
+}</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout" id="formExValidation">
+        <h5>Exemplo de Validação de Formulário</h4>
+        <form class="form" action="index.html" name="formToInlineValidate" method="post" onsubmit="return validate_form_inline()">
+            <label aria-live="assertive" aria-atomic="true" for="formNameValidate">Nome</label> <input type="text" name="formNameValidate" id="formNameValidate">
+            <label aria-live="assertive" aria-atomic="true" for="formEmailValidate">Email</label> <input type="email" name="formEmailValidate" id="formEmailValidate">
+            <label aria-live="assertive" aria-atomic="true" for="ageValidate">Idade</label> <input type="number" name="ageValidate" id="ageValidate">
+            <input type="submit" name="submit" value="Enviar" id="formSubmitValidate">
+        </form>
+    </div>
+</div>
+
+        
+
+        <h2>Widgets Alternativos para Formulários (ARIA)</h2>
+        <!-- TODO: widgets alternativos
+            - contenteditable
+            - switch
+            - botao
+            - seleção
+            - etc...
+        -->
+
+        
+            <h3>Widget de botão:</h3>
+<p>Mesmo com o recurso já implementado, muitas vezes por questões de estilização, o desenvolvedor necessita criar um botão do zero. Para isso, é importante utilizar o role apropriado, além de disponibilizar todas as funções padrões de um botão, como executar sua ação com o clique da tecla Enter, com o clique do mouse, modificar o cursor e a aparência do botão em determinados eventos, entre outros. Veja o exemplo à seguir:</p>
+<h4>HTML</h4>
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;span role=&quot;button&quot; id=&quot;aria-button&quot; class=&quot;span-btn&quot; tabindex=&quot;0&quot;&gt;OK!&lt;/span&gt;</code>
+    </pre>
+</div>
+
+<h4>CSS</h4>
+<div class="highlight">
+    <pre>
+<code class="css">.span-btn {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.span-btn:hover {
+    background-color: black;
+}
+
+.span-btn:active {
+    border: 3px solid red;
+}
+
+.span-btn:focus {
+    border: 1px dotted white;
+}</code>
+    </pre>
+</div>
+
+<h4>JS</h4>
+<div class="highlight">
+<pre><code class="js">var btn = document.getElementById('aria-button');
+function acaoBotao() {
+    if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+        // ação realizada pelo botão
+        alert('Botão Pressionado com sucesso!');
+    }
+}
+btn.addEventListener('click', acaoBotao);
+btn.addEventListener('keypress', acaoBotao);</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout">
+        <h4>Exemplo de botão</h4>
+        <span class="space"></span>
+        <span role="button" id="aria-button" class="span-btn" tabindex="0">OK!</span>
+    </div>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <p>Não utilize este role em elementos <code>button</code> ou <code>input</code> do tipo button, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+</div>
+
+        
+            <h3>Widget slider</h3>
+
+<!-- TODO: melhorar exemplo de slider -->
+
+<div class="bs-callout bs-callout-danger">
+    <h4>Precisa de melhorias!</h4>
+    <p>Neste exemplo há falta de JavaScript e CSS apropriados para a criação do widget.</p>
+</div>
+
+<div class="highlight">
+<pre><code class="html">&lt;label for=&quot;day-handle&quot;&gt;Dias da Semana&lt;/label&gt;
+&lt;div class=&quot;day-slider&quot;&gt;
+    &lt;div id=&quot;day-handle&quot; class=&quot;day-slider-handle&quot; role=&quot;slider&quot; aria-labelledby=&quot;day-handle&quot;
+        aria-valuemin=&quot;1&quot;
+        aria-valuemax=&quot;7&quot;
+        aria-valuenow=&quot;2&quot;
+        aria-valuetext=&quot;Segunda-feira&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div class="highlight">
+<pre><code class="js">var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var updateSlider = function (newValue) {
+    var handle = document.getElementById("day-handle");
+    handle.setAttribute("aria-valuenow", newValue.toString());
+    handle.setAttribute("aria-valuetext", dayNames[newValue]);
+};</code></pre>
+</div>
+
+        
+            <h3>Widget de caixa de seleção e "interruptor" (<span lang="en">switch</span>):</h3>
+
+<!-- TODO: texto para widget de caixa de seleção e interruptor -->
+
+<h4>HTML</h4>
+<div class="highlight">
+    <pre>
+<code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
+    &lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+    &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
+&lt;/div&gt;</code>
+    </pre>
+</div>
+
+<h4>CSS</h4>
+<div class="highlight">
+<pre><code class="css">.example-checkbox span[aria-checked=false] {
+    width: 17px;
+    height: 17px;
+    background-color: grey;
+    display: inline-block;
+    cursor: pointer;
+}
+.example-checkbox span[aria-checked=true] {
+    width: 17px;
+    height: 17px;
+    background-color: green;
+    display: inline-block;
+    cursor: pointer;
+}</code></pre>
+</div>
+
+<h4>JS</h4>
+<div class="highlight">
+<pre><code class="js">function trocarSelecao(e) {
+    if (e.type == 'click' || (e.type == 'keydown' &amp; &amp; e.keyCode == '13')) {
+        if (e.target.getAttribute('aria-checked') == 'true') {
+            e.target.setAttribute('aria-checked', 'false');
+        } else {
+            e.target.setAttribute('aria-checked', 'true');
+        }
+    }
+}
+
+var checkbox = document.getElementById('chk1');
+checkbox.addEventListener('click', trocarSelecao);
+checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
+</div>
+
+<div class="bs-callout">
+    <h4>Exemplo</h4>
+    <div class="example-checkbox">
+        <span role="checkbox" aria-checked="false" tabindex="0" id="chk1"></span>
+        <label for="chk1">Lembrar minhas preferências</label>
+    </div>
+</div>
+
+<div class="bs-callout bs-callout-warning">
+    <p>Não utilize este role em elementos <code>input</code> do tipo checkbox, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+    <p>Também lembre-se que, se for extritamente necessário construir uma caixa de seleção dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+</div>
+
+<div class="highlight">
+    <pre>
+<code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+&lt;label for=&quot;chk1&quot;&gt;Lembrar minhas preferências&lt;/label&gt;</code>
+    </pre>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <p>Este role é muito parecido com o role de caixa de seleção, entretanto, não admite valor misto. Este tipo de valor deve ser tratado por agentes de usuário como igual a <code>false</code></p>
+    <p>Para diferenciá-lo do exemplo da caixa de seleção, você pode alterar o CSS de forma que visualmente o elemento lembre um switch.</p>
+</div>
+
+        
+            <h3>Widget de área de texto</h3>
+
+<p>Para criar um elemento de entrada de texto utilizando o role aria <code>textbox</code>, é necessário adiocionar comportamentos específicos através de javascript e estilizar o elemento <code>div</code> para que se comporte como uma entrada de texto. Lembre-se de capturar o conteúdo do elemento utilizando <code>getElementByID('id').innerHTML</code> e, assim, poder realizar as funções que necessita.</p>
+
+<h4 id="html-textarea">HTML</h4>
+<div class="highlight" aria-labelledby="html-textarea">
+<pre><code class="html">&lt;span id=&quot;aria-text-label&quot;&gt;Insira o texto &agrave; seguir:&lt;/span&gt;
+
+&lt;div role=&quot;textbox&quot; contenteditable=&quot;true&quot; aria-labelledby=&quot;aria-text-label&quot; id=&quot;aria-text&quot; aria-multiline=&quot;true&quot;&gt;&lt;/div&gt;
+
+&lt;button onclick=&quot;capturarConteudo();&quot;&gt;&lt;/button&gt;</code></pre>
+</div>
+
+<h4 id="css-textarea">CSS</h4>
+<div class="highlight" aria-labelledby="css-textarea">
+<pre><code class="css">#aria-text {
+    border: 1px solid black;
+    height: 100px;
+}</code></pre>
+</div>
+
+<h4 id="js-textarea">JS</h4>
+<div class="highlight" aria-labelledby="js-textarea">
+<pre><code class="js">function capturarConteudo() {
+    var texto = document.getElementById('aria-text').innerHTML;
+    armazenarDado(texto);
+}
+
+function armazenarDado(texto) {
+    // desenvolva aqui seu código para trabalhar com os dados inseridos da forma como for necessária
+}</code></pre>
+</div>
+
+<div class="bs-callout">
+    <h4>Exemplo</h4>
+    <div class="div-exemplo">
+        <span id="aria-text-label">Insira o texto à seguir</span>
+        <div role="textbox" contenteditable="true" aria-labelledby="aria-text-label" id="aria-text" aria-multiline="true"></div>
+        <button onclick="capturarConteudoExemplo();">Enviar Dados</button>
+    </div>
+    <p>O exemplo acima irá executar um alerta do navegador, exibindo o texto que foi escrito dentro do elemento recém criado.</p>
+</div>
+
+        
+    </div>
+</section>

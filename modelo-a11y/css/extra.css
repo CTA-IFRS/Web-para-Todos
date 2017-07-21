@@ -1,0 +1,65 @@
+.controls a:focus, .page-footer-list a:focus {
+    border: 2px solid red;
+}
+
+blockquote {
+    border-left: 5px solid #5c5c5c;
+}
+
+blockquote small {
+    color: #2d2d2d;
+}
+
+.form-control {
+    color: #3d3d3d;
+}
+
+.form-control::-moz-placeholder, .form-control::placeholder {
+    color: black;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    border: black;
+}
+
+.bs-example::after {
+    color: inherit;
+}
+
+.bs-example {
+    border-color: #c2c2c2 #e0e0e0 #e0e0e0;
+}
+
+.help-block {
+    color:#3d3d3d;
+}
+
+.bs-callout-info h4 {
+    color: #00495e;
+}
+
+.bs-callout {
+    border-color: #007495;
+}
+
+.has-success .control-label {
+    color: #117213;
+}
+
+.has-warning .control-label {
+    color: #482e01;
+}
+
+.has-error .control-label {
+    color: #8d0200;
+}
+
+.principles-list {
+    margin-top: 1em;
+    list-style-type: none;
+    font-size: 1.5em;
+}
+
+.principles-list li {
+    margin-bottom: 1em;
+}

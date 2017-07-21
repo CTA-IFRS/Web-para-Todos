@@ -1,0 +1,147 @@
+<p>
+    Antigamente era comum utilizar apenas a tag <code>div</code> para separar
+    o conteúdo, e atribuir a sua função através de IDs e
+    classes. Entretanto, o HTML5 implementou tags novas que
+    pretendem diminuir a utilização das divs, tornando-as
+    quase obsoletas.
+</p>
+
+<p>Abaixo, segue um exemplo do formato convencional em que os desenvolvedores organizam os elementos de uma página, através de tags <code>div</code>, IDs e classes:</p>
+<div class="highlight">
+    <pre>
+<code class="html">&lt;div id=&quot;header&quot;&gt;
+    &lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
+    &lt;div id=&quot;nav&quot;&gt;
+    ...
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;main&quot;&gt;
+    &lt;div class=&quot;section-article&quot;&gt;
+        &lt;div class=&quot;article-header&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-content&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-footer&quot;&gt;
+        ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;section-article&quot;&gt;
+        &lt;div class=&quot;article-header&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-content&quot;&gt;
+        ...
+        &lt;/div&gt;
+        &lt;div class=&quot;article-footer&quot;&gt;
+        ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;sidebar&quot;&gt;
+...
+&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;
+...
+&lt;/div&gt;</code>
+</pre>
+</div>
+<p>No próximo exemplo, as diversas tags <code>div</code> são substítuidas por tags que indicam o tipo de elemento, sem precisar de IDs e classes para diferenciá-los.</p>
+<div class="highlight">
+    <pre>
+<code class="html">&lt;header&gt;
+    &lt;h1&gt;T&iacute;tulo&lt;/h1&gt;
+    &lt;nav&gt;
+    ...
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;header&gt;
+        ...
+        &lt;/header&gt;
+        &lt;article&gt;
+        ...
+        &lt;/article&gt;
+        &lt;footer&gt;
+        ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+        &lt;header&gt;
+        ...
+        &lt;/header&gt;
+        &lt;article&gt;
+        ...
+        &lt;/article&gt;
+        &lt;footer&gt;
+        ...
+        &lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;aside&gt;
+...
+&lt;/aside&gt;
+&lt;footer&gt;
+...
+&lt;/footer&gt;</code>
+    </pre>
+</div>
+
+<p>
+    Dessa forma, a organização do código é mais semântica,
+    sendo que os recursos de Tecnologia Assistiva podem fazer
+    uso dessas tags para melhorar a experiência de usuários
+    com necessidades específicas. As principais marcações,
+    para delimitação mais semântica de conteúdo, são:
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Elemento</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>header</code></td>
+            <td>Define o cabeçalho de uma página ou seção. Muitas vezes contém um logotipo, o título do site e uma menu de navegação do conteúdo.</td>
+        </tr>
+        <tr>
+            <td><code>section</code></td>
+            <td>Define uma seção do Documento (permite também a utilização de mais de um cabeçalho de nível 1 numa página, um por <code>section</code>).</td>
+        </tr>
+        <tr>
+            <td><code>nav</code></td>
+            <td>Define uma seção que contém apenas links e botões de navegação.</td>
+        </tr>
+        <tr>
+            <td><code>article</code></td>
+            <td>Define um conteúdo que pode existir de forma independente do resto da página. Esta Tag poderia ser uma postagem em um fórum, um artigo de revista ou jornal, uma entrada de log da Web, um comentário enviado pelo usuário, ou qualquer outro item independente do conteúdo.</td>
+        </tr>
+        <tr>
+            <td><code>aside</code></td>
+            <td>Define um elemento reservado do resto do conteúdo da página. Se for removido, o conteúdo restante ainda faz sentido. Geralmente são barras laterais (sidebars).</td>
+        </tr>
+        <tr>
+            <td><code>footer</code></td>
+            <td>Define o rodapé de uma página ou seção. Muitas vezes contém um aviso de copyright, links para informações relevantes, comentários de uma seção ou endereços para dar feedback</td>
+        </tr>
+        <tr>
+            <td><code>main</code></td>
+            <td>Define o conteúdo principal no documento, de maior importância. Existe apenas um elemento deste tipo em uma página.</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="bs-callout bs-callout-info">
+    <p>É importante notar que a
+    utilização desse recurso sozinho não melhora significativamente
+    a experiência com tecnologias assistivas, fazendo necessário
+    a utilização de outros recursos que serão abordados ao longo deste
+    documento, como ARIA.</p>
+</div>

@@ -1,0 +1,65 @@
+<h3>Áudio</h3>
+
+<p>
+    Uma das novidades que a quinta versão do HTML trouxe
+    aos desenvolvedores foi a possibilidade de criar conteúdo
+    multimídia de forma nativa. A vantagem aqui é que plugins
+    pesados e ultrapassados, como Flash, se tornaram obsoletos. Os mesmos
+    também continham diversos problemas relacionados à acessibilidade e performance.
+</p>
+
+<p>
+    A tag <code>audio</code> foi criada para aprimorar a incorporação
+    de áudio em páginas web. Com ela, é possível adicionar múltiplas fontes,
+    arquivos de legenda, etc. Veja os exemplos à seguir:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;audio src=&quot;audio-example.ogg&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+&lt;/audio&gt;</code></pre>
+</div>
+
+<p>
+    O exemplo acima é a forma mais básica de reproduçao de áudio nativa no HTML5.
+    Mas não é completamente acessível: navegadores que não tem suporte ao formato OGG
+    de áudio não serão capazes de reproduzir.
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;audio controls=&quot;controls&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+
+    &lt;source src=&quot;audio-example.wav&quot; type=&quot;audio/wav&quot;&gt;
+    &lt;source src=&quot;audio-example.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+    &lt;source src=&quot;audio-example.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;</code></pre>
+</div>
+
+<p>
+    Este último exemplo, diferente do primeiro, possui suporte à diferentes
+    formatos de áudio e, dessa forma, é mais capaz de ser executado sem
+    maiores problemas na maioria dos navegadores modernos. Mas não devemos
+    apenas nos preocuparmos com compatibilidade, ao falar de acessibilidade,
+    mas também a disponibilização desse conteúdo em outros formatos de mídia,
+    como texto. Vamos adiante:
+</p>
+
+<div class="highlight">
+<pre><code class="html">&lt;audio controls=&quot;controls&quot;&gt;
+    Seu navegador n&atilde;o tem suporte para reprodu&ccedil;&atilde;o nativa de &aacute;udio.
+
+    &lt;source src=&quot;audio-example.wav&quot; type=&quot;audio/wav&quot;&gt;
+    &lt;source src=&quot;audio-example.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+    &lt;source src=&quot;audio-example.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+
+    &lt;track kind=&quot;captions&quot; src=&quot;audio-example.en.vtt&quot; srclang=&quot;en&quot; label=&quot;English&quot;&gt;
+    &lt;track kind=&quot;captions&quot; src=&quot;audio-example.sv.vtt&quot; srclang=&quot;pt&quot; label=&quot;Portugu&ecirc;s&quot;&gt;
+&lt;/audio&gt;</code></pre>
+</div>
+
+<p>
+    Com a tag <code>track</code> ainda podemos definir
+    tipos diferentes de conteúdo textual para o áudio. Veja
+    na seção à seguir mais opções para este elemento: <a href="#multimidia-audioevido-conteudotextual">Conteúdo Textual Alternativo (tag <code>track</code>)</a>
+</p>

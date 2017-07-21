@@ -1,0 +1,50 @@
+<h3>Widget de alerta e diálogo de alerta:</h3>
+
+<!-- TODO: melhorar o exeplo de widget de alerta e diálogo de alerta -->
+
+<div class="bs-callout bs-callout-danger" role="alert">
+    <h4>Ajude-nos!</h4>
+    <p>Este exemplo precisa de aperfeiçoamento.</p>
+</div>
+
+<p>Os exemplos à seguir não necessitam de muita configuração por sere mais uma questão de marcação adequada, talvez com exceção do diálogo de alerta.</p>
+
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;p role=&quot;alert&quot;&gt;Voc&ecirc; deve ler e aceitar os termos de uso!&lt;/p&gt;</code>
+    </pre>
+</div>
+
+<div class="highlight">
+    <pre>
+<code class="html">&lt;div role=&quot;alertdialog&quot; aria-labelledby=&quot;titulo&quot; aria-describedby=&quot;descricao&quot;&gt;
+    &lt;div role=&quot;document&quot; tabindex=&quot;0&quot;&gt;
+        &lt;h2 id=&quot;titulo&quot;&gt;Sua sess&atilde;o de login est&aacute; para expirar!&lt;/h2&gt;
+        &lt;p id=&quot;descricao&quot;&gt;
+            Clique no botão abaixo para extender sua sessão
+        &lt;/p&gt;
+        &lt;button&gt;OK&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+    </pre>
+</div>
+
+<div class="bs-callout">
+    <h4>Exemplos</h4>
+    <h5>Alerta</h5>
+    <p role="alert" class="alert alert-info">Você deve ler e aceitar os termos de uso!</p>
+
+    <h5>Diálogo de Alerta</h5>
+
+    <button onclick="modalDialogoAlerta();" class="btn btn-primary">Abrir Modal de Diálogo de Alerta</button>
+
+    <div id="modal-area" style="display: none;">
+        <div role="alertdialog" aria-labelledby="titulo" aria-describedby="descricao" class="bs-callout bs-callout-warning">
+            <div role="document" tabindex="0">
+                <h6 id="titulo">Sua sessão de login está para expirar!</h6>
+                <p id="descricao">Clique no botão abaixo para extender sua sessão</p>
+                <button class="btn btn-primary" onclick="closeModalDialogoAlerta();">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

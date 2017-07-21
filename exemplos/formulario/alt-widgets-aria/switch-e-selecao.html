@@ -1,0 +1,72 @@
+<h3>Widget de caixa de seleção e "interruptor" (<span lang="en">switch</span>):</h3>
+
+<!-- TODO: texto para widget de caixa de seleção e interruptor -->
+
+<h4>HTML</h4>
+<div class="highlight">
+    <pre>
+<code class="html">&lt;div class=&quot;example-checkbox&quot;&gt;
+    &lt;span role=&quot;checkbox&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+    &lt;label for=&quot;chk1&quot;&gt;Lembrar minhas prefer&ecirc;ncias&lt;/label&gt;
+&lt;/div&gt;</code>
+    </pre>
+</div>
+
+<h4>CSS</h4>
+<div class="highlight">
+<pre><code class="css">.example-checkbox span[aria-checked=false] {
+    width: 17px;
+    height: 17px;
+    background-color: grey;
+    display: inline-block;
+    cursor: pointer;
+}
+.example-checkbox span[aria-checked=true] {
+    width: 17px;
+    height: 17px;
+    background-color: green;
+    display: inline-block;
+    cursor: pointer;
+}</code></pre>
+</div>
+
+<h4>JS</h4>
+<div class="highlight">
+<pre><code class="js">function trocarSelecao(e) {
+    if (e.type == 'click' || (e.type == 'keydown' &amp; &amp; e.keyCode == '13')) {
+        if (e.target.getAttribute('aria-checked') == 'true') {
+            e.target.setAttribute('aria-checked', 'false');
+        } else {
+            e.target.setAttribute('aria-checked', 'true');
+        }
+    }
+}
+
+var checkbox = document.getElementById('chk1');
+checkbox.addEventListener('click', trocarSelecao);
+checkbox.addEventListener('keypress', trocarSelecao);</code></pre>
+</div>
+
+<div class="bs-callout">
+    <h4>Exemplo</h4>
+    <div class="example-checkbox">
+        <span role="checkbox" aria-checked="false" tabindex="0" id="chk1"></span>
+        <label for="chk1">Lembrar minhas preferências</label>
+    </div>
+</div>
+
+<div class="bs-callout bs-callout-warning">
+    <p>Não utilize este role em elementos <code>input</code> do tipo checkbox, pois é redundante. <a href="#redundant"><span class="sr-only">Âncora para:</span> Considerações Sobre Redundância com ARIA</a></p>
+    <p>Também lembre-se que, se for extritamente necessário construir uma caixa de seleção dessa forma, configurações adicionais são necessárias para dar ao elemento a função de um link.</p>
+</div>
+
+<div class="highlight">
+    <pre>
+<code class="html">&lt;span role=&quot;switch&quot; aria-checked=&quot;false&quot; tabindex=&quot;0&quot; id=&quot;chk1&quot;&gt;&lt;/span&gt;
+&lt;label for=&quot;chk1&quot;&gt;Lembrar minhas preferências&lt;/label&gt;</code>
+    </pre>
+</div>
+<div class="bs-callout bs-callout-warning">
+    <p>Este role é muito parecido com o role de caixa de seleção, entretanto, não admite valor misto. Este tipo de valor deve ser tratado por agentes de usuário como igual a <code>false</code></p>
+    <p>Para diferenciá-lo do exemplo da caixa de seleção, você pode alterar o CSS de forma que visualmente o elemento lembre um switch.</p>
+</div>

@@ -1,0 +1,154 @@
+<h3>Widget de menu:</h3>
+
+<!-- TODO: criar texto para widget de menu -->
+
+<h4>HTML</h4>
+<div class="highlight">
+    <pre>
+        <code class="html">&lt;ul role=&quot;menu&quot; id=&quot;vertical-menu&quot; tabindex=&quot;0&quot;&gt;
+&lt;li tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Item 1&lt;/li&gt;
+&lt;li tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Item 2&lt;/li&gt;
+&lt;div role=&quot;group&quot; id=&quot;radiogroup&quot;&gt;
+&lt;li tabindex=&quot;0&quot; class=&quot;radio-item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Op&ccedil;&atilde;o 1&lt;/li&gt;
+&lt;li tabindex=&quot;0&quot; class=&quot;radio-item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Op&ccedil;&atilde;o 2&lt;/li&gt;
+&lt;li tabindex=&quot;0&quot; class=&quot;radio-item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;true&quot;&gt;Op&ccedil;&atilde;o 3&lt;/li&gt;
+&lt;/div&gt;
+&lt;/ul&gt;
+
+</code></pre></div>
+<div class="highlight">
+<pre><code class="html">&lt;div role=&quot;menubar&quot; id=&quot;horizontal-menu&quot; tabindex=&quot;0&quot;&gt;
+&lt;span tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Novo Documento&lt;/span&gt;
+&lt;span tabindex=&quot;0&quot; role=&quot;menuitem&quot;&gt;Abrir Documento&lt;/span&gt;
+&lt;div role=&quot;group&quot;&gt;
+&lt;span tabindex=&quot;0&quot; class=&quot;checkbox-item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;true&quot;&gt;Salvar Automaticamente&lt;/span&gt;
+&lt;span tabindex=&quot;0&quot; class=&quot;checkbox-item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot;&gt;Salvar na Nuvem&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code>
+    </pre>
+</div>
+
+<h4>CSS</h4>
+<div class="highlight">
+    <pre><code class="css">li[role=menuitem], li[role=menuitemradio], li[role=menuitemcheckbox] {
+list-style: none;
+display: block
+}
+
+ul[role=menu] li, div[role=menubar] span {
+background-color: black;
+padding: 1em;
+color: white;
+font-weight: bold;
+}
+
+ul[role=menu] li:hover, div[role=menubar] span:hover, ul[role=menu] li:focus, div[role=menubar] span:focus {
+background-color: lightgrey;
+color: black;
+}
+
+span[role=menuitem], span[role=menuitemradio], span[role=menuitemcheckbox] {
+list-style: none;
+margin-bottom: 0.5em;
+margin-right: 0;
+margin-left: 0;
+display: inline-block
+}
+
+[aria-checked="true"] {
+background-color: grey !important;
+}</code></pre>
+</div>
+
+<h4>JS</h4>
+<div class="highlight">
+    <pre><code class="js">function mudarEstado(e){
+if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+var obj = e.target;
+if (obj) {
+var checked = obj.getAttribute('aria-checked')
+if (checked == 'true') {
+obj.setAttribute('aria-checked', 'false');
+}
+else {
+obj.setAttribute('aria-checked', 'true');
+}
+}
+}
+}
+
+var elementos = document.getElementsByClassName("checkbox-item");
+
+for (var i = 0; i < elementos.length; i++) {
+elementos[i].addEventListener('click', mudarEstado);
+elementos[i].addEventListener('keydown', mudarEstado);
+}
+
+var group = document.getElementById('radiogroup');
+function mudarEstadoRadio(e) {
+if (e.type == 'click' || (e.type == 'keydown' &amp;&amp; e.keyCode == '13')) {
+var group = document.getElementById('radiogroup');
+for (var i = 0; i < group.children.length; i++) {
+var checked = group.children[i].getAttribute('aria-checked')
+if (checked == 'true') {
+group.children[i].setAttribute('aria-checked', 'false');
+}
+}
+
+var obj = e.target;
+
+if (obj) {
+var checked = obj.getAttribute('aria-checked')
+if (checked == 'true') {
+obj.setAttribute('aria-checked', 'false');
+}
+else {
+obj.setAttribute('aria-checked', 'true');
+}
+}
+
+}
+}
+
+var elements = document.getElementsByClassName("radio-item");
+for (var i = 0; i < elements.length; i++) {
+elements[i].addEventListener('click', mudarEstadoRadio);
+elements[i].addEventListener('keydown', mudarEstadoRadio);
+}</code></pre>
+</div>
+
+<div class="div-exemplo">
+    <div class="bs-callout example-menu">
+        <h4>Exemplos Ao Vivo</h4>
+
+        <h5>Menu Vertical com Seleções Únicas no Grupo de Opções</h5>
+
+        <ul role="menu" id="vertical-menu" tabindex="0">
+            <li tabindex="0" role="menuitem">Item 1</li>
+            <li tabindex="0" role="menuitem">Item 2</li>
+            <div role="group" id="radiogroup">
+                <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 1</li>
+                <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="false">Opção 2</li>
+                <li tabindex="0" class="radio-item" role="menuitemradio" aria-checked="true">Opção 3</li>
+            </div>
+        </ul>
+
+        <h5>Menu Horizontal com Seleções Múltiplas no Grupo de Opções</h5>
+
+        <div role="menubar" id="horizontal-menu" tabindex="0">
+            <span tabindex="0" role="menuitem">Novo Documento</span>
+            <span tabindex="0" role="menuitem">Abrir Documento</span>
+            <div role="group">
+                <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="true">Salvar Automaticamente</span>
+                <span tabindex="0" class="checkbox-item" role="menuitemcheckbox" aria-checked="false">Salvar na Nuvem</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bs-callout bs-callout-info">
+    <p>Enquanto <code>menu</code> representa um menu de forma genérica, <code>menubar</code> necessariamente representa um menu horizontal.</p>
+</div>
+<div class="bs-callout bs-callout-info">
+    <p>Menus não precisam, necessariamente, serem atribuidos à listas (elemento <code>ul</code>).</p>
+</div>
